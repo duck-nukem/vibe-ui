@@ -1580,22 +1580,23 @@ input[type="file"]::file-selector-button:hover {
    Input Variants: Hollow
    --------------------------------------------------------------------- */
 
-input.hollow,
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow,
 textarea.hollow,
 select.hollow {
     border: 2px solid var(--color-primary);
     background: transparent;
 }
 
-input.hollow:hover,
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow:hover,
 textarea.hollow:hover,
 select.hollow:hover {
     border-color: var(--color-primary-600);
 }
 
-input.hollow:focus,
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow:focus,
 textarea.hollow:focus,
 select.hollow:focus {
+    outline: none;
     border: 2px solid transparent;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
@@ -1612,21 +1613,23 @@ select.hollow:focus {
     box-shadow: 0 0 12px -4px rgba(99, 102, 241, 0.4), 0 0 20px -4px rgba(236, 72, 153, 0.2);
 }
 
-input.hollow.secondary,
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow.secondary,
 textarea.hollow.secondary,
 select.hollow.secondary {
-    border-color: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
 }
 
-input.hollow.secondary:hover,
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow.secondary:hover,
 textarea.hollow.secondary:hover,
 select.hollow.secondary:hover {
     border-color: var(--color-secondary-400);
 }
 
-input.hollow.secondary:focus,
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow.secondary:focus,
 textarea.hollow.secondary:focus,
 select.hollow.secondary:focus {
+    outline: none;
+    border: 2px solid transparent;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
@@ -1637,6 +1640,8 @@ select.hollow.secondary:focus {
             var(--color-primary-400),
             var(--color-secondary)
         ) border-box;
+    background-size: 100% 100%, 300% 300%;
+    animation: input-gradient-shift 3s ease infinite;
     box-shadow: 0 0 12px -4px rgba(236, 72, 153, 0.4), 0 0 20px -4px rgba(245, 158, 11, 0.2);
 }
 
@@ -1829,23 +1834,6 @@ select.input-success:focus {
     font-size: var(--text-xs);
     color: var(--color-error);
     margin-top: var(--space-2);
-}
-
-/* ---------------------------------------------------------------------
-   Input Variants: Hollow
-   --------------------------------------------------------------------- */
-
-input.hollow,
-textarea.hollow,
-select.hollow {
-    border-width: 2px;
-    background: transparent;
-}
-
-input.hollow.secondary,
-textarea.hollow.secondary,
-select.hollow.secondary {
-    /* Secondary color applied via theme */
 }
 
 /* ---------------------------------------------------------------------
