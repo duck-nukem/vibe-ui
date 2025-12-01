@@ -211,6 +211,7 @@
         --color-background: #0f172a;
         --color-surface: #1e293b;
         --color-surface-alt: #334155;
+        --color-input-background: color(srgb 0.0604 0.0911 0.1663);
         --color-border: #334155;
         --color-border-light: #1e293b;
         --color-border-hover: #475569;
@@ -253,7 +254,27 @@
     input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
     textarea,
     select {
-        background-color: var(--color-surface);
+        background-color: var(--color-input-background);
+    }
+
+    /* Hollow and gradient inputs use background gradients, so set via the gradient's first layer */
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow,
+    textarea.hollow,
+    select.hollow,
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient,
+    textarea.gradient,
+    select.gradient {
+        background:
+            linear-gradient(var(--color-input-background), var(--color-input-background)) padding-box,
+            linear-gradient(
+                135deg,
+                var(--color-primary),
+                var(--color-secondary),
+                var(--color-primary-400),
+                var(--color-tertiary),
+                var(--color-primary)
+            ) border-box;
+        background-size: 100% 100%, 300% 300%;
     }
 
     /* Toggle switch track */
@@ -291,6 +312,7 @@
     --color-background: #0f172a;
     --color-surface: #1e293b;
     --color-surface-alt: #334155;
+    --color-input-background: color(srgb 0.0604 0.0911 0.1663);
     --color-border: #334155;
     --color-border-light: #1e293b;
     --color-border-hover: #475569;
@@ -329,7 +351,27 @@
 .dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
 .dark textarea,
 .dark select {
-    background-color: var(--color-surface);
+    background-color: var(--color-input-background);
+}
+
+/* Hollow and gradient inputs use background gradients, so set via the gradient's first layer */
+.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow,
+.dark textarea.hollow,
+.dark select.hollow,
+.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient,
+.dark textarea.gradient,
+.dark select.gradient {
+    background:
+        linear-gradient(var(--color-input-background), var(--color-input-background)) padding-box,
+        linear-gradient(
+            135deg,
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary-400),
+            var(--color-tertiary),
+            var(--color-primary)
+        ) border-box;
+    background-size: 100% 100%, 300% 300%;
 }
 
 .dark input[type="checkbox"].toggle {
