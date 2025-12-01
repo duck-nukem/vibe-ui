@@ -85,7 +85,8 @@
             <p>Navigation bars with left, center, and right sections. Available in light and dark variants.</p>
 
             <h3>Light Navbar</h3>
-            <nav class="navbar light" style="border-radius: var(--radius-lg); margin-bottom: 1.5rem;">
+            <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 1.5rem;">
+            <nav class="navbar light" style="border-radius: var(--radius-lg); min-width: 500px;">
                 <div class="navbar-left">
                     <a href="#" class="navbar-brand">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
@@ -103,9 +104,11 @@
                     <button class="btn filled primary sm">Sign Up</button>
                 </div>
             </nav>
+            </div>
 
             <h3>Dark Navbar</h3>
-            <nav class="navbar dark" style="border-radius: var(--radius-lg);">
+            <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 1.5rem;">
+            <nav class="navbar dark" style="border-radius: var(--radius-lg); min-width: 500px;">
                 <div class="navbar-left">
                     <a href="#" class="navbar-brand">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
@@ -124,6 +127,7 @@
                     <button class="btn filled gradient sm">Get Started</button>
                 </div>
             </nav>
+            </div>
 
             <div class="code-hint">
                 &lt;nav class="navbar light"&gt;...&lt;/nav&gt;<br>
