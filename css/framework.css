@@ -727,6 +727,73 @@ td.status-info {
     width: 100%;
 }
 
+/* Mobile navbar: two-row layout with scroll-driven animation */
+@media (max-width: 640px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: var(--space-2) var(--space-4);
+        min-height: auto;
+    }
+
+    /* Top row: logo + buttons */
+    .navbar-left {
+        order: 1;
+        flex: 1;
+    }
+
+    .navbar-right {
+        order: 2;
+        flex-shrink: 0;
+    }
+
+    /* Bottom row: menu items (full width) */
+    .navbar-center {
+        order: 3;
+        width: 100%;
+        flex: none;
+        justify-content: flex-start;
+        margin-top: var(--space-2);
+        padding: var(--space-2) 0;
+    }
+
+    /* Scroll-driven animation: hide top row on scroll */
+    .navbar-left,
+    .navbar-right {
+        animation: navbar-hide-top linear both;
+        animation-timeline: scroll();
+        animation-range: 0 100px;
+    }
+
+    .navbar-center {
+        animation: navbar-slide-up linear both;
+        animation-timeline: scroll();
+        animation-range: 0 100px;
+    }
+}
+
+@keyframes navbar-hide-top {
+    from {
+        opacity: 1;
+        max-height: 4rem;
+        margin-bottom: 0;
+    }
+    to {
+        opacity: 0;
+        max-height: 0;
+        margin-bottom: calc(-1 * var(--space-2));
+        pointer-events: none;
+    }
+}
+
+@keyframes navbar-slide-up {
+    from {
+        margin-top: var(--space-2);
+    }
+    to {
+        margin-top: 0;
+    }
+}
+
 .navbar-left,
 .navbar-center,
 .navbar-right {
