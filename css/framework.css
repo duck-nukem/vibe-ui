@@ -651,6 +651,7 @@ dl.horizontal dd {
 /* Striped rows for horizontal layout */
 dl.horizontal.striped {
     padding: 0;
+    gap: 0;
 }
 
 dl.horizontal.striped dt,
@@ -659,25 +660,30 @@ dl.horizontal.striped dd {
     margin: 0;
 }
 
-dl.horizontal.striped dt:nth-of-type(odd),
+/* Use linear-gradient to create row stripes via background on alternating pairs */
+dl.horizontal.striped dt:nth-of-type(odd) {
+    background-color: var(--color-surface);
+}
+
 dl.horizontal.striped dd:nth-of-type(odd) {
     background-color: var(--color-surface);
 }
 
 /* Bordered variant */
+dl.bordered {
+    border-top: 1px solid var(--color-border);
+}
+
 dl.bordered dt {
-    padding-bottom: var(--space-2);
-    border-bottom: 1px solid var(--color-border-light);
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-1);
+    font-weight: var(--font-semibold);
 }
 
 dl.bordered dd {
-    padding-top: var(--space-2);
     padding-bottom: var(--space-3);
-    border-bottom: 1px solid var(--color-border-light);
-}
-
-dl.bordered dd:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--color-border);
 }
 
 /* ---------------------------------------------------------------------
@@ -1641,7 +1647,7 @@ select {
     border: var(--input-border-width) solid var(--color-border);
     border-radius: var(--input-radius);
     background-color: var(--color-background);
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])::placeholder,
@@ -1965,7 +1971,7 @@ textarea.hollow,
 select.hollow {
     border: 2px solid var(--color-primary);
     background: transparent;
-    transition: box-shadow 0.3s ease, background 0.3s ease;
+    transition: box-shadow 0.3s ease, background 0.3s ease, border-color 0s ease;
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow:hover,
@@ -3109,6 +3115,17 @@ button:disabled,
     min-width: 1.125rem;
     flex-shrink: 0;
     margin-bottom: 0;
+    align-self: center;
+}
+
+.checkbox-label input.toggle {
+    width: 2.75rem !important;
+    min-width: 2.75rem;
+}
+
+.checkbox-label input.toggle.sm {
+    width: 2rem !important;
+    min-width: 2rem;
 }
 
 /* ---------------------------------------------------------------------
