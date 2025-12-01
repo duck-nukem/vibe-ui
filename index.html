@@ -347,6 +347,74 @@ console.log(greet('World'));</code></pre>
             </div>
         </section>
 
+        <!-- Definition Lists -->
+        <section>
+            <h2>Definition Lists</h2>
+            <p>Native <code>&lt;dl&gt;</code> elements are perfect for key-value displays, settings panels, and detail views. No need for custom markup!</p>
+
+            <h3>Default (Stacked)</h3>
+            <dl>
+                <dt>Full Name</dt>
+                <dd>Alice Johnson</dd>
+                <dt>Email Address</dt>
+                <dd>alice.johnson@example.com</dd>
+                <dt>Account Status</dt>
+                <dd>Active since January 2024</dd>
+            </dl>
+
+            <div class="divider"></div>
+
+            <h3>Horizontal Layout</h3>
+            <p>Use <code>class="horizontal"</code> for side-by-side key-value pairs. Great for settings pages and user profiles.</p>
+            <dl class="horizontal">
+                <dt>Username</dt>
+                <dd>@alice_dev</dd>
+                <dt>Location</dt>
+                <dd>San Francisco, CA</dd>
+                <dt>Timezone</dt>
+                <dd>Pacific Time (PT)</dd>
+                <dt>Language</dt>
+                <dd>English (US)</dd>
+            </dl>
+
+            <div class="divider"></div>
+
+            <h3>Horizontal Striped</h3>
+            <p>Add <code>class="horizontal striped"</code> for alternating row backgrounds. Easier to scan for long lists.</p>
+            <dl class="horizontal striped">
+                <dt>Plan</dt>
+                <dd>Professional</dd>
+                <dt>Storage</dt>
+                <dd>50 GB / 100 GB used</dd>
+                <dt>API Calls</dt>
+                <dd>8,432 / 10,000 this month</dd>
+                <dt>Team Members</dt>
+                <dd>5 / 10 seats</dd>
+                <dt>Next Billing</dt>
+                <dd>March 15, 2024</dd>
+            </dl>
+
+            <div class="divider"></div>
+
+            <h3>Bordered</h3>
+            <p>Use <code>class="bordered"</code> for clear visual separation between items.</p>
+            <dl class="bordered">
+                <dt>Order Number</dt>
+                <dd>#ORD-2024-1234</dd>
+                <dt>Shipping Address</dt>
+                <dd>123 Main Street, Apt 4B<br>New York, NY 10001</dd>
+                <dt>Delivery Instructions</dt>
+                <dd>Leave at door. Ring doorbell twice.</dd>
+            </dl>
+
+            <div class="code-hint">
+                &lt;dl&gt;...&lt;/dl&gt; &lt;!-- Default stacked --&gt;<br>
+                &lt;dl class="horizontal"&gt;...&lt;/dl&gt;<br>
+                &lt;dl class="horizontal striped"&gt;...&lt;/dl&gt;<br>
+                &lt;dl class="bordered"&gt;...&lt;/dl&gt;
+            </div>
+        </section>
+
         <!-- Filled Alerts -->
         <section id="alerts">
             <h2>Filled Alerts</h2>

@@ -451,6 +451,80 @@ blockquote cite::before {
 }
 
 /* ---------------------------------------------------------------------
+   Definition Lists
+   Great for key-value displays, settings, details panels
+   --------------------------------------------------------------------- */
+
+dl {
+    margin: 0 0 var(--space-4) 0;
+}
+
+dt {
+    font-weight: var(--font-semibold);
+    color: var(--font-color-heading);
+    margin-bottom: var(--space-1);
+}
+
+dd {
+    margin: 0 0 var(--space-4) 0;
+    color: var(--font-color-body);
+}
+
+dd:last-child {
+    margin-bottom: 0;
+}
+
+/* Horizontal layout - key and value on same line */
+dl.horizontal {
+    display: grid;
+    grid-template-columns: minmax(8rem, auto) 1fr;
+    gap: var(--space-2) var(--space-4);
+    align-items: baseline;
+}
+
+dl.horizontal dt {
+    margin-bottom: 0;
+    color: var(--font-color-caption);
+    font-weight: var(--font-medium);
+}
+
+dl.horizontal dd {
+    margin-bottom: 0;
+}
+
+/* Striped rows for horizontal layout */
+dl.horizontal.striped {
+    padding: 0;
+}
+
+dl.horizontal.striped dt,
+dl.horizontal.striped dd {
+    padding: var(--space-3) var(--space-4);
+    margin: 0;
+}
+
+dl.horizontal.striped dt:nth-of-type(odd),
+dl.horizontal.striped dd:nth-of-type(odd) {
+    background-color: var(--color-surface);
+}
+
+/* Bordered variant */
+dl.bordered dt {
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+dl.bordered dd {
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+dl.bordered dd:last-child {
+    border-bottom: none;
+}
+
+/* ---------------------------------------------------------------------
    Horizontal Rule
    --------------------------------------------------------------------- */
 
