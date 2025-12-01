@@ -282,8 +282,9 @@
 .dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient,
 .dark textarea.gradient,
 .dark select.gradient {
-    background:
-        linear-gradient(var(--color-input-background), var(--color-input-background)) padding-box,
+    background-color: var(--color-input-background);
+    background-image:
+        linear-gradient(var(--color-input-background), var(--color-input-background)),
         linear-gradient(
             135deg,
             rgba(99, 102, 241, var(--gradient-opacity)),
@@ -291,8 +292,7 @@
             rgba(129, 140, 248, var(--gradient-opacity)),
             rgba(245, 158, 11, var(--gradient-opacity)),
             rgba(99, 102, 241, var(--gradient-opacity))
-        ) border-box;
-    background-size: 100% 100%, 300% 300%;
+        );
 }
 
 .dark input[type="checkbox"].toggle {
@@ -2081,8 +2081,9 @@ select.gradient {
     --gradient-opacity: 1;
     --gradient-border-color: transparent;
     border: var(--input-border-width) solid var(--gradient-border-color);
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    background-color: var(--color-background);
+    background-image:
+        linear-gradient(var(--color-background), var(--color-background)),
         linear-gradient(
             135deg,
             rgba(99, 102, 241, var(--gradient-opacity)),
@@ -2090,7 +2091,9 @@ select.gradient {
             rgba(129, 140, 248, var(--gradient-opacity)),
             rgba(245, 158, 11, var(--gradient-opacity)),
             rgba(99, 102, 241, var(--gradient-opacity))
-        ) border-box;
+        );
+    background-origin: padding-box, border-box;
+    background-clip: padding-box, border-box;
     background-size: 100% 100%, 300% 300%;
     animation: input-gradient-shift 4s ease infinite;
     box-shadow:
@@ -2102,8 +2105,8 @@ select.gradient {
 input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).gradient:hover,
 textarea.gradient:hover,
 select.gradient:hover {
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    background-image:
+        linear-gradient(var(--color-background), var(--color-background)),
         linear-gradient(
             135deg,
             rgba(99, 102, 241, var(--gradient-opacity)),
@@ -2111,8 +2114,7 @@ select.gradient:hover {
             rgba(129, 140, 248, var(--gradient-opacity)),
             rgba(245, 158, 11, var(--gradient-opacity)),
             rgba(99, 102, 241, var(--gradient-opacity))
-        ) border-box;
-    background-size: 100% 100%, 300% 300%;
+        );
     animation: input-gradient-shift 2s ease infinite;
     box-shadow:
         0 0 16px -4px rgba(99, 102, 241, calc(0.4 * var(--gradient-opacity))),
@@ -2123,8 +2125,8 @@ input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not(
 textarea.gradient:focus,
 select.gradient:focus {
     outline: none;
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    background-image:
+        linear-gradient(var(--color-background), var(--color-background)),
         linear-gradient(
             135deg,
             rgba(99, 102, 241, var(--gradient-opacity)),
@@ -2132,8 +2134,7 @@ select.gradient:focus {
             rgba(129, 140, 248, var(--gradient-opacity)),
             rgba(245, 158, 11, var(--gradient-opacity)),
             rgba(99, 102, 241, var(--gradient-opacity))
-        ) border-box;
-    background-size: 100% 100%, 300% 300%;
+        );
     animation: input-gradient-shift 2s ease infinite;
     box-shadow:
         0 0 20px -4px rgba(99, 102, 241, calc(0.5 * var(--gradient-opacity))),
@@ -2152,9 +2153,8 @@ select.gradient.gradient-out {
 input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).gradient.secondary,
 textarea.gradient.secondary,
 select.gradient.secondary {
-    border: 2px solid transparent;
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    background-image:
+        linear-gradient(var(--color-background), var(--color-background)),
         linear-gradient(
             135deg,
             rgba(236, 72, 153, var(--gradient-opacity)),
@@ -2162,8 +2162,7 @@ select.gradient.secondary {
             rgba(244, 114, 182, var(--gradient-opacity)),
             rgba(129, 140, 248, var(--gradient-opacity)),
             rgba(236, 72, 153, var(--gradient-opacity))
-        ) border-box;
-    background-size: 100% 100%, 300% 300%;
+        );
     animation: input-gradient-shift 4s ease infinite;
     box-shadow:
         0 0 12px -4px rgba(236, 72, 153, calc(0.3 * var(--gradient-opacity))),
@@ -2173,8 +2172,8 @@ select.gradient.secondary {
 input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).gradient.secondary:hover,
 textarea.gradient.secondary:hover,
 select.gradient.secondary:hover {
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    background-image:
+        linear-gradient(var(--color-background), var(--color-background)),
         linear-gradient(
             135deg,
             rgba(236, 72, 153, var(--gradient-opacity)),
@@ -2182,8 +2181,7 @@ select.gradient.secondary:hover {
             rgba(244, 114, 182, var(--gradient-opacity)),
             rgba(129, 140, 248, var(--gradient-opacity)),
             rgba(236, 72, 153, var(--gradient-opacity))
-        ) border-box;
-    background-size: 100% 100%, 300% 300%;
+        );
     animation: input-gradient-shift 2s ease infinite;
     box-shadow:
         0 0 16px -4px rgba(236, 72, 153, calc(0.4 * var(--gradient-opacity))),
@@ -2194,8 +2192,8 @@ input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not(
 textarea.gradient.secondary:focus,
 select.gradient.secondary:focus {
     outline: none;
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    background-image:
+        linear-gradient(var(--color-background), var(--color-background)),
         linear-gradient(
             135deg,
             rgba(236, 72, 153, var(--gradient-opacity)),
@@ -2203,8 +2201,7 @@ select.gradient.secondary:focus {
             rgba(244, 114, 182, var(--gradient-opacity)),
             rgba(129, 140, 248, var(--gradient-opacity)),
             rgba(236, 72, 153, var(--gradient-opacity))
-        ) border-box;
-    background-size: 100% 100%, 300% 300%;
+        );
     animation: input-gradient-shift 2s ease infinite;
     box-shadow:
         0 0 20px -4px rgba(236, 72, 153, calc(0.5 * var(--gradient-opacity))),
