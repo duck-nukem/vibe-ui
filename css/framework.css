@@ -1069,7 +1069,7 @@ td.status-info {
 }
 
 .badge.hollow.gradient {
-    background: 
+    background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
             135deg,
@@ -1085,7 +1085,7 @@ td.status-info {
 }
 
 .badge.hollow.gradient.secondary {
-    background: 
+    background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
             135deg,
@@ -1609,7 +1609,7 @@ select.hollow.secondary:focus {
 
 /* ---------------------------------------------------------------------
    Input Variants: Gradient (Always Animated)
-   
+
    Uses @property --gradient-opacity for smooth fade transitions.
    To fade out: element.classList.add('gradient-out')
    Then on transitionend, remove both classes.
@@ -1632,8 +1632,8 @@ select.gradient {
         ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: input-gradient-shift 4s ease infinite;
-    box-shadow: 
-        0 0 12px -4px rgba(99, 102, 241, calc(0.3 * var(--gradient-opacity))), 
+    box-shadow:
+        0 0 12px -4px rgba(99, 102, 241, calc(0.3 * var(--gradient-opacity))),
         0 0 20px -4px rgba(236, 72, 153, calc(0.15 * var(--gradient-opacity)));
     transition: --gradient-opacity 0.5s ease, border-color 0.5s ease;
 }
@@ -1654,8 +1654,8 @@ select.gradient:hover {
         ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: input-gradient-shift 2s ease infinite;
-    box-shadow: 
-        0 0 16px -4px rgba(99, 102, 241, calc(0.4 * var(--gradient-opacity))), 
+    box-shadow:
+        0 0 16px -4px rgba(99, 102, 241, calc(0.4 * var(--gradient-opacity))),
         0 0 24px -4px rgba(236, 72, 153, calc(0.25 * var(--gradient-opacity)));
 }
 
@@ -1675,9 +1675,9 @@ select.gradient:focus {
         ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: input-gradient-shift 2s ease infinite;
-    box-shadow: 
-        0 0 20px -4px rgba(99, 102, 241, calc(0.5 * var(--gradient-opacity))), 
-        0 0 28px -4px rgba(236, 72, 153, calc(0.3 * var(--gradient-opacity))), 
+    box-shadow:
+        0 0 20px -4px rgba(99, 102, 241, calc(0.5 * var(--gradient-opacity))),
+        0 0 28px -4px rgba(236, 72, 153, calc(0.3 * var(--gradient-opacity))),
         0 0 0 3px rgba(99, 102, 241, calc(0.15 * var(--gradient-opacity)));
 }
 
@@ -1704,8 +1704,8 @@ select.gradient.secondary {
         ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: input-gradient-shift 4s ease infinite;
-    box-shadow: 
-        0 0 12px -4px rgba(236, 72, 153, calc(0.3 * var(--gradient-opacity))), 
+    box-shadow:
+        0 0 12px -4px rgba(236, 72, 153, calc(0.3 * var(--gradient-opacity))),
         0 0 20px -4px rgba(245, 158, 11, calc(0.15 * var(--gradient-opacity)));
 }
 
@@ -1725,8 +1725,8 @@ select.gradient.secondary:hover {
         ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: input-gradient-shift 2s ease infinite;
-    box-shadow: 
-        0 0 16px -4px rgba(236, 72, 153, calc(0.4 * var(--gradient-opacity))), 
+    box-shadow:
+        0 0 16px -4px rgba(236, 72, 153, calc(0.4 * var(--gradient-opacity))),
         0 0 24px -4px rgba(245, 158, 11, calc(0.25 * var(--gradient-opacity)));
 }
 
@@ -1746,9 +1746,9 @@ select.gradient.secondary:focus {
         ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: input-gradient-shift 2s ease infinite;
-    box-shadow: 
-        0 0 20px -4px rgba(236, 72, 153, calc(0.5 * var(--gradient-opacity))), 
-        0 0 28px -4px rgba(245, 158, 11, calc(0.3 * var(--gradient-opacity))), 
+    box-shadow:
+        0 0 20px -4px rgba(236, 72, 153, calc(0.5 * var(--gradient-opacity))),
+        0 0 28px -4px rgba(245, 158, 11, calc(0.3 * var(--gradient-opacity))),
         0 0 0 3px rgba(236, 72, 153, calc(0.15 * var(--gradient-opacity)));
 }
 
