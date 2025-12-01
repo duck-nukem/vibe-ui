@@ -338,6 +338,12 @@
     border-color: var(--color-border);
 }
 
+/* Dark mode hollow gradient buttons - use indigo background for better contrast */
+.dark .btn.hollow.gradient {
+    --color-background: #1e1b4b;
+    color: #e0e7ff;
+}
+
 /* ==========================================================================
    2. RESET & BASE STYLES
    ========================================================================== */
@@ -3288,27 +3294,6 @@ section > p:first-of-type {
     font-size: var(--text-sm);
     color: var(--font-color-caption);
     margin-bottom: var(--space-6);
-}
-
-/* ---------------------------------------------------------------------
-   Dark Section
-   --------------------------------------------------------------------- */
-
-.dark-section {
-    background: #1e1b4b;
-    --color-background: #1e1b4b;
-}
-
-.dark-section h2,
-.dark-section h3,
-.dark-section p,
-.dark-section .label {
-    color: #e0e7ff;
-}
-
-.dark-section .btn.hollow.gradient {
-    --color-background: #1e1b4b;
-    color: #e0e7ff;
 }
 
 /* ==========================================================================
