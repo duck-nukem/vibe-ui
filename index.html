@@ -77,15 +77,22 @@
 
         // Dark mode toggle
         const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        function setDarkMode(isDark) {
+            document.documentElement.classList.toggle('dark', isDark);
+            darkModeToggle.checked = isDark;
+        }
+        
         darkModeToggle.addEventListener('change', function() {
-            document.documentElement.classList.toggle('dark', this.checked);
+            setDarkMode(this.checked);
         });
 
         // Check system preference on load
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            darkModeToggle.checked = true;
-            document.documentElement.classList.add('dark');
-        }
+        setDarkMode(darkModeQuery.matches);
+        
+        // Listen for system preference changes
+        darkModeQuery.addEventListener('change', (e) => setDarkMode(e.matches));
     </script>
 
     <div class="showcase">
