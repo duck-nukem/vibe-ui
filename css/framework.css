@@ -730,29 +730,31 @@ td.status-info {
 /* Mobile navbar: two-row layout with scroll-driven animation */
 @media (max-width: 640px) {
     .navbar {
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "logo buttons"
+            "menu menu";
         padding: var(--space-2) var(--space-4);
         min-height: auto;
+        gap: var(--space-2);
     }
 
     /* Top row: logo + buttons */
     .navbar-left {
-        order: 1;
-        flex: 1;
+        grid-area: logo;
     }
 
     .navbar-right {
-        order: 2;
-        flex-shrink: 0;
+        grid-area: buttons;
     }
 
     /* Bottom row: menu items (full width) */
     .navbar-center {
-        order: 3;
+        grid-area: menu;
         width: 100%;
-        flex: none;
         justify-content: flex-start;
-        margin-top: var(--space-2);
         padding: var(--space-2) 0;
     }
 
