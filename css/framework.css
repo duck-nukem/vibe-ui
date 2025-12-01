@@ -727,9 +727,11 @@ td.status-info {
     width: 100%;
 }
 
-/* Mobile navbar: two-row layout with scroll-driven animation */
+/* Mobile navbar: two-row layout where top row scrolls away */
 @media (max-width: 640px) {
     .navbar {
+        position: sticky;
+        top: calc(-1 * (var(--navbar-top-row-height, 2.5rem) + var(--space-2)));
         display: grid;
         grid-template-columns: 1fr auto;
         grid-template-rows: auto auto;
@@ -744,22 +746,25 @@ td.status-info {
     /* Top row: logo + buttons */
     .navbar-left {
         grid-area: logo;
+        height: var(--navbar-top-row-height, 2.5rem);
+        display: flex;
+        align-items: center;
     }
 
     .navbar-right {
         grid-area: buttons;
+        height: var(--navbar-top-row-height, 2.5rem);
+        display: flex;
+        align-items: center;
     }
 
-    /* Bottom row: menu items (full width, sticky) */
+    /* Bottom row: menu items (full width) */
     .navbar-center {
         grid-area: menu;
         width: 100%;
         justify-content: flex-start;
         padding: var(--space-2) 0;
-        position: sticky;
-        top: 0;
         background: inherit;
-        z-index: 1;
     }
 }
 
