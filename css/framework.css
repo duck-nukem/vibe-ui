@@ -704,6 +704,11 @@ dl.horizontal.striped dd {
 /* Stripe odd rows - dt:nth-of-type(odd) is 1st, 3rd, 5th dt, etc. */
 dl.horizontal.striped dt:nth-of-type(odd),
 dl.horizontal.striped dt:nth-of-type(odd) + dd {
+    background-color: var(--color-surface-alt);
+}
+
+.dark dl.horizontal.striped dt:nth-of-type(odd),
+.dark dl.horizontal.striped dt:nth-of-type(odd) + dd {
     background-color: var(--color-surface);
 }
 
