@@ -16,6 +16,14 @@
 
 /* ==========================================================================
    Modern UI Framework
+
+   Selector Shorthand Reference:
+   - TEXT_INPUT = input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]))
+   - Using :where() keeps specificity low (0,0,0) so variants can override easily
+   ========================================================================== */
+
+/* ==========================================================================
+   Modern UI Framework
    A clean, modern CSS framework for SaaS applications
    Tailwind UI / shadcn inspired design with animated gradients
 
@@ -1597,9 +1605,12 @@ label.required::after {
 
 /* ---------------------------------------------------------------------
    Base Input Styles
+   
+   We use :where() for text inputs to keep specificity low.
+   This allows .hollow, .gradient variants to override without !important.
    --------------------------------------------------------------------- */
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])),
 textarea,
 select {
     display: block;
@@ -1617,13 +1628,13 @@ select {
     transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])::placeholder,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]))::placeholder,
 textarea::placeholder {
     color: var(--font-color-caption);
     opacity: 1;
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):hover,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])):hover,
 textarea:hover {
     border-color: var(--color-border-hover);
 }
@@ -1632,7 +1643,7 @@ select:hover {
     border-color: var(--color-border-hover);
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):focus,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])):focus,
 textarea:focus {
     outline: none;
     border-color: var(--color-primary);
@@ -1645,7 +1656,7 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):disabled,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])):disabled,
 textarea:disabled,
 select:disabled {
     background-color: var(--color-surface);
@@ -1958,7 +1969,7 @@ input[type="file"]::file-selector-button:hover {
    Input Variants: Hollow
    --------------------------------------------------------------------- */
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).hollow,
 textarea.hollow,
 select.hollow {
     border: 2px solid var(--color-primary);
@@ -1976,13 +1987,13 @@ select.hollow {
     transition: box-shadow 0.3s ease, border-color 0s ease;
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow:hover,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).hollow:hover,
 textarea.hollow:hover,
 select.hollow:hover {
     border-color: var(--color-primary-600);
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow:focus,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).hollow:focus,
 textarea.hollow:focus,
 select.hollow:focus {
     outline: none;
@@ -2002,7 +2013,7 @@ select.hollow:focus {
     box-shadow: 0 0 12px -4px rgba(99, 102, 241, 0.4), 0 0 20px -4px rgba(236, 72, 153, 0.2);
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow.secondary,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).hollow.secondary,
 textarea.hollow.secondary,
 select.hollow.secondary {
     border: 2px solid var(--color-secondary);
@@ -2019,13 +2030,13 @@ select.hollow.secondary {
     background-size: 100% 100%, 300% 300%;
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow.secondary:hover,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).hollow.secondary:hover,
 textarea.hollow.secondary:hover,
 select.hollow.secondary:hover {
     border-color: var(--color-secondary-400);
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow.secondary:focus,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).hollow.secondary:focus,
 textarea.hollow.secondary:focus,
 select.hollow.secondary:focus {
     outline: none;
@@ -2053,7 +2064,7 @@ select.hollow.secondary:focus {
    Then on transitionend, remove both classes.
    --------------------------------------------------------------------- */
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).gradient,
 textarea.gradient,
 select.gradient {
     --gradient-opacity: 1;
@@ -2078,7 +2089,7 @@ select.gradient {
     transition: --gradient-opacity 0.5s ease, --gradient-border-color 0.5s ease;
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient:hover,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).gradient:hover,
 textarea.gradient:hover,
 select.gradient:hover {
     border: 2px solid transparent;
@@ -2099,7 +2110,7 @@ select.gradient:hover {
         0 0 24px -4px rgba(236, 72, 153, calc(0.25 * var(--gradient-opacity)));
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient:focus,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).gradient:focus,
 textarea.gradient:focus,
 select.gradient:focus {
     border: 2px solid transparent;
@@ -2122,14 +2133,14 @@ select.gradient:focus {
 }
 
 /* Fade out state - transition opacity to 0 */
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient.gradient-out,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).gradient.gradient-out,
 textarea.gradient.gradient-out,
 select.gradient.gradient-out {
     --gradient-opacity: 0;
     --gradient-border-color: var(--color-border);
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient.secondary,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).gradient.secondary,
 textarea.gradient.secondary,
 select.gradient.secondary {
     border: 2px solid transparent;
@@ -2150,7 +2161,7 @@ select.gradient.secondary {
         0 0 20px -4px rgba(245, 158, 11, calc(0.15 * var(--gradient-opacity)));
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient.secondary:hover,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).gradient.secondary:hover,
 textarea.gradient.secondary:hover,
 select.gradient.secondary:hover {
     border: 2px solid transparent;
@@ -2171,7 +2182,7 @@ select.gradient.secondary:hover {
         0 0 24px -4px rgba(245, 158, 11, calc(0.25 * var(--gradient-opacity)));
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient.secondary:focus,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).gradient.secondary:focus,
 textarea.gradient.secondary:focus,
 select.gradient.secondary:focus {
     border: 2px solid transparent;
@@ -2197,13 +2208,13 @@ select.gradient.secondary:focus {
    Input Validation States
    --------------------------------------------------------------------- */
 
-input.input-error,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).input-error,
 textarea.input-error,
 select.input-error {
     border-color: var(--color-error) !important;
 }
 
-input.input-error:focus,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).input-error:focus,
 textarea.input-error:focus,
 select.input-error:focus {
     box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
@@ -2212,13 +2223,13 @@ select.input-error:focus {
     border: 2px solid var(--color-error);
 }
 
-input.input-success,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).input-success,
 textarea.input-success,
 select.input-success {
     border-color: var(--color-success) !important;
 }
 
-input.input-success:focus,
+input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).input-success:focus,
 textarea.input-success:focus,
 select.input-success:focus {
     box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15) !important;
