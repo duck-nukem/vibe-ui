@@ -759,6 +759,7 @@ td.status-info {
     }
 
     /* Scroll-driven animation: hide top row on scroll */
+    /* Temporarily disabled for debugging
     .navbar-left,
     .navbar-right {
         animation: navbar-hide-top linear forwards;
@@ -771,6 +772,7 @@ td.status-info {
         animation-timeline: scroll();
         animation-range: 50px 150px;
     }
+    */
 }
 
 @keyframes navbar-hide-top {
