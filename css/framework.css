@@ -1760,7 +1760,19 @@ input[type="radio"] {
     border-radius: var(--radius-full);
 }
 
+input[type="checkbox"]:disabled,
+input[type="radio"]:disabled {
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
 
+input[type="checkbox"]:disabled:checked,
+input[type="radio"]:disabled:checked {
+    background-color: var(--color-border);
+    border-color: var(--color-border);
+}
 
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
@@ -1855,6 +1867,37 @@ input[type="checkbox"].toggle.sm:checked::before {
     left: calc(100% - 1rem);
 }
 
+/* Gradient toggle */
+input[type="checkbox"].toggle.gradient {
+    background: var(--color-border);
+}
+
+input[type="checkbox"].toggle.gradient:checked {
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary),
+        var(--color-primary-400),
+        var(--color-tertiary),
+        var(--color-primary)
+    );
+    background-size: 300% 300%;
+    animation: gradient-shift 4s ease infinite;
+}
+
+input[type="checkbox"].toggle.gradient.secondary:checked {
+    background: linear-gradient(
+        135deg,
+        var(--color-secondary),
+        var(--color-tertiary),
+        var(--color-secondary-400),
+        var(--color-primary-400),
+        var(--color-secondary)
+    );
+    background-size: 300% 300%;
+    animation: gradient-shift 4s ease infinite;
+}
+
 /* ---------------------------------------------------------------------
    Range Input
    --------------------------------------------------------------------- */
@@ -1922,6 +1965,7 @@ textarea.hollow,
 select.hollow {
     border: 2px solid var(--color-primary);
     background: transparent;
+    transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow:hover,
@@ -1934,7 +1978,7 @@ input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="
 textarea.hollow:focus,
 select.hollow:focus {
     outline: none;
-    border: 2px solid transparent;
+    border-color: transparent;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
@@ -1966,7 +2010,7 @@ input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="
 textarea.hollow.secondary:focus,
 select.hollow.secondary:focus {
     outline: none;
-    border: 2px solid transparent;
+    border-color: transparent;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
