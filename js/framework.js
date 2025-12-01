@@ -98,10 +98,15 @@ function easeOutGradient(element) {
  */
 function initNavbarScroll(navbar, options = {}) {
     const threshold = options.threshold || 10;
+    const mobileBreakpoint = options.mobileBreakpoint || 640;
     let lastScrollY = window.scrollY;
     let topRowHidden = false;
 
     const topRowElements = navbar.querySelectorAll('.navbar-left, .navbar-right');
+    
+    function isMobile() {
+        return window.innerWidth <= mobileBreakpoint;
+    }
     
     // Add CSS for smooth transition
     topRowElements.forEach(el => {
@@ -147,6 +152,12 @@ function initNavbarScroll(navbar, options = {}) {
     }
 
     function onScroll() {
+        // Only apply on mobile screens
+        if (!isMobile()) {
+            if (topRowHidden) showTopRow();
+            return;
+        }
+
         const currentScrollY = window.scrollY;
         const scrollDelta = currentScrollY - lastScrollY;
 
