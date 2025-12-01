@@ -194,6 +194,162 @@
 }
 
 /* ==========================================================================
+   DARK MODE
+   Automatically switches based on system preference.
+   To force dark mode, add class="dark" to <html> or <body>
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Surface & Border Colors */
+        --color-background: #0f172a;
+        --color-surface: #1e293b;
+        --color-surface-alt: #334155;
+        --color-border: #334155;
+        --color-border-light: #1e293b;
+        --color-border-hover: #475569;
+
+        /* Font Colors */
+        --font-color-heading: #f1f5f9;
+        --font-color-body: #cbd5e1;
+        --font-color-caption: #94a3b8;
+
+        /* Adjusted shadows for dark mode */
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Code blocks */
+    code {
+        background-color: var(--color-surface);
+    }
+
+    pre {
+        background-color: var(--color-surface);
+    }
+
+    /* Tables */
+    th {
+        background-color: var(--color-surface);
+    }
+
+    table.striped tbody tr:nth-child(even) {
+        background-color: var(--color-surface);
+    }
+
+    /* Row actions gradient for dark mode */
+    td.row-actions {
+        background: linear-gradient(to right, transparent, var(--color-background) 1rem);
+    }
+
+    /* Inputs */
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+    textarea,
+    select {
+        background-color: var(--color-surface);
+    }
+
+    /* Toggle switch track */
+    input[type="checkbox"].toggle {
+        background-color: var(--color-surface-alt);
+    }
+
+    /* Cards and sections */
+    .card, section {
+        background-color: var(--color-surface);
+        border-color: var(--color-border);
+    }
+
+    /* Kbd */
+    kbd {
+        background-color: var(--color-surface);
+        border-color: var(--color-border);
+    }
+
+    /* Blockquote */
+    blockquote {
+        background-color: var(--color-surface);
+    }
+
+    /* File input button */
+    input[type="file"]::file-selector-button {
+        background-color: var(--color-surface-alt);
+        color: var(--font-color-body);
+    }
+}
+
+/* Manual dark mode class - can be applied to html or body */
+.dark {
+    /* Surface & Border Colors */
+    --color-background: #0f172a;
+    --color-surface: #1e293b;
+    --color-surface-alt: #334155;
+    --color-border: #334155;
+    --color-border-light: #1e293b;
+    --color-border-hover: #475569;
+
+    /* Font Colors */
+    --font-color-heading: #f1f5f9;
+    --font-color-body: #cbd5e1;
+    --font-color-caption: #94a3b8;
+
+    /* Adjusted shadows for dark mode */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+}
+
+.dark code {
+    background-color: var(--color-surface);
+}
+
+.dark pre {
+    background-color: var(--color-surface);
+}
+
+.dark th {
+    background-color: var(--color-surface);
+}
+
+.dark table.striped tbody tr:nth-child(even) {
+    background-color: var(--color-surface);
+}
+
+.dark td.row-actions {
+    background: linear-gradient(to right, transparent, var(--color-background) 1rem);
+}
+
+.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+.dark textarea,
+.dark select {
+    background-color: var(--color-surface);
+}
+
+.dark input[type="checkbox"].toggle {
+    background-color: var(--color-surface-alt);
+}
+
+.dark .card, .dark section {
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+.dark kbd {
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+.dark blockquote {
+    background-color: var(--color-surface);
+}
+
+.dark input[type="file"]::file-selector-button {
+    background-color: var(--color-surface-alt);
+    color: var(--font-color-body);
+}
+
+/* ==========================================================================
    2. RESET & BASE STYLES
    ========================================================================== */
 
