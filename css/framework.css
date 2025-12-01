@@ -1873,9 +1873,20 @@ input[type="checkbox"].toggle.sm:checked::before {
     left: calc(100% - 1rem);
 }
 
-/* Gradient toggle */
+/* Gradient toggle - pre-set animation in paused state so it's ready on check */
 input[type="checkbox"].toggle.gradient {
-    background: var(--color-border);
+    background:
+        linear-gradient(var(--color-border), var(--color-border)),
+        linear-gradient(
+            135deg,
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary-400),
+            var(--color-tertiary),
+            var(--color-primary)
+        );
+    background-size: 100% 100%, 300% 300%;
+    animation: gradient-shift 4s ease infinite paused;
 }
 
 input[type="checkbox"].toggle.gradient:checked {
@@ -1888,8 +1899,21 @@ input[type="checkbox"].toggle.gradient:checked {
         var(--color-primary)
     );
     background-size: 300% 300%;
-    animation: gradient-shift 4s ease infinite;
-    transition: none;
+    animation-play-state: running;
+}
+
+input[type="checkbox"].toggle.gradient.secondary {
+    background: 
+        linear-gradient(var(--color-border), var(--color-border)),
+        linear-gradient(
+            135deg,
+            var(--color-secondary),
+            var(--color-tertiary),
+            var(--color-secondary-400),
+            var(--color-primary-400),
+            var(--color-secondary)
+        );
+    background-size: 100% 100%, 300% 300%;
 }
 
 input[type="checkbox"].toggle.gradient.secondary:checked {
@@ -1902,8 +1926,7 @@ input[type="checkbox"].toggle.gradient.secondary:checked {
         var(--color-secondary)
     );
     background-size: 300% 300%;
-    animation: gradient-shift 4s ease infinite;
-    transition: none;
+    animation-play-state: running;
 }
 
 /* ---------------------------------------------------------------------
