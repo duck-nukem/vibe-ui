@@ -1150,7 +1150,25 @@ td.status-info {
 }
 
 /* ---------------------------------------------------------------------
+   Table Container (Horizontal scroll on mobile)
+   Wrap tables in .table-container for automatic horizontal scrolling
+   on smaller screens without causing page overflow.
+   --------------------------------------------------------------------- */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-container table {
+    margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------------------
    Responsive Table (Stacked on Mobile)
+   Alternative approach: stack rows vertically on mobile.
+   Add .responsive class to table element.
    --------------------------------------------------------------------- */
 
 table.responsive {

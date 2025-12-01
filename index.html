@@ -511,7 +511,16 @@ console.log(greet('World'));</code></pre>
             <h2>Tables</h2>
             <p>Clean, modern tables with multiple variants. Hover over rows to see the interaction states.</p>
 
+            <h3>Scrollable Tables</h3>
+            <p>Wrap tables in <code>.table-container</code> to enable horizontal scrolling on mobile without page overflow.</p>
+            <div class="code-hint">
+                &lt;div class="table-container"&gt;<br>
+                &nbsp;&nbsp;&lt;table&gt;...&lt;/table&gt;<br>
+                &lt;/div&gt;
+            </div>
+
             <h3>Default Table with Sortable Headers</h3>
+            <div class="table-container">
             <table class="hoverable">
                 <thead>
                     <tr>
@@ -548,6 +557,7 @@ console.log(greet('World'));</code></pre>
                     </tr>
                 </tbody>
             </table>
+            </div>
 
             <div class="code-hint">
                 &lt;table class="hoverable"&gt;...&lt;/table&gt;<br>
@@ -562,6 +572,7 @@ console.log(greet('World'));</code></pre>
             <h2>Striped Table with Gradient Headers</h2>
             <p>Alternating row colors with eye-catching gradient pill-style sortable column headers.</p>
 
+            <div class="table-container">
             <table class="striped hoverable">
                 <thead>
                     <tr>
@@ -604,6 +615,7 @@ console.log(greet('World'));</code></pre>
                     </tr>
                 </tbody>
             </table>
+            </div>
 
             <div class="code-hint">
                 &lt;table class="striped hoverable"&gt;...&lt;/table&gt;<br>
@@ -617,6 +629,7 @@ console.log(greet('World'));</code></pre>
             <h2>Hollow Table</h2>
             <p>Animated gradient border matching the hollow button and input styles. Perfect for highlighting important data.</p>
 
+            <div class="table-container">
             <table class="hollow hoverable">
                 <thead>
                     <tr>
@@ -653,6 +666,7 @@ console.log(greet('World'));</code></pre>
                     </tr>
                 </tbody>
             </table>
+            </div>
 
             <div class="code-hint">
                 &lt;table class="hollow"&gt;...&lt;/table&gt;<br>
@@ -708,6 +722,7 @@ console.log(greet('World'));</code></pre>
             <p>Compact and relaxed spacing options for different use cases.</p>
 
             <h3>Compact</h3>
+            <div class="table-container">
             <table class="compact striped hoverable">
                 <thead>
                     <tr>
@@ -734,10 +749,12 @@ console.log(greet('World'));</code></pre>
                     </tr>
                 </tbody>
             </table>
+            </div>
 
             <div class="divider"></div>
 
             <h3>Relaxed</h3>
+            <div class="table-container">
             <table class="relaxed hoverable">
                 <thead>
                     <tr>
@@ -759,6 +776,7 @@ console.log(greet('World'));</code></pre>
                     </tr>
                 </tbody>
             </table>
+            </div>
 
             <div class="code-hint">
                 &lt;table class="compact"&gt;...&lt;/table&gt;<br>
