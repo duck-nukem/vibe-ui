@@ -3103,12 +3103,6 @@ button:disabled,
     margin-bottom: 0;
 }
 
-.input-group input.gradient,
-.input-group textarea.gradient,
-.input-group select.gradient {
-    margin-bottom: var(--space-2);
-}
-
 .input-row {
     display: flex;
     align-items: center;
