@@ -761,38 +761,38 @@ td.status-info {
     /* Scroll-driven animation: hide top row on scroll */
     .navbar-left,
     .navbar-right {
-        animation: navbar-hide-top linear both;
+        animation: navbar-hide-top linear forwards;
         animation-timeline: scroll();
-        animation-range: 0 100px;
+        animation-range: 50px 150px;
     }
 
     .navbar-center {
-        animation: navbar-slide-up linear both;
+        animation: navbar-slide-up linear forwards;
         animation-timeline: scroll();
-        animation-range: 0 100px;
+        animation-range: 50px 150px;
     }
 }
 
 @keyframes navbar-hide-top {
-    from {
+    0% {
         opacity: 1;
+        visibility: visible;
         max-height: 4rem;
-        margin-bottom: 0;
     }
-    to {
+    100% {
         opacity: 0;
+        visibility: hidden;
         max-height: 0;
-        margin-bottom: calc(-1 * var(--space-2));
         pointer-events: none;
     }
 }
 
 @keyframes navbar-slide-up {
-    from {
-        margin-top: var(--space-2);
+    0% {
+        padding-top: var(--space-2);
     }
-    to {
-        margin-top: 0;
+    100% {
+        padding-top: 0;
     }
 }
 
