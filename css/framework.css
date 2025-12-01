@@ -757,7 +757,7 @@ td.status-info {
     /* Bottom row: menu items (sticky) */
     .navbar-center {
         position: sticky;
-        top: 0;
+        top: 3rem;
         z-index: 10;
         width: 100%;
         justify-content: flex-start;
