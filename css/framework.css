@@ -261,13 +261,10 @@
     background-color: var(--color-input-background);
 }
 
-/* Hollow and gradient inputs use background gradients, so set via the gradient's first layer */
+/* Hollow inputs in dark mode - use input background for the padding-box layer */
 .dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow,
 .dark textarea.hollow,
-.dark select.hollow,
-.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient,
-.dark textarea.gradient,
-.dark select.gradient {
+.dark select.hollow {
     background:
         linear-gradient(var(--color-input-background), var(--color-input-background)) padding-box,
         linear-gradient(
@@ -277,6 +274,23 @@
             var(--color-primary-400),
             var(--color-tertiary),
             var(--color-primary)
+        ) border-box;
+    background-size: 100% 100%, 300% 300%;
+}
+
+/* Gradient inputs in dark mode - must use rgba with opacity variable for smooth fade */
+.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient,
+.dark textarea.gradient,
+.dark select.gradient {
+    background:
+        linear-gradient(var(--color-input-background), var(--color-input-background)) padding-box,
+        linear-gradient(
+            135deg,
+            rgba(99, 102, 241, var(--gradient-opacity)),
+            rgba(236, 72, 153, var(--gradient-opacity)),
+            rgba(129, 140, 248, var(--gradient-opacity)),
+            rgba(245, 158, 11, var(--gradient-opacity)),
+            rgba(99, 102, 241, var(--gradient-opacity))
         ) border-box;
     background-size: 100% 100%, 300% 300%;
 }
@@ -2066,8 +2080,7 @@ textarea.gradient,
 select.gradient {
     --gradient-opacity: 1;
     --gradient-border-color: transparent;
-    border: 2px solid var(--gradient-border-color);
-    outline: none;
+    border: var(--input-border-width) solid var(--gradient-border-color);
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
