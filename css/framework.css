@@ -2798,6 +2798,13 @@ button:disabled,
     margin-bottom: var(--space-4);
 }
 
+@media (max-width: 640px) {
+    .button-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 .button-row:last-child {
     margin-bottom: 0;
 }
