@@ -821,6 +821,61 @@ console.log(greet('World'));</code></pre>
             </div>
         </section>
 
+        <!-- Tables - Row Actions -->
+        <section>
+            <h2>Row Actions</h2>
+            <p>Action buttons that appear on row hover. Always visible on mobile/touch devices. Hover over rows below to see the effect.</p>
+
+            <div class="table-container">
+            <table class="hoverable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alice Cooper</td>
+                        <td>alice@example.com</td>
+                        <td>Admin</td>
+                        <td class="row-actions">
+                            <button class="btn hollow sm">Edit</button>
+                            <button class="btn hollow sm secondary">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bob Dylan</td>
+                        <td>bob@example.com</td>
+                        <td>Editor</td>
+                        <td class="row-actions">
+                            <button class="btn hollow sm">Edit</button>
+                            <button class="btn hollow sm secondary">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Charlie Parker</td>
+                        <td>charlie@example.com</td>
+                        <td>Viewer</td>
+                        <td class="row-actions">
+                            <button class="btn hollow sm">Edit</button>
+                            <button class="btn hollow sm secondary">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <div class="code-hint">
+                &lt;td class="row-actions"&gt;<br>
+                &nbsp;&nbsp;&lt;button class="btn hollow sm"&gt;Edit&lt;/button&gt;<br>
+                &nbsp;&nbsp;&lt;button class="btn hollow sm secondary"&gt;Delete&lt;/button&gt;<br>
+                &lt;/td&gt;
+            </div>
+        </section>
+
         <!-- Text Inputs -->
         <section id="forms">
             <h2>Text Inputs</h2>

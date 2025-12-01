@@ -710,6 +710,48 @@ td.status-info {
     color: var(--color-info);
 }
 
+/* ---------------------------------------------------------------------
+   Table Row Actions (hover to reveal)
+   --------------------------------------------------------------------- */
+
+.row-actions {
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    white-space: nowrap;
+    text-align: right;
+}
+
+tr:hover .row-actions,
+tr:focus-within .row-actions {
+    opacity: 1;
+}
+
+/* Always visible on touch devices / mobile */
+@media (hover: none), (max-width: 640px) {
+    .row-actions {
+        opacity: 1;
+    }
+}
+
+/* Sticky action column for wide tables */
+td.row-actions {
+    position: sticky;
+    right: 0;
+    background: linear-gradient(to right, transparent, var(--color-background) 1rem);
+    padding-left: 2rem;
+}
+
+/* Compact action buttons */
+.row-actions .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: var(--text-xs);
+    margin-left: 0.25rem;
+}
+
+.row-actions .btn:first-child {
+    margin-left: 0;
+}
+
 /* ==========================================================================
    NAVBAR COMPONENT
    ========================================================================== */
