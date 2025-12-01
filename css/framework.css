@@ -2090,7 +2090,7 @@ input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="
 textarea.gradient,
 select.gradient {
     --gradient-opacity: 1;
-    border: 2px solid rgba(226, 232, 240, calc(1 - var(--gradient-opacity)));
+    border: 2px solid transparent;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
@@ -2112,7 +2112,7 @@ select.gradient {
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient:hover,
 textarea.gradient:hover,
 select.gradient:hover {
-    border: 2px solid rgba(226, 232, 240, calc(1 - var(--gradient-opacity)));
+    border: 2px solid transparent;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
@@ -2133,7 +2133,7 @@ select.gradient:hover {
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient:focus,
 textarea.gradient:focus,
 select.gradient:focus {
-    border: 2px solid rgba(226, 232, 240, calc(1 - var(--gradient-opacity)));
+    border: 2px solid transparent;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
@@ -2157,12 +2157,13 @@ input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="
 textarea.gradient.gradient-out,
 select.gradient.gradient-out {
     --gradient-opacity: 0;
+    border-color: var(--color-border);
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient.secondary,
 textarea.gradient.secondary,
 select.gradient.secondary {
-    border: 2px solid rgba(226, 232, 240, calc(1 - var(--gradient-opacity)));
+    border: 2px solid transparent;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
@@ -2183,7 +2184,7 @@ select.gradient.secondary {
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient.secondary:hover,
 textarea.gradient.secondary:hover,
 select.gradient.secondary:hover {
-    border: 2px solid rgba(226, 232, 240, calc(1 - var(--gradient-opacity)));
+    border: 2px solid transparent;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
@@ -2204,7 +2205,7 @@ select.gradient.secondary:hover {
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient.secondary:focus,
 textarea.gradient.secondary:focus,
 select.gradient.secondary:focus {
-    border: 2px solid rgba(226, 232, 240, calc(1 - var(--gradient-opacity)));
+    border: 2px solid transparent;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
