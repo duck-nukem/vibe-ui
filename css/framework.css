@@ -8,6 +8,12 @@
     initial-value: 0;
 }
 
+@property --gradient-border-color {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: transparent;
+}
+
 /* ==========================================================================
    Modern UI Framework
    A clean, modern CSS framework for SaaS applications
@@ -2090,7 +2096,9 @@ input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="
 textarea.gradient,
 select.gradient {
     --gradient-opacity: 1;
-    border: 2px solid transparent;
+    --gradient-border-color: transparent;
+    border: 2px solid var(--gradient-border-color);
+    outline: none;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
@@ -2106,7 +2114,7 @@ select.gradient {
     box-shadow:
         0 0 12px -4px rgba(99, 102, 241, calc(0.3 * var(--gradient-opacity))),
         0 0 20px -4px rgba(236, 72, 153, calc(0.15 * var(--gradient-opacity)));
-    transition: --gradient-opacity 0.5s ease, border-color 0.5s ease;
+    transition: --gradient-opacity 0.5s ease, --gradient-border-color 0.5s ease;
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient:hover,
@@ -2157,7 +2165,7 @@ input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="
 textarea.gradient.gradient-out,
 select.gradient.gradient-out {
     --gradient-opacity: 0;
-    border-color: var(--color-border);
+    --gradient-border-color: var(--color-border);
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).gradient.secondary,
