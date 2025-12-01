@@ -749,6 +749,8 @@ td.status-info {
     scrollbar-width: none;
     -ms-overflow-style: none;
     scroll-snap-type: x mandatory;
+    -webkit-scroll-snap-type: x mandatory;
+    scroll-padding: 0 var(--space-4);
 }
 
 .navbar-center::-webkit-scrollbar {
@@ -795,6 +797,7 @@ td.status-info {
     margin-bottom: 0;
     flex-shrink: 0;
     scroll-snap-align: start;
+    -webkit-scroll-snap-align: start;
 }
 
 .navbar-nav a,
