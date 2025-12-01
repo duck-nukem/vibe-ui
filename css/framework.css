@@ -1822,7 +1822,7 @@ input[type="checkbox"].toggle {
     background-color: var(--color-border);
     border: none;
     position: relative;
-    transition: background-color 0.2s ease;
+    transition: background 0.2s ease;
 }
 
 input[type="checkbox"].toggle::before {
@@ -1889,6 +1889,7 @@ input[type="checkbox"].toggle.gradient:checked {
     );
     background-size: 300% 300%;
     animation: gradient-shift 4s ease infinite;
+    transition: none;
 }
 
 input[type="checkbox"].toggle.gradient.secondary:checked {
@@ -1902,6 +1903,7 @@ input[type="checkbox"].toggle.gradient.secondary:checked {
     );
     background-size: 300% 300%;
     animation: gradient-shift 4s ease infinite;
+    transition: none;
 }
 
 /* ---------------------------------------------------------------------
