@@ -73,7 +73,101 @@ function easeOutGradient(element) {
     });
 }
 
+/**
+ * Initializes scroll-direction-based hiding/showing of the navbar top row.
+ * 
+ * On mobile, the navbar has two rows:
+ * - Top row: logo + buttons (navbar-left, navbar-right)
+ * - Bottom row: menu items (navbar-center)
+ * 
+ * This function hides the top row when scrolling down and reveals it
+ * when scrolling up, creating a more compact navigation experience.
+ * 
+ * @param {HTMLElement} navbar - The navbar element with class 'navbar'
+ * @param {Object} options - Configuration options
+ * @param {number} options.threshold - Minimum scroll distance before triggering hide/show (default: 10)
+ * 
+ * @example
+ * // Basic usage
+ * const navbar = document.querySelector('.navbar');
+ * initNavbarScroll(navbar);
+ * 
+ * @example
+ * // With custom threshold
+ * initNavbarScroll(navbar, { threshold: 20 });
+ */
+function initNavbarScroll(navbar, options = {}) {
+    const threshold = options.threshold || 10;
+    let lastScrollY = window.scrollY;
+    let topRowHidden = false;
+
+    const topRowElements = navbar.querySelectorAll('.navbar-left, .navbar-right');
+    
+    // Add CSS for smooth transition
+    topRowElements.forEach(el => {
+        el.style.transition = 'opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease';
+        el.style.overflow = 'hidden';
+    });
+
+    function hideTopRow() {
+        if (topRowHidden) return;
+        topRowHidden = true;
+        topRowElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.maxHeight = '0';
+            el.style.paddingTop = '0';
+            el.style.paddingBottom = '0';
+            el.style.marginTop = '0';
+            el.style.marginBottom = '0';
+        });
+    }
+
+    function showTopRow() {
+        if (!topRowHidden) return;
+        topRowHidden = false;
+        topRowElements.forEach(el => {
+            el.style.opacity = '1';
+            el.style.maxHeight = '4rem';
+            el.style.paddingTop = '';
+            el.style.paddingBottom = '';
+            el.style.marginTop = '';
+            el.style.marginBottom = '';
+        });
+    }
+
+    function onScroll() {
+        const currentScrollY = window.scrollY;
+        const scrollDelta = currentScrollY - lastScrollY;
+
+        // Only trigger if scroll distance exceeds threshold
+        if (Math.abs(scrollDelta) < threshold) return;
+
+        if (scrollDelta > 0 && currentScrollY > 50) {
+            // Scrolling down & not at top
+            hideTopRow();
+        } else if (scrollDelta < 0) {
+            // Scrolling up
+            showTopRow();
+        }
+
+        lastScrollY = currentScrollY;
+    }
+
+    // Use passive listener for better scroll performance
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Return cleanup function
+    return function cleanup() {
+        window.removeEventListener('scroll', onScroll);
+        showTopRow();
+        topRowElements.forEach(el => {
+            el.style.transition = '';
+            el.style.overflow = '';
+        });
+    };
+}
+
 // Export for ES modules
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { easeOutGradient };
+    module.exports = { easeOutGradient, initNavbarScroll };
 }

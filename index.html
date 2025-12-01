@@ -68,6 +68,10 @@
             </div>
         </div>
     </nav>
+    <script>
+        // Initialize scroll-based navbar hiding on mobile
+        initNavbarScroll(document.getElementById('main-nav'));
+    </script>
 
     <div class="showcase">
         <h1>Modern UI Components</h1>
@@ -137,6 +141,16 @@
 
 &lt;!-- Dark navbar --&gt;
 &lt;meta name="theme-color" content="#1e1b4b"&gt;</code></pre>
+
+            <h3 style="margin-top: 2rem;">Hide Top Row on Scroll (JS)</h3>
+            <p>On mobile, hide the logo/buttons row when scrolling down, reveal when scrolling up:</p>
+            <pre><code>&lt;script src="js/framework.js"&gt;&lt;/script&gt;
+
+const navbar = document.querySelector('.navbar');
+initNavbarScroll(navbar);
+
+// Optional: custom threshold (default: 10px)
+initNavbarScroll(navbar, { threshold: 20 });</code></pre>
         </section>
 
         <!-- Badges -->
