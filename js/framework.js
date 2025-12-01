@@ -108,6 +108,9 @@ function initNavbarScroll(navbar, options = {}) {
         el.style.transition = 'opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease';
         el.style.overflow = 'hidden';
     });
+    
+    // Also transition the navbar itself for gap/padding
+    navbar.style.transition = 'gap 0.3s ease, padding 0.3s ease';
 
     function hideTopRow() {
         if (topRowHidden) return;
@@ -120,6 +123,10 @@ function initNavbarScroll(navbar, options = {}) {
             el.style.marginTop = '0';
             el.style.marginBottom = '0';
         });
+        // Collapse grid gap and even out padding
+        navbar.style.gap = '0';
+        navbar.style.paddingTop = 'var(--space-2)';
+        navbar.style.paddingBottom = 'var(--space-2)';
     }
 
     function showTopRow() {
@@ -133,6 +140,10 @@ function initNavbarScroll(navbar, options = {}) {
             el.style.marginTop = '';
             el.style.marginBottom = '';
         });
+        // Restore grid gap and padding
+        navbar.style.gap = '';
+        navbar.style.paddingTop = '';
+        navbar.style.paddingBottom = '';
     }
 
     function onScroll() {
@@ -164,6 +175,7 @@ function initNavbarScroll(navbar, options = {}) {
             el.style.transition = '';
             el.style.overflow = '';
         });
+        navbar.style.transition = '';
     };
 }
 
