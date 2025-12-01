@@ -484,6 +484,52 @@ a:focus-visible {
     border-radius: 2px;
 }
 
+/* Gradient animated link */
+a.gradient {
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary),
+        var(--color-primary-400),
+        var(--color-tertiary),
+        var(--color-primary)
+    );
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 2px;
+    animation: gradient-shift 6s ease infinite;
+    transition: border-color var(--transition-fast);
+}
+
+a.gradient:hover {
+    animation: gradient-shift 2s ease infinite;
+    border-bottom-color: var(--color-secondary);
+}
+
+a.gradient.secondary {
+    background: linear-gradient(
+        135deg,
+        var(--color-secondary),
+        var(--color-tertiary),
+        var(--color-secondary-400),
+        var(--color-primary-400),
+        var(--color-secondary)
+    );
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom-color: var(--color-secondary);
+}
+
+a.gradient.secondary:hover {
+    border-bottom-color: var(--color-tertiary);
+}
+
 /* ---------------------------------------------------------------------
    Lists
    --------------------------------------------------------------------- */
