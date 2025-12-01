@@ -304,6 +304,26 @@
         background-color: var(--color-surface-alt);
         color: var(--font-color-body);
     }
+
+    /* Disabled buttons */
+    .btn.filled:disabled,
+    .btn.filled.disabled {
+        background: var(--color-surface-alt);
+        color: var(--font-color-caption);
+    }
+
+    .btn.hollow:disabled,
+    .btn.hollow.disabled {
+        background: var(--color-background);
+        border-color: var(--color-border);
+        color: var(--font-color-caption);
+    }
+
+    .btn.hollow.gradient:disabled,
+    .btn.hollow.gradient.disabled {
+        background: var(--color-background);
+        border-color: var(--color-border);
+    }
 }
 
 /* Manual dark mode class - can be applied to html or body */
@@ -395,6 +415,26 @@
 .dark input[type="file"]::file-selector-button {
     background-color: var(--color-surface-alt);
     color: var(--font-color-body);
+}
+
+/* Dark mode disabled buttons */
+.dark .btn.filled:disabled,
+.dark .btn.filled.disabled {
+    background: var(--color-surface-alt);
+    color: var(--font-color-caption);
+}
+
+.dark .btn.hollow:disabled,
+.dark .btn.hollow.disabled {
+    background: var(--color-background);
+    border-color: var(--color-border);
+    color: var(--font-color-caption);
+}
+
+.dark .btn.hollow.gradient:disabled,
+.dark .btn.hollow.gradient.disabled {
+    background: var(--color-background);
+    border-color: var(--color-border);
 }
 
 /* ==========================================================================
