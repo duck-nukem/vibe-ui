@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe UI</title>
+    <link rel="stylesheet" href="css/framework.css">
+    <script src="js/framework.js"></script>
+    <style>
+        body {
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .showcase {
+            max-width: 64rem;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+
+        .showcase h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        .showcase > p {
+            color: var(--font-color-caption);
+            margin-bottom: 3rem;
+        }
+
+        #main-nav {
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 5;
+        }
+    </style>
+</head>
+<body>
+    <nav id="main-nav" class="navbar light">
+        <div class="navbar-left">
+            <a href="#" class="navbar-brand">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                Vibe UI
+            </a>
+        </div>
+        <div class="navbar-center">
+            <ul class="navbar-nav">
+                <li><a href="#navbar">Navbar</a></li>
+                <li><a href="#badges">Badges & Pills</a></li>
+                <li><a href="#typography">Typography</a></li>
+                <li><a href="#alerts">Alerts</a></li>
+                <li><a href="#tables">Tables</a></li>
+                <li><a href="#forms">Forms</a></li>
+                <li><a href="#buttons">Buttons</a></li>
+                <li><a href="#forms-ux">UX Patterns</a></li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <div class="navbar-actions">
+                <button class="btn hollow primary sm">Sign In</button>
+                <button class="btn filled primary sm">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="showcase">
+        <h1>Modern UI Components</h1>
+        <p>Tailwind UI / shadcn inspired components with animated gradients. Pure CSS, no JavaScript required.</p>
+
+        <!-- Navbar -->
+        <section id="navbar">
+            <h2>Navbar</h2>
+            <p>Navigation bars with left, center, and right sections. Available in light and dark variants.</p>
+
+            <h3>Light Navbar</h3>
+            <nav class="navbar light" style="border-radius: var(--radius-lg); margin-bottom: 1.5rem;">
+                <div class="navbar-left">
+                    <a href="#" class="navbar-brand">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                        Brand
+                    </a>
+                </div>
+                <div class="navbar-center">
+                    <ul class="navbar-nav">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-right">
+                    <button class="btn filled primary sm">Sign Up</button>
+                </div>
+            </nav>
+
+            <h3>Dark Navbar</h3>
+            <nav class="navbar dark" style="border-radius: var(--radius-lg);">
+                <div class="navbar-left">
+                    <a href="#" class="navbar-brand">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        DarkMode
+                    </a>
+                </div>
+                <div class="navbar-center">
+                    <ul class="navbar-nav">
+                        <li><a href="#">Docs</a></li>
+                        <li><a href="#" class="active">Components</a></li>
+                        <li><a href="#">Examples</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-right">
+                    <button class="btn hollow sm">Log In</button>
+                    <button class="btn filled gradient sm">Get Started</button>
+                </div>
+            </nav>
+
+            <div class="code-hint">
+                &lt;nav class="navbar light"&gt;...&lt;/nav&gt;<br>
+                &lt;nav class="navbar dark"&gt;...&lt;/nav&gt;<br><br>
+                &lt;div class="navbar-left"&gt;...&lt;/div&gt;<br>
+                &lt;div class="navbar-center"&gt;...&lt;/div&gt;<br>
+                &lt;div class="navbar-right"&gt;...&lt;/div&gt;
+            </div>
+        </section>
+
+        <!-- Badges -->
+        <section id="badges">
+            <h2>Badges / Pills</h2>
+            <p>Small labels for status, categories, or counts. Available in filled, hollow, soft, and gradient variants.</p>
+
+            <h3>Filled Badges</h3>
+            <div class="button-row">
+                <span class="badge">Default</span>
+                <span class="badge primary">Primary</span>
+                <span class="badge secondary">Secondary</span>
+                <span class="badge success">Success</span>
+                <span class="badge warning">Warning</span>
+                <span class="badge error">Error</span>
+                <span class="badge info">Info</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>Hollow Badges</h3>
+            <div class="button-row">
+                <span class="badge hollow">Default</span>
+                <span class="badge hollow primary">Primary</span>
+                <span class="badge hollow secondary">Secondary</span>
+                <span class="badge hollow success">Success</span>
+                <span class="badge hollow warning">Warning</span>
+                <span class="badge hollow error">Error</span>
+                <span class="badge hollow info">Info</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>Soft Badges</h3>
+            <div class="button-row">
+                <span class="badge soft primary">Primary</span>
+                <span class="badge soft secondary">Secondary</span>
+                <span class="badge soft success">Success</span>
+                <span class="badge soft warning">Warning</span>
+                <span class="badge soft error">Error</span>
+                <span class="badge soft info">Info</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>Gradient Badges</h3>
+            <div class="button-row">
+                <span class="badge gradient">Gradient</span>
+                <span class="badge gradient secondary">Secondary</span>
+                <span class="badge hollow gradient">Hollow Gradient</span>
+                <span class="badge hollow gradient secondary">Hollow Secondary</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>Badges with Icons</h3>
+            <div class="button-row">
+                <span class="badge success">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    Completed
+                </span>
+                <span class="badge hollow warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    Pending
+                </span>
+                <span class="badge soft error">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    Failed
+                </span>
+                <span class="badge gradient">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    New
+                </span>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>Badge Sizes</h3>
+            <div class="button-row">
+                <span class="badge primary sm">Small</span>
+                <span class="badge primary">Default</span>
+                <span class="badge primary lg">Large</span>
+            </div>
+
+            <div class="code-hint">
+                &lt;span class="badge primary"&gt;Primary&lt;/span&gt;<br>
+                &lt;span class="badge hollow success"&gt;Success&lt;/span&gt;<br>
+                &lt;span class="badge soft warning"&gt;Warning&lt;/span&gt;<br>
+                &lt;span class="badge gradient"&gt;Gradient&lt;/span&gt;<br>
+                &lt;span class="badge hollow gradient"&gt;Hollow Gradient&lt;/span&gt;
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <h2 id="typography">Typography</h2>
+        <p>A modern font pairing using Plus Jakarta Sans for headings and Inter for body text.</p>
+
+        <h3>Headings</h3>
+        <div style="margin-bottom: var(--space-6);">
+            <h1 style="margin-bottom: var(--space-2);">Heading 1</h1>
+            <h2 style="margin-bottom: var(--space-2);">Heading 2</h2>
+            <h3 style="margin-bottom: var(--space-2);">Heading 3</h3>
+            <h4 style="margin-bottom: var(--space-2);">Heading 4</h4>
+            <h5 style="margin-bottom: var(--space-2);">Heading 5</h5>
+            <h6 style="margin-bottom: var(--space-2);">Heading 6</h6>
+        </div>
+        <div class="divider"></div>
+        <section>
+            <h3>Body Text</h3>
+            <p>This is a regular paragraph with <strong>bold text</strong>, <em>italic text</em>, and <a href="#">a link</a>. The body font is Inter, optimized for readability on screens with proper kerning and ligatures enabled.</p>
+
+            <p class="lead">This is a lead paragraph. It's slightly larger and used for introductory text or important callouts that need more visual prominence.</p>
+
+            <p><small>This is small text, useful for captions, footnotes, or secondary information that shouldn't distract from the main content.</small></p>
+
+            <div class="divider"></div>
+
+            <h3>Lists</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6);">
+                <div>
+                    <h4>Unordered List</h4>
+                    <ul>
+                        <li>First item in the list</li>
+                        <li>Second item with more text</li>
+                        <li>Third item
+                            <ul>
+                                <li>Nested item one</li>
+                                <li>Nested item two</li>
+                            </ul>
+                        </li>
+                        <li>Fourth item</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Ordered List</h4>
+                    <ol>
+                        <li>First step in the process</li>
+                        <li>Second step with details</li>
+                        <li>Third step
+                            <ol>
+                                <li>Sub-step one</li>
+                                <li>Sub-step two</li>
+                            </ol>
+                        </li>
+                        <li>Final step</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>Blockquote</h3>
+            <blockquote>
+                <p>Design is not just what it looks like and feels like. Design is how it works.</p>
+                <cite>Steve Jobs</cite>
+            </blockquote>
+
+            <div class="divider"></div>
+
+            <h3>Code</h3>
+            <p>Use <code>inline code</code> for short code snippets within text.</p>
+            <pre><code>// Code block example
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+console.log(greet('World'));</code></pre>
+
+            <p>Use <kbd>Cmd</kbd> + <kbd>K</kbd> to open the command palette.</p>
+
+            <div class="divider"></div>
+
+            <h3>Text Utilities</h3>
+            <div class="button-row">
+                <span class="text-muted">Muted text</span>
+                <span class="font-light">Light weight</span>
+                <span class="font-medium">Medium weight</span>
+                <span class="font-semibold">Semibold weight</span>
+                <span class="font-bold">Bold weight</span>
+            </div>
+
+            <div class="code-hint">
+                &lt;h1&gt;Heading 1&lt;/h1&gt; ... &lt;h6&gt;Heading 6&lt;/h6&gt;<br>
+                &lt;p class="lead"&gt;Lead paragraph&lt;/p&gt;<br>
+                &lt;code&gt;inline code&lt;/code&gt;<br>
+                &lt;kbd&gt;Keyboard shortcut&lt;/kbd&gt;<br>
+                &lt;blockquote&gt;&lt;p&gt;Quote&lt;/p&gt;&lt;cite&gt;Author&lt;/cite&gt;&lt;/blockquote&gt;
+            </div>
+        </section>
+
+        <!-- Filled Alerts -->
+        <section id="alerts">
+            <h2>Filled Alerts</h2>
+            <p>Solid background alerts with animated gradient backgrounds. Great for important notifications.</p>
+
+            <div class="alert filled success">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Success!</div>
+                    <div class="alert-description">Your changes have been saved successfully.</div>
+                </div>
+            </div>
+
+            <div class="alert filled warning">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Warning</div>
+                    <div class="alert-description">Your session is about to expire. Please save your work.</div>
+                </div>
+            </div>
+
+            <div class="alert filled error">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Error</div>
+                    <div class="alert-description">There was a problem processing your request. Please try again.</div>
+                </div>
+            </div>
+
+            <div class="alert filled info">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Information</div>
+                    <div class="alert-description">A new software update is available for download.</div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>Primary &amp; Secondary</h3>
+
+            <div class="alert filled primary">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Primary Alert</div>
+                    <div class="alert-description">This uses the primary gradient colors from your theme.</div>
+                </div>
+            </div>
+
+            <div class="alert filled secondary">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Secondary Alert</div>
+                    <div class="alert-description">This uses the secondary gradient colors from your theme.</div>
+                </div>
+            </div>
+
+            <div class="code-hint">
+                &lt;div class="alert filled success"&gt;...&lt;/div&gt;<br>
+                &lt;div class="alert filled warning"&gt;...&lt;/div&gt;<br>
+                &lt;div class="alert filled error"&gt;...&lt;/div&gt;<br>
+                &lt;div class="alert filled info"&gt;...&lt;/div&gt;
+            </div>
+        </section>
+
+        <!-- Hollow Alerts -->
+        <section>
+            <h2>Hollow Alerts</h2>
+            <p>Outline-style alerts with animated gradient borders and subtle glow. Perfect for less intrusive notifications.</p>
+
+            <div class="alert hollow success">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Success!</div>
+                    <div class="alert-description">Your changes have been saved successfully.</div>
+                </div>
+            </div>
+
+            <div class="alert hollow warning">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Warning</div>
+                    <div class="alert-description">Your session is about to expire. Please save your work.</div>
+                </div>
+            </div>
+
+            <div class="alert hollow error">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Error</div>
+                    <div class="alert-description">There was a problem processing your request. Please try again.</div>
+                </div>
+            </div>
+
+            <div class="alert hollow info">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Information</div>
+                    <div class="alert-description">A new software update is available for download.</div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>Primary &amp; Secondary</h3>
+
+            <div class="alert hollow primary">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Primary Alert</div>
+                    <div class="alert-description">This uses the primary gradient colors from your theme.</div>
+                </div>
+            </div>
+
+            <div class="alert hollow secondary">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Secondary Alert</div>
+                    <div class="alert-description">This uses the secondary gradient colors from your theme.</div>
+                </div>
+            </div>
+
+            <div class="code-hint">
+                &lt;div class="alert hollow success"&gt;...&lt;/div&gt;<br>
+                &lt;div class="alert hollow warning"&gt;...&lt;/div&gt;<br>
+                &lt;div class="alert hollow error"&gt;...&lt;/div&gt;<br>
+                &lt;div class="alert hollow info"&gt;...&lt;/div&gt;
+            </div>
+        </section>
+
+        <!-- Alert Sizes -->
+        <section>
+            <h2>Alert Sizes</h2>
+            <p>Alerts come in small, default, and large sizes.</p>
+
+            <div class="alert filled info sm">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Small Alert</div>
+                    <div class="alert-description">This is a small-sized alert.</div>
+                </div>
+            </div>
+
+            <div class="alert filled info">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Default Alert</div>
+                    <div class="alert-description">This is a default-sized alert.</div>
+                </div>
+            </div>
+
+            <div class="alert filled info lg">
+                <svg class="alert-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="alert-content">
+                    <div class="alert-title">Large Alert</div>
+                    <div class="alert-description">This is a large-sized alert for more prominent notifications.</div>
+                </div>
+            </div>
+
+            <div class="code-hint">
+                &lt;div class="alert filled info sm"&gt;...&lt;/div&gt;<br>
+                &lt;div class="alert filled info"&gt;...&lt;/div&gt;<br>
+                &lt;div class="alert filled info lg"&gt;...&lt;/div&gt;
+            </div>
+        </section>
+
+        <!-- Tables - Default -->
+        <section id="tables">
+            <h2>Tables</h2>
+            <p>Clean, modern tables with multiple variants. Hover over rows to see the interaction states.</p>
+
+            <h3>Default Table with Sortable Headers</h3>
+            <table class="hoverable">
+                <thead>
+                    <tr>
+                        <th><span class="th-content sortable sorted desc">Name <span class="sort-icon"></span></span></th>
+                        <th><span class="th-content sortable">Email <span class="sort-icon"></span></span></th>
+                        <th><span class="th-content">Role</span></th>
+                        <th><span class="th-content">Status</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                        <td><span class="badge soft success">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>Editor</td>
+                        <td><span class="badge soft success">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>Bob Johnson</td>
+                        <td>bob@example.com</td>
+                        <td>Viewer</td>
+                        <td><span class="badge soft warning">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>Alice Brown</td>
+                        <td>alice@example.com</td>
+                        <td>Editor</td>
+                        <td><span class="badge soft error">Inactive</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="code-hint">
+                &lt;table class="hoverable"&gt;...&lt;/table&gt;<br>
+                &lt;th&gt;&lt;span class="th-content sortable"&gt;Name &lt;span class="sort-icon"&gt;&lt;/span&gt;&lt;/span&gt;&lt;/th&gt;<br>
+                &lt;th&gt;&lt;span class="th-content sortable sorted"&gt;...&lt;/span&gt;&lt;/th&gt; &lt;!-- ascending --&gt;<br>
+                &lt;th&gt;&lt;span class="th-content sortable sorted desc"&gt;...&lt;/span&gt;&lt;/th&gt; &lt;!-- descending --&gt;
+            </div>
+        </section>
+
+        <!-- Tables - Striped with Gradient Sortable Headers -->
+        <section>
+            <h2>Striped Table with Gradient Headers</h2>
+            <p>Alternating row colors with eye-catching gradient pill-style sortable column headers.</p>
+
+            <table class="striped hoverable">
+                <thead>
+                    <tr>
+                        <th><span class="th-content">Product</span></span></th>
+                        <th><span class="th-content">Category</span></th>
+                        <th><span class="th-content sortable gradient sorted">Price <span class="sort-icon"></span></span></th>
+                        <th><span class="th-content">Stock</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MacBook Pro</td>
+                        <td>Laptops</td>
+                        <td>$2,499</td>
+                        <td class="status-success">In Stock</td>
+                    </tr>
+                    <tr>
+                        <td>iPhone 15 Pro</td>
+                        <td>Phones</td>
+                        <td>$1,199</td>
+                        <td class="status-success">In Stock</td>
+                    </tr>
+                    <tr>
+                        <td>AirPods Pro</td>
+                        <td>Audio</td>
+                        <td>$249</td>
+                        <td class="status-warning">Low Stock</td>
+                    </tr>
+                    <tr>
+                        <td>iPad Air</td>
+                        <td>Tablets</td>
+                        <td>$599</td>
+                        <td class="status-error">Out of Stock</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Watch</td>
+                        <td>Wearables</td>
+                        <td>$399</td>
+                        <td class="status-success">In Stock</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="code-hint">
+                &lt;table class="striped hoverable"&gt;...&lt;/table&gt;<br>
+                &lt;th&gt;&lt;span class="th-content sortable gradient"&gt;Price &lt;span class="sort-icon"&gt;&lt;/span&gt;&lt;/span&gt;&lt;/th&gt;<br>
+                &lt;th&gt;&lt;span class="th-content sortable gradient secondary"&gt;...&lt;/span&gt;&lt;/th&gt; &lt;!-- secondary colors --&gt;
+            </div>
+        </section>
+
+        <!-- Tables - Hollow -->
+        <section>
+            <h2>Hollow Table</h2>
+            <p>Animated gradient border matching the hollow button and input styles. Perfect for highlighting important data.</p>
+
+            <table class="hollow hoverable">
+                <thead>
+                    <tr>
+                        <th><span class="th-content sortable sorted desc">Metric <span class="sort-icon"></span></span></th>
+                        <th><span class="th-content">This Week</span></th>
+                        <th><span class="th-content">Last Week</span></th>
+                        <th><span class="th-content sortable">Change <span class="sort-icon"></span></span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Page Views</td>
+                        <td>24,521</td>
+                        <td>21,345</td>
+                        <td class="status-success">+14.9%</td>
+                    </tr>
+                    <tr>
+                        <td>Unique Visitors</td>
+                        <td>8,432</td>
+                        <td>7,891</td>
+                        <td class="status-success">+6.9%</td>
+                    </tr>
+                    <tr>
+                        <td>Bounce Rate</td>
+                        <td>42.3%</td>
+                        <td>45.1%</td>
+                        <td class="status-success">-2.8%</td>
+                    </tr>
+                    <tr>
+                        <td>Avg. Session</td>
+                        <td>3m 24s</td>
+                        <td>2m 58s</td>
+                        <td class="status-success">+14.6%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="code-hint">
+                &lt;table class="hollow"&gt;...&lt;/table&gt;<br>
+                &lt;table class="hollow secondary"&gt;...&lt;/table&gt;
+            </div>
+        </section>
+
+        <!-- Tables - Responsive -->
+        <section>
+            <h2>Responsive Table</h2>
+            <p>On mobile screens (below 640px), rows stack vertically with labels. Resize your browser to see the effect.</p>
+
+            <table class="responsive hoverable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Name">John Doe</td>
+                        <td data-label="Email">john@example.com</td>
+                        <td data-label="Role">Admin</td>
+                        <td data-label="Status"><span class="badge soft success">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Jane Smith</td>
+                        <td data-label="Email">jane@example.com</td>
+                        <td data-label="Role">Editor</td>
+                        <td data-label="Status"><span class="badge soft warning">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Bob Johnson</td>
+                        <td data-label="Email">bob@example.com</td>
+                        <td data-label="Role">Viewer</td>
+                        <td data-label="Status"><span class="badge soft error">Inactive</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="code-hint">
+                &lt;table class="responsive"&gt;...&lt;/table&gt;<br>
+                &lt;td data-label="Name"&gt;John Doe&lt;/td&gt; &lt;!-- data-label shown on mobile --&gt;
+            </div>
+        </section>
+
+        <!-- Tables - Compact & Relaxed -->
+        <section>
+            <h2>Table Sizes</h2>
+            <p>Compact and relaxed spacing options for different use cases.</p>
+
+            <h3>Compact</h3>
+            <table class="compact striped hoverable">
+                <thead>
+                    <tr>
+                        <th><span class="th-content">ID</span></th>
+                        <th><span class="th-content">Event</span></th>
+                        <th><span class="th-content">Time</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#1001</td>
+                        <td>User login</td>
+                        <td>10:23 AM</td>
+                    </tr>
+                    <tr>
+                        <td>#1002</td>
+                        <td>File uploaded</td>
+                        <td>10:25 AM</td>
+                    </tr>
+                    <tr>
+                        <td>#1003</td>
+                        <td>Settings updated</td>
+                        <td>10:28 AM</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="divider"></div>
+
+            <h3>Relaxed</h3>
+            <table class="relaxed hoverable">
+                <thead>
+                    <tr>
+                        <th><span class="th-content">Feature</span></th>
+                        <th><span class="th-content">Description</span></th>
+                        <th><span class="th-content">Status</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dark Mode</td>
+                        <td>Enable dark theme across the application</td>
+                        <td><span class="badge soft success">Available</span></td>
+                    </tr>
+                    <tr>
+                        <td>API Access</td>
+                        <td>RESTful API for third-party integrations</td>
+                        <td><span class="badge soft info">Beta</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="code-hint">
+                &lt;table class="compact"&gt;...&lt;/table&gt;<br>
+                &lt;table class="relaxed"&gt;...&lt;/table&gt;
+            </div>
+        </section>
+
+        <!-- Text Inputs -->
+        <section id="forms">
+            <h2>Text Inputs</h2>
+            <p>Clean, modern input fields with focus states and validation styling.</p>
+
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="text-default">Text Input</label>
+                    <input type="text" id="text-default" placeholder="Enter your name">
+                </div>
+
+                <div class="input-group">
+                    <label for="email-input">Email Input</label>
+                    <input type="email" id="email-input" placeholder="you@example.com">
+                    <span class="input-hint">We'll never share your email.</span>
+                </div>
+
+                <div class="input-group">
+                    <label class="required" for="password-input">Password</label>
+                    <input type="password" id="password-input" placeholder="••••••••">
+                </div>
+
+                <div class="input-group">
+                    <label for="disabled-input">Disabled Input</label>
+                    <input type="text" id="disabled-input" placeholder="Can't touch this" disabled>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>Validation States</h3>
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="error-input">Error State</label>
+                    <input type="text" id="error-input" class="input-error" value="invalid@email">
+                    <span class="error-message">Please enter a valid email address.</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="success-input">Success State</label>
+                    <input type="text" id="success-input" class="input-success" value="valid@email.com">
+                </div>
+            </div>
+
+            <div class="code-hint">
+                &lt;input type="text" placeholder="Enter text..."&gt;<br>
+                &lt;input type="email" placeholder="you@example.com"&gt;<br>
+                &lt;input type="password" placeholder="••••••••"&gt;
+            </div>
+        </section>
+
+        <!-- Select and Textarea -->
+        <section>
+            <h2>Select &amp; Textarea</h2>
+            <p>Dropdown selects and multi-line text areas with consistent styling.</p>
+
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="select-default">Select</label>
+                    <select id="select-default">
+                        <option value="" disabled selected>Choose an option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="select-disabled">Disabled Select</label>
+                    <select id="select-disabled" disabled>
+                        <option value="" disabled selected>Can't change this</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="textarea-default">Textarea</label>
+                <textarea id="textarea-default" placeholder="Write your message here..."></textarea>
+            </div>
+
+            <div class="code-hint">
+                &lt;select&gt;<br>
+                &nbsp;&nbsp;&lt;option value="1"&gt;Option 1&lt;/option&gt;<br>
+                &lt;/select&gt;<br><br>
+                &lt;textarea placeholder="Your message..."&gt;&lt;/textarea&gt;
+            </div>
+        </section>
+
+        <!-- Checkboxes and Radios -->
+        <section>
+            <h2>Checkboxes &amp; Radio Buttons</h2>
+            <p>Custom styled checkboxes and radio buttons that match the design system.</p>
+
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>Checkboxes</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span>Email notifications</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>SMS notifications</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" disabled>
+                            <span>Push notifications (coming soon)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Radio Buttons</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="plan" value="free" checked>
+                            <span>Free Plan</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="plan" value="pro">
+                            <span>Pro Plan</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="plan" value="enterprise">
+                            <span>Enterprise Plan</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-hint">
+                &lt;label class="checkbox-label"&gt;<br>
+                &nbsp;&nbsp;&lt;input type="checkbox" checked&gt;<br>
+                &nbsp;&nbsp;&lt;span&gt;Option label&lt;/span&gt;<br>
+                &lt;/label&gt;
+            </div>
+        </section>
+
+        <!-- Other Input Types -->
+        <section>
+            <h2>Other Input Types</h2>
+            <p>Range sliders, file uploads, date pickers, and more.</p>
+
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="range-input">Range Slider</label>
+                    <input type="range" id="range-input" min="0" max="100" value="50">
+                </div>
+
+                <div class="input-group">
+                    <label for="file-input">File Upload</label>
+                    <input type="file" id="file-input">
+                </div>
+
+                <div class="input-group">
+                    <label for="date-input">Date</label>
+                    <input type="date" id="date-input">
+                </div>
+
+                <div class="input-group">
+                    <label for="time-input">Time</label>
+                    <input type="time" id="time-input">
+                </div>
+
+                <div class="input-group">
+                    <label for="number-input">Number</label>
+                    <input type="number" id="number-input" placeholder="0" min="0" max="100">
+                </div>
+
+                <div class="input-group">
+                    <label for="search-input">Search</label>
+                    <input type="search" id="search-input" placeholder="Search...">
+                </div>
+
+                <div class="input-group">
+                    <label for="tel-input">Phone</label>
+                    <input type="tel" id="tel-input" placeholder="+1 (555) 000-0000">
+                </div>
+
+                <div class="input-group">
+                    <label for="url-input">URL</label>
+                    <input type="url" id="url-input" placeholder="https://example.com">
+                </div>
+            </div>
+
+            <div class="code-hint">
+                &lt;input type="range" min="0" max="100" value="50"&gt;<br>
+                &lt;input type="file"&gt;<br>
+                &lt;input type="date"&gt;
+            </div>
+        </section>
+
+        <!-- Hollow Inputs -->
+        <section>
+            <h2>Hollow Inputs</h2>
+            <p>Outline-style inputs with a prominent colored border. Matches the hollow button aesthetic.</p>
+
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="hollow-text">Hollow Primary</label>
+                    <input type="text" id="hollow-text" class="hollow" placeholder="Primary hollow input">
+                </div>
+
+                <div class="input-group">
+                    <label for="hollow-secondary">Hollow Secondary</label>
+                    <input type="text" id="hollow-secondary" class="hollow secondary" placeholder="Secondary hollow input">
+                </div>
+
+                <div class="input-group">
+                    <label for="hollow-select">Hollow Select</label>
+                    <select id="hollow-select" class="hollow">
+                        <option value="" disabled selected>Choose an option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="hollow-select-secondary">Hollow Select Secondary</label>
+                    <select id="hollow-select-secondary" class="hollow secondary">
+                        <option value="" disabled selected>Choose an option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="hollow-textarea">Hollow Textarea</label>
+                <textarea id="hollow-textarea" class="hollow" placeholder="Write something amazing..."></textarea>
+            </div>
+
+            <div class="code-hint">
+                &lt;input type="text" class="hollow" placeholder="..."&gt;<br>
+                &lt;input type="text" class="hollow secondary" placeholder="..."&gt;<br>
+                &lt;select class="hollow"&gt;...&lt;/select&gt;
+            </div>
+        </section>
+
+        <!-- Gradient Inputs -->
+        <section>
+            <h2>Gradient Inputs (Attention Grabbing)</h2>
+            <p>Eye-catching inputs with continuously animated gradient borders and subtle glow. Perfect for hero sections, signup forms, or any input that needs to capture attention.</p>
+
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="gradient-text">Gradient Primary</label>
+                    <input type="text" id="gradient-text" class="gradient" placeholder="Enter your email">
+                </div>
+
+                <div class="input-group">
+                    <label for="gradient-secondary">Gradient Secondary</label>
+                    <input type="text" id="gradient-secondary" class="gradient secondary" placeholder="Enter your name">
+                </div>
+
+                <div class="input-group">
+                    <label for="gradient-email">Gradient Email</label>
+                    <input type="email" id="gradient-email" class="gradient" placeholder="you@startup.com">
+                </div>
+
+                <div class="input-group">
+                    <label for="gradient-select">Gradient Select</label>
+                    <select id="gradient-select" class="gradient">
+                        <option value="" disabled selected>Choose your plan</option>
+                        <option value="free">Free</option>
+                        <option value="pro">Pro</option>
+                        <option value="enterprise">Enterprise</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="gradient-textarea">Gradient Textarea</label>
+                <textarea id="gradient-textarea" class="gradient" placeholder="Tell us about your project..."></textarea>
+            </div>
+
+            <div class="code-hint">
+                &lt;input type="text" class="gradient" placeholder="..."&gt;<br>
+                &lt;input type="text" class="gradient secondary" placeholder="..."&gt;<br>
+                &lt;textarea class="gradient"&gt;...&lt;/textarea&gt;
+            </div>
+        </section>
+
+        <!-- Filled Buttons -->
+        <section id="buttons">
+            <h2>Filled Buttons</h2>
+            <p>Solid background buttons with animated gradient on hover. The gradient eases in and continuously shifts.</p>
+
+            <div class="button-row">
+                <span class="label">Primary</span>
+                <button class="btn filled primary">Primary</button>
+                <button class="btn filled primary sm">Small</button>
+                <button class="btn filled primary lg">Large</button>
+            </div>
+
+            <div class="button-row">
+                <span class="label">Secondary</span>
+                <button class="btn filled secondary">Secondary</button>
+                <button class="btn filled secondary sm">Small</button>
+                <button class="btn filled secondary lg">Large</button>
+            </div>
+
+            <div class="button-row">
+                <span class="label">Disabled</span>
+                <button class="btn filled primary" disabled>Disabled</button>
+                <button class="btn filled secondary" disabled>Disabled</button>
+            </div>
+
+            <div class="code-hint">
+                &lt;button class="btn filled primary"&gt;Primary&lt;/button&gt;
+            </div>
+        </section>
+
+        <!-- Hollow Buttons -->
+        <section>
+            <h2>Hollow Buttons</h2>
+            <p>Outline buttons with a solid border that transforms into an animated gradient on hover. The gradient shifts smoothly through the theme colors.</p>
+
+            <div class="button-row">
+                <span class="label">Primary</span>
+                <button class="btn hollow primary">Primary</button>
+                <button class="btn hollow primary sm">Small</button>
+                <button class="btn hollow primary lg">Large</button>
+            </div>
+
+            <div class="button-row">
+                <span class="label">Secondary</span>
+                <button class="btn hollow secondary">Secondary</button>
+                <button class="btn hollow secondary sm">Small</button>
+                <button class="btn hollow secondary lg">Large</button>
+            </div>
+
+            <div class="button-row">
+                <span class="label">Disabled</span>
+                <button class="btn hollow primary" disabled>Disabled</button>
+                <button class="btn hollow secondary" disabled>Disabled</button>
+            </div>
+
+            <div class="code-hint">
+                &lt;button class="btn hollow primary"&gt;Primary&lt;/button&gt;
+            </div>
+        </section>
+
+        <!-- Always Gradient - Filled -->
+        <section>
+            <h2>Always Gradient - Filled</h2>
+            <p>Filled buttons with a continuously animating gradient background. The animation speeds up on hover for a dynamic effect.</p>
+
+            <div class="button-row">
+                <span class="label">Primary</span>
+                <button class="btn filled gradient primary">Gradient Primary</button>
+                <button class="btn filled gradient primary sm">Small</button>
+                <button class="btn filled gradient primary lg">Large</button>
+            </div>
+
+            <div class="button-row">
+                <span class="label">Secondary</span>
+                <button class="btn filled gradient secondary">Gradient Secondary</button>
+                <button class="btn filled gradient secondary sm">Small</button>
+                <button class="btn filled gradient secondary lg">Large</button>
+            </div>
+
+            <div class="code-hint">
+                &lt;button class="btn filled gradient primary"&gt;Gradient Primary&lt;/button&gt;
+            </div>
+        </section>
+
+        <!-- Always Gradient - Hollow -->
+        <section>
+            <h2>Always Gradient - Hollow (Attention Grabbing)</h2>
+            <p>Eye-catching hollow buttons with a continuously animated gradient border and subtle glow. Perfect for call-to-action buttons that need to capture attention. The animation speeds up on hover.</p>
+
+            <div class="button-row">
+                <span class="label">Primary</span>
+                <button class="btn hollow gradient primary">Gradient Primary</button>
+                <button class="btn hollow gradient primary sm">Small</button>
+                <button class="btn hollow gradient primary lg">Large</button>
+            </div>
+
+            <div class="button-row">
+                <span class="label">Secondary</span>
+                <button class="btn hollow gradient secondary">Gradient Secondary</button>
+                <button class="btn hollow gradient secondary sm">Small</button>
+                <button class="btn hollow gradient secondary lg">Large</button>
+            </div>
+
+            <div class="code-hint">
+                &lt;button class="btn hollow gradient primary"&gt;Gradient Primary&lt;/button&gt;
+            </div>
+        </section>
+
+        <!-- All Variants Grid -->
+        <section>
+            <h2>All Variants at a Glance</h2>
+            <p>A complete overview of all button combinations.</p>
+
+            <div class="button-row">
+                <button class="btn filled primary">Filled Primary</button>
+                <button class="btn filled secondary">Filled Secondary</button>
+                <button class="btn filled gradient">Filled Gradient</button>
+            </div>
+
+            <div class="button-row">
+                <button class="btn hollow primary">Hollow Primary</button>
+                <button class="btn hollow secondary">Hollow Secondary</button>
+                <button class="btn hollow gradient">Hollow Gradient</button>
+            </div>
+
+            <div class="button-row">
+                <button class="btn filled primary" disabled>Disabled Filled</button>
+                <button class="btn hollow primary" disabled>Disabled Hollow</button>
+            </div>
+        </section>
+
+        <!-- On Dark Background -->
+        <section class="dark-section">
+            <h2>On Dark Background</h2>
+            <p>The gradient effects and glow become even more striking on dark backgrounds, making these perfect for hero sections.</p>
+
+            <div class="button-row">
+                <button class="btn filled primary">Filled Primary</button>
+                <button class="btn filled gradient">Filled Gradient</button>
+            </div>
+            <div class="button-row">
+                <button class="btn hollow gradient primary">Hollow Gradient Primary</button>
+                <button class="btn hollow gradient secondary">Hollow Gradient Secondary</button>
+            </div>
+        </section>
+
+    <section id="forms-ux">
+        <h2>UX Patterns</h2>
+        <p>Use gradients to communicate state changes and guide user attention.</p>
+
+        <h3 style="margin-top:2rem;">Show AI/async processing</h3>
+        <p>Let users know a field is being updated. Click "Generate" to see it in action.</p>
+        <div style="max-width: 400px;">
+            <div class="input-group">
+                <label for="ux-1-input">Issue description</label>
+                <input type="text" id="ux-1-input" placeholder="As a user...">
+                <span class="input-hint">Remember to use the proper format!</span>
+            </div>
+            <div style="margin-top: 1rem; text-align: right;">
+                <button id="form-ux-save-default" class="btn filled disabled">Save</button>
+                <button id="form-ux-save-with-ai" class="btn hollow gradient primary">Generate with ✨AI✨</button>
+            </div>
+        </div>
+        <script>
+            const uxSaveWithAiButton = document.getElementById('form-ux-save-with-ai');
+            const uxSaveDefaultButton = document.getElementById('form-ux-save-default');
+            const ux1Input = document.getElementById('ux-1-input');
+            const ux1FakeAiText = "As a developer, I want to be free";
+            uxSaveWithAiButton.addEventListener('click', () => {
+              ux1Input.value = "";
+              ux1Input.classList.add('gradient');
+              uxSaveDefaultButton.classList.add('disabled');
+              setTimeout(() => {
+                ux1FakeAiText.split("").forEach((char, index) => {
+                  setTimeout(() => {
+                      ux1Input.value += char;
+                  }, index * 50);
+                });
+              }, 1000);
+              setTimeout(() => {
+                // Use the smooth fade-out helper from framework.js
+                easeOutGradient(ux1Input);
+                uxSaveDefaultButton.classList.remove('disabled');
+              }, ux1FakeAiText.length * 50 + 1500);
+            });
+            uxSaveDefaultButton.addEventListener('click', () => {
+              ux1Input.value = "";
+              uxSaveDefaultButton.classList.add('disabled');
+            });
+        </script>
+
+        <div class="divider"></div>
+
+        <h3 style="margin-top:2rem;">Smooth fade-out</h3>
+        <p>Removing the gradient abruptly looks jarring. Use <code>easeOutGradient()</code> for a polished transition.</p>
+
+        <pre><code>&lt;script src="js/framework.js"&gt;&lt;/script&gt;
+
+// Fade out smoothly
+easeOutGradient(element);
+
+// Need to run code after? It's a Promise:
+await easeOutGradient(element);
+doSomethingNext();</code></pre>
+
+        <h4 style="margin-top:1.5rem;">Compare:</h4>
+        <div style="max-width: 500px;">
+            <div class="input-row">
+                <div class="input-group" style="flex: 1;">
+                    <label for="fade-demo-instant">Instant removal</label>
+                    <input type="text" id="fade-demo-instant" value="Click button below">
+                </div>
+                <div class="input-group" style="flex: 1;">
+                    <label for="fade-demo-smooth">Smooth fade-out</label>
+                    <input type="text" id="fade-demo-smooth" value="Click button below">
+                </div>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <button id="fade-demo-instant-btn" class="btn hollow primary" style="flex: 1;">Toggle Instant</button>
+                <button id="fade-demo-smooth-btn" class="btn hollow gradient primary" style="flex: 1;">Toggle Smooth</button>
+            </div>
+        </div>
+        <script>
+            const fadeDemoInstant = document.getElementById('fade-demo-instant');
+            const fadeDemoSmooth = document.getElementById('fade-demo-smooth');
+            const fadeDemoInstantBtn = document.getElementById('fade-demo-instant-btn');
+            const fadeDemoSmoothBtn = document.getElementById('fade-demo-smooth-btn');
+
+            // Instant toggle - abrupt removal
+            fadeDemoInstantBtn.addEventListener('click', () => {
+                if (fadeDemoInstant.classList.contains('gradient')) {
+                    fadeDemoInstant.classList.remove('gradient');
+                } else {
+                    fadeDemoInstant.classList.add('gradient');
+                }
+            });
+
+            // Smooth toggle - uses easeOutGradient from framework.js
+            fadeDemoSmoothBtn.addEventListener('click', () => {
+                if (fadeDemoSmooth.classList.contains('gradient')) {
+                    easeOutGradient(fadeDemoSmooth);
+                } else {
+                    fadeDemoSmooth.classList.add('gradient');
+                }
+            });
+        </script>
+
+        <div class="divider"></div>
+
+        <h3 style="margin-top:2rem;">Indicate button loading state</h3>
+        <p>Add gradient to buttons during async operations. Users see something is happening.</p>
+        <div style="max-width: 400px;">
+            <div class="input-group">
+                <label for="ux-3-input">Issue description</label>
+                <input type="text" id="ux-3-input" value="As a user I'd like to enjoy the software I use">
+            </div>
+            <div style="margin-top: 1rem; text-align: right;">
+                <button id="ux-3-save-1" class="btn filled primary">Add to sprint</button>
+            </div>
+            <script>
+                const ux3Save1Button = document.getElementById('ux-3-save-1');
+                const ux3Input = document.getElementById('ux-3-input');
+
+                ux3Save1Button.addEventListener('click', () => {
+                  ux3Input.setAttribute("disabled", true);
+                  ux3Save1Button.classList.add('gradient');
+
+                  setTimeout(() => {
+                    ux3Input.removeAttribute("disabled");
+                    ux3Save1Button.classList.remove('gradient');
+                  }, 2000);
+                });
+            </script>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3 style="margin-top:2rem;">Highlight recommended actions</h3>
+        <p>Draw attention to the action you want users to take. The gradient button stands out.</p>
+        <div style="max-width: 400px;">
+            <div class="input-group">
+                <label for="ux-2-input">Issue description</label>
+                <input type="text" id="ux-2-input" value="As a user I'd like to enjoy the software I use">
+            </div>
+            <div style="margin-top: 1rem; text-align: right;">
+                <button id="ux-2-save-1" class="btn filled primary">Add to sprint</button>
+                <button id="ux-2-save-2" class="btn filled secondary">Add to backlog</button>
+                <button id="ux-2-save-3" class="btn hollow gradient primary">Fast-track</button>
+            </div>
+            <script>
+                const ux2Save1Button = document.getElementById('ux-2-save-1');
+                const ux2Save2Button = document.getElementById('ux-2-save-2');
+                const ux2Save3Button = document.getElementById('ux-2-save-3');
+                const ux2Input = document.getElementById('ux-2-input');
+
+                ux2Save3Button.addEventListener('click', () => {
+                  ux2Save3Button.classList.remove('hollow');
+                  ux2Input.setAttribute("disabled", true);
+                  ux2Save3Button.classList.add('filled');
+                  ux2Save1Button.classList.add('disabled');
+                  ux2Save2Button.classList.add('disabled');
+
+                  setTimeout(() => {
+                    ux2Save3Button.classList.add('hollow');
+                    ux2Input.removeAttribute("disabled");
+                    ux2Save3Button.classList.remove('filled');
+                    ux2Save1Button.classList.remove('disabled');
+                    ux2Save2Button.classList.remove('disabled');
+                  }, 2000);
+                });
+            </script>
+        </div>
+    </section>
+    </div>
+</body>
+</html>
