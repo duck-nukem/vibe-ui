@@ -76,23 +76,7 @@
         initNavbarScroll(document.getElementById('main-nav'));
 
         // Dark mode toggle
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        
-        function setDarkMode(isDark) {
-            document.documentElement.classList.toggle('dark', isDark);
-            darkModeToggle.checked = isDark;
-        }
-        
-        darkModeToggle.addEventListener('change', function() {
-            setDarkMode(this.checked);
-        });
-
-        // Check system preference on load
-        setDarkMode(darkModeQuery.matches);
-        
-        // Listen for system preference changes
-        darkModeQuery.addEventListener('change', (e) => setDarkMode(e.matches));
+        initDarkMode(document.getElementById('dark-mode-toggle'));
     </script>
 
     <div class="showcase">

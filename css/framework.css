@@ -635,12 +635,9 @@ dl.horizontal.striped dd {
     margin: 0;
 }
 
-/* Use linear-gradient to create row stripes via background on alternating pairs */
-dl.horizontal.striped dt:nth-of-type(odd) {
-    background-color: var(--color-surface);
-}
-
-dl.horizontal.striped dd:nth-of-type(odd) {
+/* Stripe odd rows - dt:nth-of-type(odd) is 1st, 3rd, 5th dt, etc. */
+dl.horizontal.striped dt:nth-of-type(odd),
+dl.horizontal.striped dt:nth-of-type(odd) + dd {
     background-color: var(--color-surface);
 }
 
@@ -2092,7 +2089,6 @@ select.gradient {
 input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).gradient:hover,
 textarea.gradient:hover,
 select.gradient:hover {
-    border: 2px solid transparent;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
@@ -2113,7 +2109,7 @@ select.gradient:hover {
 input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).gradient:focus,
 textarea.gradient:focus,
 select.gradient:focus {
-    border: 2px solid transparent;
+    outline: none;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
@@ -2164,7 +2160,6 @@ select.gradient.secondary {
 input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).gradient.secondary:hover,
 textarea.gradient.secondary:hover,
 select.gradient.secondary:hover {
-    border: 2px solid transparent;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(
@@ -2185,7 +2180,7 @@ select.gradient.secondary:hover {
 input:where(:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"])).gradient.secondary:focus,
 textarea.gradient.secondary:focus,
 select.gradient.secondary:focus {
-    border: 2px solid transparent;
+    outline: none;
     background:
         linear-gradient(var(--color-background), var(--color-background)) padding-box,
         linear-gradient(

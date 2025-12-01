@@ -177,16 +177,62 @@ function initNavbarScroll(navbar, options = {}) {
 
     // Use passive listener for better scroll performance
     window.addEventListener('scroll', onScroll, { passive: true });
+}
 
-    // Return cleanup function
-    return function cleanup() {
-        window.removeEventListener('scroll', onScroll);
-        showTopRow();
-        topRowElements.forEach(el => {
-            el.style.transition = '';
-            el.style.overflow = '';
+/**
+ * Initializes dark mode based on system preference and provides a toggle function.
+ * 
+ * This function:
+ * 1. Checks the user's system preference for dark mode
+ * 2. Applies the 'dark' class to <html> if dark mode is preferred
+ * 3. Optionally syncs with a toggle checkbox
+ * 4. Listens for system preference changes
+ * 
+ * @param {HTMLInputElement} [toggle] - Optional checkbox input to sync with dark mode state
+ * @returns {Object} An object with methods to control dark mode
+ * 
+ * @example
+ * // Basic usage - just follows system preference
+ * initDarkMode();
+ * 
+ * @example
+ * // With a toggle checkbox
+ * const toggle = document.getElementById('dark-mode-toggle');
+ * const darkMode = initDarkMode(toggle);
+ * 
+ * // Programmatically control dark mode
+ * darkMode.set(true);  // Enable dark mode
+ * darkMode.set(false); // Disable dark mode
+ * darkMode.toggle();   // Toggle dark mode
+ */
+function initDarkMode(toggle) {
+    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    function set(isDark) {
+        document.documentElement.classList.toggle('dark', isDark);
+        if (toggle) {
+            toggle.checked = isDark;
+        }
+    }
+    
+    // Sync toggle with dark mode state
+    if (toggle) {
+        toggle.addEventListener('change', function() {
+            set(this.checked);
         });
-        navbar.style.transition = '';
+    }
+    
+    // Set initial state based on system preference
+    set(darkModeQuery.matches);
+    
+    // Listen for system preference changes
+    darkModeQuery.addEventListener('change', (e) => set(e.matches));
+    
+    // Return control methods
+    return {
+        set: set,
+        toggle: () => set(!document.documentElement.classList.contains('dark')),
+        isDark: () => document.documentElement.classList.contains('dark')
     };
 }
 
