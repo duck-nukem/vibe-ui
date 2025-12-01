@@ -750,12 +750,16 @@ td.status-info {
         grid-area: buttons;
     }
 
-    /* Bottom row: menu items (full width) */
+    /* Bottom row: menu items (full width, sticky) */
     .navbar-center {
         grid-area: menu;
         width: 100%;
         justify-content: flex-start;
         padding: var(--space-2) 0;
+        position: sticky;
+        top: 0;
+        background: inherit;
+        z-index: 1;
     }
 }
 

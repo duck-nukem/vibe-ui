@@ -37,6 +37,12 @@
             margin-bottom: 2rem;
         }
 
+        @media (max-width: 640px) {
+            #main-nav {
+                position: static;
+            }
+        }
+
         .showcase {
             padding: 0 2rem;
         }
@@ -47,6 +53,7 @@
         <div class="navbar-left">
             <a href="#" class="navbar-brand">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                Vibe UI
             </a>
         </div>
         <div class="navbar-center">
@@ -63,6 +70,7 @@
         </div>
         <div class="navbar-right">
             <div class="navbar-actions">
+                <button class="btn hollow sm">GitHub</button>
             </div>
         </div>
     </nav>
@@ -1369,12 +1377,10 @@ doSomethingNext();</code></pre>
             </div>
             <div style="margin-top: 1rem; text-align: right;">
                 <button id="ux-2-save-1" class="btn filled primary">Add to sprint</button>
-                <button id="ux-2-save-2" class="btn filled secondary">Add to backlog</button>
                 <button id="ux-2-save-3" class="btn hollow gradient primary">Fast-track</button>
             </div>
             <script>
                 const ux2Save1Button = document.getElementById('ux-2-save-1');
-                const ux2Save2Button = document.getElementById('ux-2-save-2');
                 const ux2Save3Button = document.getElementById('ux-2-save-3');
                 const ux2Input = document.getElementById('ux-2-input');
 
@@ -1383,14 +1389,12 @@ doSomethingNext();</code></pre>
                   ux2Input.setAttribute("disabled", true);
                   ux2Save3Button.classList.add('filled');
                   ux2Save1Button.classList.add('disabled');
-                  ux2Save2Button.classList.add('disabled');
 
                   setTimeout(() => {
                     ux2Save3Button.classList.add('hollow');
                     ux2Input.removeAttribute("disabled");
                     ux2Save3Button.classList.remove('filled');
                     ux2Save1Button.classList.remove('disabled');
-                    ux2Save2Button.classList.remove('disabled');
                   }, 2000);
                 });
             </script>
