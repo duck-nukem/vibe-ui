@@ -1970,8 +1970,18 @@ input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="
 textarea.hollow,
 select.hollow {
     border: 2px solid var(--color-primary);
-    background: transparent;
-    transition: box-shadow 0.3s ease, background 0.3s ease, border-color 0s ease;
+    background:
+        linear-gradient(var(--color-background), var(--color-background)) padding-box,
+        linear-gradient(
+            135deg,
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary-400),
+            var(--color-tertiary),
+            var(--color-primary)
+        ) border-box;
+    background-size: 100% 100%, 300% 300%;
+    transition: box-shadow 0.3s ease, border-color 0s ease;
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow:hover,
@@ -2004,6 +2014,17 @@ input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="
 textarea.hollow.secondary,
 select.hollow.secondary {
     border: 2px solid var(--color-secondary);
+    background:
+        linear-gradient(var(--color-background), var(--color-background)) padding-box,
+        linear-gradient(
+            135deg,
+            var(--color-secondary),
+            var(--color-tertiary),
+            var(--color-secondary-400),
+            var(--color-primary-400),
+            var(--color-secondary)
+        ) border-box;
+    background-size: 100% 100%, 300% 300%;
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]).hollow.secondary:hover,
@@ -3107,6 +3128,10 @@ button:disabled,
     font-size: var(--text-sm);
     font-weight: var(--font-normal);
     cursor: pointer;
+}
+
+.checkbox-label:has(input.toggle.gradient) span {
+    margin-bottom: var(--space-2);
 }
 
 .checkbox-label input,
