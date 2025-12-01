@@ -757,45 +757,6 @@ td.status-info {
         justify-content: flex-start;
         padding: var(--space-2) 0;
     }
-
-    /* Scroll-driven animation: hide top row on scroll */
-    /* Temporarily disabled for debugging
-    .navbar-left,
-    .navbar-right {
-        animation: navbar-hide-top linear forwards;
-        animation-timeline: scroll();
-        animation-range: 50px 150px;
-    }
-
-    .navbar-center {
-        animation: navbar-slide-up linear forwards;
-        animation-timeline: scroll();
-        animation-range: 50px 150px;
-    }
-    */
-}
-
-@keyframes navbar-hide-top {
-    0% {
-        opacity: 1;
-        visibility: visible;
-        max-height: 4rem;
-    }
-    100% {
-        opacity: 0;
-        visibility: hidden;
-        max-height: 0;
-        pointer-events: none;
-    }
-}
-
-@keyframes navbar-slide-up {
-    0% {
-        padding-top: var(--space-2);
-    }
-    100% {
-        padding-top: 0;
-    }
 }
 
 .navbar-left,
