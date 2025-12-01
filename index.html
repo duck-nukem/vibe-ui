@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
     <title>Vibe UI</title>
     <link rel="stylesheet" href="css/framework.css">
     <script src="js/framework.js"></script>
     <style>
         body {
-            padding: 2rem;
+            padding: 0;
+            padding-bottom: 2rem;
             min-height: 100vh;
         }
 
@@ -32,6 +34,11 @@
             top: 0;
             left: 0;
             z-index: 5;
+            margin-bottom: 2rem;
+        }
+
+        .showcase {
+            padding: 0 2rem;
         }
     </style>
 </head>
@@ -120,6 +127,17 @@
                 &lt;div class="navbar-center"&gt;...&lt;/div&gt;<br>
                 &lt;div class="navbar-right"&gt;...&lt;/div&gt;
             </div>
+
+            <h3 style="margin-top: 2rem;">Mobile Behavior</h3>
+            <p>Nav items scroll horizontally on mobile with snap-to-item behavior. No hamburger menu needed.</p>
+
+            <h3 style="margin-top: 2rem;">Status Bar Color (iOS/Android)</h3>
+            <p>Match the browser status bar to your navbar color using the <code>theme-color</code> meta tag:</p>
+            <pre><code>&lt;!-- Light navbar --&gt;
+&lt;meta name="theme-color" content="#ffffff"&gt;
+
+&lt;!-- Dark navbar --&gt;
+&lt;meta name="theme-color" content="#1e1b4b"&gt;</code></pre>
         </section>
 
         <!-- Badges -->

@@ -733,6 +733,7 @@ td.status-info {
     display: flex;
     align-items: center;
     gap: var(--space-4);
+    flex-shrink: 0;
 }
 
 .navbar-left {
@@ -742,6 +743,16 @@ td.status-info {
 .navbar-center {
     justify-content: center;
     flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+}
+
+.navbar-center::-webkit-scrollbar {
+    display: none;
 }
 
 .navbar-right {
@@ -782,6 +793,8 @@ td.status-info {
 
 .navbar-nav li {
     margin-bottom: 0;
+    flex-shrink: 0;
+    scroll-snap-align: start;
 }
 
 .navbar-nav a,
