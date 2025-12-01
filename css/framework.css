@@ -11,7 +11,7 @@
 @property --gradient-border-color {
     syntax: '<color>';
     inherits: false;
-    initial-value: transparent;
+    initial-value: #8892a0;
 }
 
 /* ==========================================================================
@@ -1622,7 +1622,7 @@ label.required::after {
 
 /* ---------------------------------------------------------------------
    Base Input Styles
-   
+
    We use :where() for text inputs to keep specificity low.
    This allows .hollow, .gradient variants to override without !important.
    --------------------------------------------------------------------- */
@@ -1898,7 +1898,7 @@ input[type="checkbox"].toggle.gradient:checked {
 }
 
 input[type="checkbox"].toggle.gradient.secondary {
-    background: 
+    background:
         linear-gradient(var(--color-border), var(--color-border)),
         linear-gradient(
             135deg,
@@ -2268,7 +2268,6 @@ select.input-success:focus {
 input.gradient,
 textarea.gradient,
 select.gradient {
-    border: 2px solid transparent;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 4s ease infinite;
 }
