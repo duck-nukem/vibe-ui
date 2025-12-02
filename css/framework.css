@@ -2047,7 +2047,7 @@ select.hollow:focus {
             var(--color-primary)
         ) border-box;
     background-size: 100% 100%, 300% 300%;
-    animation: input-gradient-shift 3s ease infinite;
+    animation: gradient-shift 3s ease infinite;
     box-shadow: 0 0 12px -4px rgba(99, 102, 241, 0.4), 0 0 20px -4px rgba(236, 72, 153, 0.2);
 }
 
@@ -2090,7 +2090,7 @@ select.hollow.secondary:focus {
             var(--color-secondary)
         ) border-box;
     background-size: 100% 100%, 300% 300%;
-    animation: input-gradient-shift 3s ease infinite;
+    animation: gradient-shift 3s ease infinite;
     box-shadow: 0 0 12px -4px rgba(236, 72, 153, 0.4), 0 0 20px -4px rgba(245, 158, 11, 0.2);
 }
 
@@ -2122,7 +2122,7 @@ select.gradient {
     background-origin: padding-box, border-box;
     background-clip: padding-box, border-box;
     background-size: 100% 100%, 300% 300%;
-    animation: input-gradient-shift 4s ease infinite;
+    animation: gradient-shift 4s ease infinite;
     box-shadow:
         0 0 12px -4px rgba(99, 102, 241, calc(0.3 * var(--gradient-opacity))),
         0 0 20px -4px rgba(236, 72, 153, calc(0.15 * var(--gradient-opacity)));
@@ -2142,7 +2142,7 @@ select.gradient:hover {
             rgba(245, 158, 11, var(--gradient-opacity)),
             rgba(99, 102, 241, var(--gradient-opacity))
         );
-    animation: input-gradient-shift 2s ease infinite;
+    animation: gradient-shift 2s ease infinite;
     box-shadow:
         0 0 16px -4px rgba(99, 102, 241, calc(0.4 * var(--gradient-opacity))),
         0 0 24px -4px rgba(236, 72, 153, calc(0.25 * var(--gradient-opacity)));
@@ -2162,7 +2162,7 @@ select.gradient:focus {
             rgba(245, 158, 11, var(--gradient-opacity)),
             rgba(99, 102, 241, var(--gradient-opacity))
         );
-    animation: input-gradient-shift 2s ease infinite;
+    animation: gradient-shift 2s ease infinite;
     box-shadow:
         0 0 20px -4px rgba(99, 102, 241, calc(0.5 * var(--gradient-opacity))),
         0 0 28px -4px rgba(236, 72, 153, calc(0.3 * var(--gradient-opacity))),
@@ -2190,7 +2190,7 @@ select.gradient.secondary {
             rgba(129, 140, 248, var(--gradient-opacity)),
             rgba(236, 72, 153, var(--gradient-opacity))
         );
-    animation: input-gradient-shift 4s ease infinite;
+    animation: gradient-shift 4s ease infinite;
     box-shadow:
         0 0 12px -4px rgba(236, 72, 153, calc(0.3 * var(--gradient-opacity))),
         0 0 20px -4px rgba(245, 158, 11, calc(0.15 * var(--gradient-opacity)));
@@ -2209,7 +2209,7 @@ select.gradient.secondary:hover {
             rgba(129, 140, 248, var(--gradient-opacity)),
             rgba(236, 72, 153, var(--gradient-opacity))
         );
-    animation: input-gradient-shift 2s ease infinite;
+    animation: gradient-shift 2s ease infinite;
     box-shadow:
         0 0 16px -4px rgba(236, 72, 153, calc(0.4 * var(--gradient-opacity))),
         0 0 24px -4px rgba(245, 158, 11, calc(0.25 * var(--gradient-opacity)));
@@ -2229,7 +2229,7 @@ select.gradient.secondary:focus {
             rgba(129, 140, 248, var(--gradient-opacity)),
             rgba(236, 72, 153, var(--gradient-opacity))
         );
-    animation: input-gradient-shift 2s ease infinite;
+    animation: gradient-shift 2s ease infinite;
     box-shadow:
         0 0 20px -4px rgba(236, 72, 153, calc(0.5 * var(--gradient-opacity))),
         0 0 28px -4px rgba(245, 158, 11, calc(0.3 * var(--gradient-opacity))),
@@ -2688,7 +2688,7 @@ button:disabled,
         var(--color-success)
     );
     background-size: 300% 300%;
-    animation: alert-gradient-shift 8s ease infinite;
+    animation: gradient-shift 8s ease infinite;
     color: #ffffff;
     box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.2), 0 2px 4px -2px rgba(34, 197, 94, 0.1);
 }
@@ -2707,7 +2707,7 @@ button:disabled,
         var(--color-warning)
     );
     background-size: 300% 300%;
-    animation: alert-gradient-shift 8s ease infinite;
+    animation: gradient-shift 8s ease infinite;
     color: #ffffff;
     box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.2), 0 2px 4px -2px rgba(245, 158, 11, 0.1);
 }
@@ -2726,7 +2726,7 @@ button:disabled,
         var(--color-error)
     );
     background-size: 300% 300%;
-    animation: alert-gradient-shift 8s ease infinite;
+    animation: gradient-shift 8s ease infinite;
     color: #ffffff;
     box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2), 0 2px 4px -2px rgba(239, 68, 68, 0.1);
 }
@@ -2745,7 +2745,7 @@ button:disabled,
         var(--color-info)
     );
     background-size: 300% 300%;
-    animation: alert-gradient-shift 8s ease infinite;
+    animation: gradient-shift 8s ease infinite;
     color: #ffffff;
     box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2), 0 2px 4px -2px rgba(59, 130, 246, 0.1);
 }
@@ -2765,14 +2765,14 @@ button:disabled,
         var(--color-primary)
     );
     background-size: 300% 300%;
-    animation: alert-gradient-shift 6s ease infinite;
+    animation: gradient-shift 6s ease infinite;
     color: #ffffff;
     box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.2), 0 2px 4px -2px rgba(236, 72, 153, 0.1);
 }
 
 .alert.filled.primary:hover,
 .alert.filled:hover {
-    animation: alert-gradient-shift 3s ease infinite;
+    animation: gradient-shift 3s ease infinite;
 }
 
 /* ---------------------------------------------------------------------
@@ -2789,13 +2789,13 @@ button:disabled,
         var(--color-secondary)
     );
     background-size: 300% 300%;
-    animation: alert-gradient-shift 6s ease infinite;
+    animation: gradient-shift 6s ease infinite;
     color: #ffffff;
     box-shadow: 0 4px 6px -1px rgba(236, 72, 153, 0.2), 0 2px 4px -2px rgba(245, 158, 11, 0.1);
 }
 
 .alert.filled.secondary:hover {
-    animation: alert-gradient-shift 3s ease infinite;
+    animation: gradient-shift 3s ease infinite;
 }
 
 /* ---------------------------------------------------------------------
@@ -2815,7 +2815,7 @@ button:disabled,
             var(--color-success)
         ) border-box;
     background-size: 100% 100%, 300% 300%;
-    animation: alert-gradient-shift 8s ease infinite;
+    animation: gradient-shift 8s ease infinite;
     color: var(--color-success-dark);
     box-shadow: 0 0 12px -4px rgba(34, 197, 94, 0.3), 0 0 20px -4px rgba(34, 197, 94, 0.15);
 }
@@ -2841,7 +2841,7 @@ button:disabled,
             var(--color-warning)
         ) border-box;
     background-size: 100% 100%, 300% 300%;
-    animation: alert-gradient-shift 8s ease infinite;
+    animation: gradient-shift 8s ease infinite;
     color: var(--color-warning-dark);
     box-shadow: 0 0 12px -4px rgba(245, 158, 11, 0.3), 0 0 20px -4px rgba(245, 158, 11, 0.15);
 }
@@ -2867,7 +2867,7 @@ button:disabled,
             var(--color-error)
         ) border-box;
     background-size: 100% 100%, 300% 300%;
-    animation: alert-gradient-shift 8s ease infinite;
+    animation: gradient-shift 8s ease infinite;
     color: var(--color-error-dark);
     box-shadow: 0 0 12px -4px rgba(239, 68, 68, 0.3), 0 0 20px -4px rgba(239, 68, 68, 0.15);
 }
@@ -2893,7 +2893,7 @@ button:disabled,
             var(--color-info)
         ) border-box;
     background-size: 100% 100%, 300% 300%;
-    animation: alert-gradient-shift 8s ease infinite;
+    animation: gradient-shift 8s ease infinite;
     color: var(--color-info-dark);
     box-shadow: 0 0 12px -4px rgba(59, 130, 246, 0.3), 0 0 20px -4px rgba(59, 130, 246, 0.15);
 }
@@ -2920,14 +2920,14 @@ button:disabled,
             var(--color-primary)
         ) border-box;
     background-size: 100% 100%, 300% 300%;
-    animation: alert-gradient-shift 6s ease infinite;
+    animation: gradient-shift 6s ease infinite;
     color: var(--color-primary);
     box-shadow: 0 0 12px -4px rgba(99, 102, 241, 0.3), 0 0 20px -4px rgba(236, 72, 153, 0.15);
 }
 
 .alert.hollow.primary:hover,
 .alert.hollow:hover {
-    animation: alert-gradient-shift 3s ease infinite;
+    animation: gradient-shift 3s ease infinite;
 }
 
 /* ---------------------------------------------------------------------
@@ -2947,13 +2947,13 @@ button:disabled,
             var(--color-secondary)
         ) border-box;
     background-size: 100% 100%, 300% 300%;
-    animation: alert-gradient-shift 6s ease infinite;
+    animation: gradient-shift 6s ease infinite;
     color: var(--color-secondary);
     box-shadow: 0 0 12px -4px rgba(236, 72, 153, 0.3), 0 0 20px -4px rgba(245, 158, 11, 0.15);
 }
 
 .alert.hollow.secondary:hover {
-    animation: alert-gradient-shift 3s ease infinite;
+    animation: gradient-shift 3s ease infinite;
 }
 
 /* ---------------------------------------------------------------------
@@ -3033,17 +3033,7 @@ button:disabled,
     100% { background-position: 0% 50%; }
 }
 
-@keyframes alert-gradient-shift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
 
-@keyframes input-gradient-shift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
 
 @keyframes select-gradient-shift {
     0% { background-position: right 0.75rem center, 0% 0%, 0% 50%; }
@@ -3307,13 +3297,6 @@ section {
 section h2 {
     font-size: var(--text-xl);
     margin-bottom: var(--space-2);
-}
-
-.card > p:first-of-type,
-section > p:first-of-type {
-    font-size: var(--text-sm);
-    color: var(--font-color-caption);
-    margin-bottom: var(--space-6);
 }
 
 /* ==========================================================================
