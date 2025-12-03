@@ -11,7 +11,13 @@
 @property --gradient-border-color {
     syntax: '<color>';
     inherits: false;
-    initial-value: #8892a0;
+    initial-value: #e2e8f0;
+}
+
+@property --gradient-border-color--dark {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #334155;
 }
 
 /* ==========================================================================
@@ -2129,6 +2135,14 @@ select.gradient {
     transition: --gradient-opacity 0.5s ease, --gradient-border-color 0.5s ease;
 }
 
+.dark input.gradient,
+.dark textarea.gradient,
+.dark select.gradient {
+    --gradient-border-color--dark: transparent;
+    border: var(--input-border-width) solid var(--gradient-border-color--dark);
+    transition: --gradient-opacity 0.5s ease, --gradient-border-color--dark 0.5s ease;
+}
+
 input.gradient:hover,
 textarea.gradient:hover,
 select.gradient:hover {
@@ -2175,6 +2189,13 @@ textarea.gradient.gradient-out,
 select.gradient.gradient-out {
     --gradient-opacity: 0;
     --gradient-border-color: var(--color-border);
+}
+
+.dark input.gradient.gradient-out,
+.dark textarea.gradient.gradient-out,
+.dark select.gradient.gradient-out {
+    --gradient-opacity: 0;
+    --gradient-border-color--dark: var(--color-border);
 }
 
 input.gradient.secondary,
