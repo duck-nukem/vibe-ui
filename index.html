@@ -722,13 +722,38 @@ console.log(greet('World'));</code></pre>
                 </label>
             </div>
 
+            <h3>Gradient Checkboxes</h3>
+            <div class="checkbox-group" style="margin-bottom: var(--space-4);">
+                <label class="checkbox-label">
+                    <input type="checkbox" class="gradient" checked>
+                    <span>Gradient Checked</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" class="gradient">
+                    <span>Gradient Unchecked</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" class="gradient secondary" checked>
+                    <span>Secondary Checked</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" class="gradient secondary">
+                    <span>Secondary Unchecked</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" class="gradient" disabled>
+                    <span>Disabled</span>
+                </label>
+            </div>
+
             <div class="code-example">
-                <pre><code>&lt;label class="checkbox-label"&gt;
-    &lt;input type="checkbox" checked&gt;
-    &lt;span&gt;Label&lt;/span&gt;
-&lt;/label&gt;</code></pre>
+                <pre><code>&lt;input type="checkbox" class="gradient"&gt;
+&lt;input type="checkbox" class="gradient secondary"&gt;</code></pre>
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
             </div>
+            <p>
+                <strong>Variants:</strong> <code>gradient</code> | <code>gradient secondary</code>
+            </p>
         </section>
 
         <!-- Radio Buttons -->
@@ -747,13 +772,38 @@ console.log(greet('World'));</code></pre>
                 </label>
             </div>
 
+            <h3>Gradient Radio Buttons</h3>
+            <div class="radio-group" style="margin-bottom: var(--space-4);">
+                <label class="radio-label">
+                    <input type="radio" name="demo-gradient" value="a" class="gradient" checked>
+                    <span>Gradient Selected</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="demo-gradient" value="b" class="gradient">
+                    <span>Gradient Unselected</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="demo-gradient-secondary" value="a" class="gradient secondary" checked>
+                    <span>Secondary Selected</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="demo-gradient-secondary" value="b" class="gradient secondary">
+                    <span>Secondary Unselected</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="demo-gradient-disabled" value="a" class="gradient" disabled>
+                    <span>Disabled</span>
+                </label>
+            </div>
+
             <div class="code-example">
-                <pre><code>&lt;label class="radio-label"&gt;
-    &lt;input type="radio" name="group" value="a" checked&gt;
-    &lt;span&gt;Label&lt;/span&gt;
-&lt;/label&gt;</code></pre>
+                <pre><code>&lt;input type="radio" name="group" class="gradient"&gt;
+&lt;input type="radio" name="group" class="gradient secondary"&gt;</code></pre>
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
             </div>
+            <p>
+                <strong>Variants:</strong> <code>gradient</code> | <code>gradient secondary</code>
+            </p>
         </section>
 
         <!-- Toggle Switches -->

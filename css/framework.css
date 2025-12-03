@@ -301,6 +301,48 @@
     background-color: var(--color-surface-alt);
 }
 
+/* Dark mode gradient checkboxes and radio buttons */
+.dark input[type="checkbox"].gradient,
+.dark input[type="radio"].gradient {
+    background:
+        linear-gradient(var(--color-input-background), var(--color-input-background)) padding-box,
+        linear-gradient(
+            135deg,
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary-400),
+            var(--color-tertiary),
+            var(--color-primary)
+        ) border-box;
+    background-size: 100% 100%, 300% 300%;
+}
+
+.dark input[type="checkbox"].gradient.secondary,
+.dark input[type="radio"].gradient.secondary {
+    background:
+        linear-gradient(var(--color-input-background), var(--color-input-background)) padding-box,
+        linear-gradient(
+            135deg,
+            var(--color-secondary),
+            var(--color-tertiary),
+            var(--color-secondary-400),
+            var(--color-primary-400),
+            var(--color-secondary)
+        ) border-box;
+    background-size: 100% 100%, 300% 300%;
+}
+
+.dark input[type="checkbox"].gradient:disabled,
+.dark input[type="radio"].gradient:disabled {
+    background: var(--color-surface-alt);
+    border: 2px solid var(--color-border);
+}
+
+.dark input[type="checkbox"].gradient:disabled:checked,
+.dark input[type="radio"].gradient:disabled:checked {
+    background: var(--color-border);
+}
+
 .dark .card, .dark section {
     background-color: var(--color-surface);
     border-color: var(--color-border);
@@ -1828,6 +1870,118 @@ input[type="radio"]:checked::before {
     height: 0.5rem;
     background-color: white;
     border-radius: var(--radius-full);
+}
+
+/* ---------------------------------------------------------------------
+   Gradient Checkbox & Radio Button
+   Usage: <input type="checkbox" class="gradient">
+          <input type="radio" class="gradient">
+   --------------------------------------------------------------------- */
+
+input[type="checkbox"].gradient,
+input[type="radio"].gradient {
+    border: 2px solid transparent;
+    background:
+        linear-gradient(var(--color-background), var(--color-background)) padding-box,
+        linear-gradient(
+            135deg,
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary-400),
+            var(--color-tertiary),
+            var(--color-primary)
+        ) border-box;
+    background-size: 100% 100%, 300% 300%;
+    animation: gradient-shift 4s ease infinite;
+    box-shadow: 0 0 8px -2px rgba(99, 102, 241, 0.3), 0 0 12px -2px rgba(236, 72, 153, 0.15);
+}
+
+input[type="checkbox"].gradient:hover,
+input[type="radio"].gradient:hover {
+    animation: gradient-shift 2s ease infinite;
+    box-shadow: 0 0 10px -2px rgba(99, 102, 241, 0.4), 0 0 16px -2px rgba(236, 72, 153, 0.25);
+}
+
+input[type="checkbox"].gradient:focus,
+input[type="radio"].gradient:focus {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25), 0 0 12px -2px rgba(99, 102, 241, 0.4), 0 0 16px -2px rgba(236, 72, 153, 0.25);
+}
+
+input[type="checkbox"].gradient:checked,
+input[type="radio"].gradient:checked {
+    border: 2px solid transparent;
+    background:
+        linear-gradient(
+            135deg,
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary-400),
+            var(--color-tertiary),
+            var(--color-primary)
+        ) border-box;
+    background-size: 300% 300%;
+    animation: gradient-shift 4s ease infinite;
+}
+
+input[type="checkbox"].gradient:checked:hover,
+input[type="radio"].gradient:checked:hover {
+    animation: gradient-shift 2s ease infinite;
+}
+
+/* Secondary gradient variant */
+input[type="checkbox"].gradient.secondary,
+input[type="radio"].gradient.secondary {
+    background:
+        linear-gradient(var(--color-background), var(--color-background)) padding-box,
+        linear-gradient(
+            135deg,
+            var(--color-secondary),
+            var(--color-tertiary),
+            var(--color-secondary-400),
+            var(--color-primary-400),
+            var(--color-secondary)
+        ) border-box;
+    background-size: 100% 100%, 300% 300%;
+    box-shadow: 0 0 8px -2px rgba(236, 72, 153, 0.3), 0 0 12px -2px rgba(245, 158, 11, 0.15);
+}
+
+input[type="checkbox"].gradient.secondary:hover,
+input[type="radio"].gradient.secondary:hover {
+    box-shadow: 0 0 10px -2px rgba(236, 72, 153, 0.4), 0 0 16px -2px rgba(245, 158, 11, 0.25);
+}
+
+input[type="checkbox"].gradient.secondary:focus,
+input[type="radio"].gradient.secondary:focus {
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.25), 0 0 12px -2px rgba(236, 72, 153, 0.4), 0 0 16px -2px rgba(245, 158, 11, 0.25);
+}
+
+input[type="checkbox"].gradient.secondary:checked,
+input[type="radio"].gradient.secondary:checked {
+    background:
+        linear-gradient(
+            135deg,
+            var(--color-secondary),
+            var(--color-tertiary),
+            var(--color-secondary-400),
+            var(--color-primary-400),
+            var(--color-secondary)
+        ) border-box;
+    background-size: 300% 300%;
+}
+
+/* Disabled gradient states */
+input[type="checkbox"].gradient:disabled,
+input[type="radio"].gradient:disabled {
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    box-shadow: none;
+    animation: none;
+}
+
+input[type="checkbox"].gradient:disabled:checked,
+input[type="radio"].gradient:disabled:checked {
+    background: var(--color-border);
+    border-color: var(--color-border);
 }
 
 /* ---------------------------------------------------------------------
