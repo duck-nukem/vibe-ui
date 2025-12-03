@@ -3396,34 +3396,6 @@ button:disabled,
 }
 
 /* ---------------------------------------------------------------------
-   Feature Grid
-   --------------------------------------------------------------------- */
-
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-4);
-    margin-top: var(--space-6);
-}
-
-.feature {
-    padding: var(--space-4);
-    background: var(--color-surface-alt);
-    border-radius: var(--radius-lg);
-}
-
-.feature h3 {
-    font-size: var(--text-sm);
-    margin-bottom: var(--space-1);
-}
-
-.feature p {
-    font-size: var(--text-xs);
-    color: var(--font-color-caption);
-    margin: 0;
-}
-
-/* ---------------------------------------------------------------------
    Button Row
    --------------------------------------------------------------------- */
 
