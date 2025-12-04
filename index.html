@@ -155,7 +155,7 @@
 
     <div class="showcase">
         <h1>Modern UI Components</h1>
-        <p>Tailwind UI / shadcn inspired components with animated gradients. Pure CSS, no JavaScript required. <strong>Dark mode:</strong> add <code>class="dark"</code> to <code>&lt;html&gt;</code> or use the included JS helper.</p>
+        <p>Pure CSS, JavaScript for progressive enhancement. <strong>Dark mode:</strong> add <code>class="dark"</code> to <code>&lt;html&gt;</code> or use the included JS helper.</p>
 
         <!-- Navbar -->
         <section id="navbar">
@@ -218,6 +218,26 @@
             </div>
             <p>
                 <strong>theme:</strong> <code>light</code> | <code>dark</code>
+            </p>
+
+            <h3>Mobile Scroll Animation</h3>
+            <p>On mobile, you can hide the top row (logo &amp; buttons) when scrolling down and reveal it when scrolling up. This creates a more compact navigation experience. The menu items stay visible.</p>
+            <div class="code-example">
+                <pre><code>&lt;script&gt;
+// Basic usage
+const navbar = document.querySelector('.navbar');
+initNavbarScroll(navbar);
+
+// With custom options
+initNavbarScroll(navbar, {
+    threshold: 20,        // Scroll distance before triggering (default: 10)
+    mobileBreakpoint: 768 // Screen width for mobile behavior (default: 640)
+});
+&lt;/script&gt;</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <p>
+                <strong>Options:</strong> <code>threshold</code> (minimum scroll distance) | <code>mobileBreakpoint</code> (max screen width for effect)
             </p>
         </section>
 
@@ -1007,40 +1027,6 @@ doSomethingNext();</code></pre>
                   setTimeout(() => {
                     ux3Input.removeAttribute("disabled");
                     ux3Save1Button.classList.remove('gradient');
-                  }, 2000);
-                });
-            </script>
-        </div>
-
-        <div class="divider"></div>
-
-        <h3 style="margin-top:2rem;">Highlight recommended actions</h3>
-        <p>Draw attention to the action you want users to take. The gradient button stands out.</p>
-        <div style="max-width: 400px;">
-            <div class="input-group">
-                <label for="ux-2-input">Issue description</label>
-                <input type="text" id="ux-2-input" value="As a user I'd like to enjoy the software I use">
-            </div>
-            <div style="margin-top: 1rem; text-align: right;">
-                <button id="ux-2-save-1" class="btn filled primary">Add to sprint</button>
-                <button id="ux-2-save-3" class="btn hollow gradient">Fast-track</button>
-            </div>
-            <script>
-                const ux2Save1Button = document.getElementById('ux-2-save-1');
-                const ux2Save3Button = document.getElementById('ux-2-save-3');
-                const ux2Input = document.getElementById('ux-2-input');
-
-                ux2Save3Button.addEventListener('click', () => {
-                  ux2Save3Button.classList.remove('hollow');
-                  ux2Input.setAttribute("disabled", true);
-                  ux2Save3Button.classList.add('filled');
-                  ux2Save1Button.classList.add('disabled');
-
-                  setTimeout(() => {
-                    ux2Save3Button.classList.add('hollow');
-                    ux2Input.removeAttribute("disabled");
-                    ux2Save3Button.classList.remove('filled');
-                    ux2Save1Button.classList.remove('disabled');
                   }, 2000);
                 });
             </script>
