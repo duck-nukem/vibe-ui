@@ -534,7 +534,6 @@ console.log(greet('World'));</code></pre>
                         <th><span class="th-content">Email</span></th>
                         <th><span class="th-content">Role</span></th>
                         <th><span class="th-content">Status</span></th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -543,18 +542,12 @@ console.log(greet('World'));</code></pre>
                         <td>john@example.com</td>
                         <td>Admin</td>
                         <td><span class="badge soft success">Active</span></td>
-                        <td class="row-actions">
-                            <button class="btn hollow sm">Edit</button>
-                        </td>
                     </tr>
                     <tr>
                         <td>Jane Smith</td>
                         <td>jane@example.com</td>
                         <td>Editor</td>
                         <td><span class="badge soft warning">Pending</span></td>
-                        <td class="row-actions">
-                            <button class="btn hollow sm">Edit</button>
-                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -597,6 +590,7 @@ console.log(greet('World'));</code></pre>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -604,37 +598,39 @@ console.log(greet('World'));</code></pre>
                         <td data-label="Name">John Doe</td>
                         <td data-label="Email">john@example.com</td>
                         <td data-label="Status"><span class="badge soft success">Active</span></td>
+                        <td data-label="Actions">
+                            <button class="action-chip primary">Approve</button>
+                            <button class="action-chip">View</button>
+                        </td>
                     </tr>
                     <tr>
                         <td data-label="Name">Jane Smith</td>
                         <td data-label="Email">jane@example.com</td>
                         <td data-label="Status"><span class="badge soft warning">Pending</span></td>
+                        <td data-label="Actions">
+                            <button class="action-chip primary">Approve</button>
+                            <button class="action-chip">View</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="code-example">
-                <pre><code>&lt;div class="table-container"&gt;
-    &lt;table class="{style} {spacing} {behavior}"&gt;
-        &lt;thead&gt;
-            &lt;tr&gt;
-                &lt;th&gt;&lt;span class="th-content sortable"&gt;Column &lt;span class="sort-icon"&gt;&lt;/span&gt;&lt;/span&gt;&lt;/th&gt;
-            &lt;/tr&gt;
-        &lt;/thead&gt;
-        &lt;tbody&gt;
-            &lt;tr&gt;
-                &lt;td&gt;Data&lt;/td&gt;
-                &lt;td class="row-actions"&gt;&lt;button&gt;...&lt;/button&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-        &lt;/tbody&gt;
-    &lt;/table&gt;
-&lt;/div&gt;</code></pre>
+                <pre><code>&lt;!-- Icon buttons --&gt;
+&lt;button class="btn-icon primary"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/button&gt;
+&lt;button class="btn-icon danger"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/button&gt;
+
+&lt;!-- Action chips --&gt;
+&lt;button class="action-chip"&gt;View&lt;/button&gt;
+&lt;button class="action-chip primary"&gt;Approve&lt;/button&gt;
+&lt;button class="action-chip danger"&gt;Reject&lt;/button&gt;</code></pre>
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
             </div>
             <p>
                 <strong>style:</strong> <code>striped</code> | <code>hollow</code> | <code>responsive</code> | (omit for default)<br>
+                <strong>btn-icon variants:</strong> <code>primary</code> | <code>danger</code> | <code>success</code> | <code>sm</code><br>
+                <strong>action-chip variants:</strong> <code>primary</code> | <code>danger</code> | <code>success</code><br>
                 <strong>spacing:</strong> <code>compact</code> | <code>relaxed</code> | (omit for default)<br>
-                <strong>behavior:</strong> <code>hoverable</code> | (omit for none)<br>
                 <strong>sortable header:</strong> add <code>sorted</code> and optionally <code>desc</code> to <code>.th-content.sortable</code><br>
                 <strong>responsive:</strong> use <code>class="responsive"</code> on table, and add <code>data-label</code> to each <code>&lt;td&gt;</code> with its column name (e.g. <code>data-label="Email"</code>)
             </p>

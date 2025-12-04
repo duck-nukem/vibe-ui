@@ -230,6 +230,8 @@
     --font-color-heading: #f1f5f9;
     --font-color-body: #cbd5e1;
     --font-color-caption: #94a3b8;
+    --font-color-link: var(--color-primary-400);
+    --font-color-link-hover: var(--color-primary);
 
     /* Adjusted shadows for dark mode */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
@@ -253,8 +255,12 @@
     background-color: var(--color-surface);
 }
 
-.dark td.row-actions {
-    background: linear-gradient(to right, transparent, var(--color-background) 1rem);
+.dark .action-chip {
+    background: var(--color-surface);
+}
+
+.dark .action-chip:hover {
+    background: var(--color-background);
 }
 
 .dark input,
@@ -1010,47 +1016,138 @@ td.status-info {
     color: var(--color-info);
 }
 
+
+
+
+
 /* ---------------------------------------------------------------------
-   Table Row Actions (hover to reveal)
+   Icon-Only Action Buttons
    --------------------------------------------------------------------- */
 
-.row-actions {
-    opacity: 0;
-    transition: opacity var(--transition-fast);
-    white-space: nowrap;
-    text-align: right;
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
 }
 
-tr:hover .row-actions,
-tr:focus-within .row-actions {
-    opacity: 1;
+.btn-icon:hover {
+    background: var(--color-surface);
+    color: var(--color-text);
 }
 
-/* Always visible on touch devices / mobile */
-@media (hover: none), (max-width: 640px) {
-    .row-actions {
-        opacity: 1;
-    }
+.btn-icon:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
 
-/* Sticky action column for wide tables */
-td.row-actions {
-    position: sticky;
-    right: 0;
-    background: linear-gradient(to right, transparent, var(--color-background) 1rem);
-    padding-left: 2rem;
+.btn-icon svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex-shrink: 0;
 }
 
-/* Compact action buttons */
-.row-actions .btn {
-    padding: 0.25rem 0.5rem;
+/* Icon button variants */
+.btn-icon.danger:hover {
+    background: color-mix(in srgb, var(--color-error) 15%, transparent);
+    color: var(--color-error);
+}
+
+.btn-icon.primary:hover {
+    background: color-mix(in srgb, var(--color-primary) 15%, transparent);
+    color: var(--color-primary);
+}
+
+.btn-icon.success:hover {
+    background: color-mix(in srgb, var(--color-success) 15%, transparent);
+    color: var(--color-success);
+}
+
+/* Small icon button */
+.btn-icon.sm {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.btn-icon.sm svg {
+    width: 0.875rem;
+    height: 0.875rem;
+}
+
+/* ---------------------------------------------------------------------
+   Action Chips (pill-shaped quick actions)
+   --------------------------------------------------------------------- */
+
+.action-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
     font-size: var(--text-xs);
-    margin-left: 0.25rem;
+    font-weight: 500;
+    border: 1px solid var(--color-border);
+    border-radius: 9999px;
+    background: var(--color-background);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
 }
 
-.row-actions .btn:first-child {
-    margin-left: 0;
+.action-chip:hover {
+    background: var(--color-surface);
+    border-color: var(--color-border-strong);
+    color: var(--color-text);
 }
+
+.action-chip:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.action-chip svg {
+    width: 0.875rem;
+    height: 0.875rem;
+    flex-shrink: 0;
+}
+
+/* Action chip variants */
+.action-chip.primary {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.action-chip.primary:hover {
+    background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+}
+
+.action-chip.danger {
+    border-color: var(--color-error);
+    color: var(--color-error);
+}
+
+.action-chip.danger:hover {
+    background: color-mix(in srgb, var(--color-error) 10%, transparent);
+}
+
+.action-chip.success {
+    border-color: var(--color-success);
+    color: var(--color-success);
+}
+
+.action-chip.success:hover {
+    background: color-mix(in srgb, var(--color-success) 10%, transparent);
+}
+
+
 
 /* ==========================================================================
    NAVBAR COMPONENT
