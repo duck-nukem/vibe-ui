@@ -1936,6 +1936,12 @@ input[type="radio"]:disabled {
     opacity: var(--disabled-opacity);
 }
 
+/* When inside a label, the label handles opacity - prevent double dimming */
+.checkbox-label input[type="checkbox"]:disabled,
+.radio-label input[type="radio"]:disabled {
+    opacity: 1;
+}
+
 
 
 input[type="checkbox"]:checked,
@@ -3403,6 +3409,12 @@ button:disabled,
     font-size: var(--text-sm);
     font-weight: var(--font-normal);
     cursor: pointer;
+}
+
+.checkbox-label:has(input:disabled),
+.radio-label:has(input:disabled) {
+    opacity: var(--disabled-opacity);
+    cursor: not-allowed;
 }
 
 .checkbox-label:has(input.toggle.gradient) span {
