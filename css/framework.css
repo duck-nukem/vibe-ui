@@ -195,7 +195,7 @@
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-    
+
     /* Elevation tokens for consistent depth */
     --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
     --elevation-2: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -264,7 +264,7 @@
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
-    
+
     /* Dark mode elevation tokens */
     --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.24), 0 1px 2px rgba(0, 0, 0, 0.18);
     --elevation-2: 0 4px 6px rgba(0, 0, 0, 0.22), 0 2px 4px rgba(0, 0, 0, 0.16);
@@ -371,16 +371,7 @@
     background-size: 100% 100%, 300% 300%;
 }
 
-.dark input[type="checkbox"].gradient:disabled,
-.dark input[type="radio"].gradient:disabled {
-    background: var(--color-surface-alt);
-    border: 2px solid var(--color-border);
-}
 
-.dark input[type="checkbox"].gradient:disabled:checked,
-.dark input[type="radio"].gradient:disabled:checked {
-    background: var(--color-border);
-}
 
 .dark .card, .dark section {
     background-color: var(--color-surface);
@@ -401,25 +392,7 @@
     color: var(--font-color-body);
 }
 
-/* Dark mode disabled buttons */
-.dark .btn.filled:disabled,
-.dark .btn.filled.disabled {
-    background: var(--color-surface-alt);
-    color: var(--font-color-caption);
-}
 
-.dark .btn.hollow:disabled,
-.dark .btn.hollow.disabled {
-    background: var(--color-background);
-    border-color: var(--color-border);
-    color: var(--font-color-caption);
-}
-
-.dark .btn.hollow.gradient:disabled,
-.dark .btn.hollow.gradient.disabled {
-    background: var(--color-background);
-    border-color: var(--color-border);
-}
 
 /* Dark mode hollow gradient buttons - use indigo background for better contrast */
 .dark .btn.hollow.gradient {
@@ -1875,9 +1848,6 @@ select:focus {
 input:disabled,
 textarea:disabled,
 select:disabled {
-    background-color: var(--color-surface);
-    border-color: var(--color-border);
-    color: var(--font-color-caption);
     cursor: not-allowed;
     opacity: var(--disabled-opacity);
 }
@@ -1962,17 +1932,11 @@ input[type="radio"] {
 
 input[type="checkbox"]:disabled,
 input[type="radio"]:disabled {
-    background-color: var(--color-surface);
-    border-color: var(--color-border);
     cursor: not-allowed;
     opacity: var(--disabled-opacity);
 }
 
-input[type="checkbox"]:disabled:checked,
-input[type="radio"]:disabled:checked {
-    background-color: var(--color-border);
-    border-color: var(--color-border);
-}
+
 
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
@@ -2102,17 +2066,11 @@ input[type="radio"].gradient.secondary:checked {
 /* Disabled gradient states */
 input[type="checkbox"].gradient:disabled,
 input[type="radio"].gradient:disabled {
-    background: var(--color-surface);
-    border: 2px solid var(--color-border);
     box-shadow: none;
     animation: none;
 }
 
-input[type="checkbox"].gradient:disabled:checked,
-input[type="radio"].gradient:disabled:checked {
-    background: var(--color-border);
-    border-color: var(--color-border);
-}
+
 
 /* ---------------------------------------------------------------------
    Toggle Switch (styled checkbox)
