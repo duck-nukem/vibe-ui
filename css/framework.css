@@ -2864,16 +2864,16 @@ button:disabled,
 
 .btn.filled:disabled,
 .btn.filled.disabled {
-    background: var(--color-tertiary-200);
-    color: #6b7280;
+    background: var(--color-disabled-bg);
+    color: var(--color-disabled-text);
     box-shadow: none;
 }
 
 .btn.hollow:disabled,
 .btn.hollow.disabled {
     background: var(--color-background, #ffffff);
-    border-color: var(--color-tertiary-200);
-    color: #6b7280;
+    border-color: var(--color-disabled-border);
+    color: var(--color-disabled-text);
 }
 
 .btn.hollow.gradient:disabled,
