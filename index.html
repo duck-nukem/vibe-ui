@@ -156,6 +156,22 @@
     <div class="showcase">
         <h1>Modern UI Components</h1>
         <p>Pure CSS, JavaScript for progressive enhancement. <strong>Dark mode:</strong> add <code>class="dark"</code> to <code>&lt;html&gt;</code> or use the included JS helper.</p>
+        
+        <section>
+            <h2>Theme Customization</h2>
+            <p>Override these RGB variables to customize your entire color theme. All colors, variants, and gradients are auto-generated.</p>
+            <div class="code-example">
+                <pre><code>:root {
+    --color-primary-rgb: 99, 102, 241;
+    --color-secondary-rgb: 236, 72, 153;
+    --color-tertiary-rgb: 245, 158, 11;
+}</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <p>
+                <strong>Auto-generated:</strong> <code>--color-primary</code>, <code>--color-primary-400</code>, <code>--color-primary-600</code>, and all <code>rgba()</code> values throughout the framework.
+            </p>
+        </section>
 
         <!-- Navbar -->
         <section id="navbar">
