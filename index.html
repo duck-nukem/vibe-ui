@@ -704,6 +704,49 @@ console.log(greet('World'));</code></pre>
             </p>
         </section>
 
+        <!-- Datalist -->
+        <section>
+            <h2>Datalist</h2>
+            <p>Searchable dropdown - type to filter options.</p>
+
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="datalist-default">Default</label>
+                    <input type="text" id="datalist-default" list="datalist-options-default" placeholder="Search...">
+                    <datalist id="datalist-options-default">
+                        <option value="Apple">
+                        <option value="Banana">
+                        <option value="Cherry">
+                        <option value="Date">
+                        <option value="Elderberry">
+                    </datalist>
+                </div>
+                <div class="input-group">
+                    <label for="datalist-hollow">Hollow</label>
+                    <input type="text" id="datalist-hollow" list="datalist-options-hollow" class="hollow" placeholder="Search...">
+                    <datalist id="datalist-options-hollow">
+                        <option value="Apple">
+                        <option value="Banana">
+                        <option value="Cherry">
+                        <option value="Date">
+                        <option value="Elderberry">
+                    </datalist>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <pre><code>&lt;input type="text" list="my-options" class="{style}" placeholder="Search..."&gt;
+&lt;datalist id="my-options"&gt;
+    &lt;option value="Option 1"&gt;
+    &lt;option value="Option 2"&gt;
+&lt;/datalist&gt;</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <p>
+                <strong>style:</strong> <code>hollow</code> | <code>gradient</code> | <code>hollow secondary</code> | <code>gradient secondary</code> | (omit for default)
+            </p>
+        </section>
+
         <!-- Textarea -->
         <section>
             <h2>Textarea</h2>
