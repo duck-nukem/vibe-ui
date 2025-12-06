@@ -49,16 +49,27 @@
 :root {
     /* ---------------------------------------------------------------------
        Color Palette
+
+       Customize your theme by overriding these RGB values:
+       --color-primary-rgb, --color-secondary-rgb, --color-tertiary-rgb
+
+       All colors and variants are auto-generated from these.
        --------------------------------------------------------------------- */
-    --color-primary: #6366f1;
-    --color-primary-400: #818cf8;
-    --color-primary-600: #4f46e5;
+    --color-primary-rgb: 99, 102, 241;
+    --color-primary: rgb(var(--color-primary-rgb));
+    --color-primary-400: color-mix(in srgb, var(--color-primary) 65%, white);
+    --color-primary-600: color-mix(in srgb, var(--color-primary) 75%, black);
 
-    --color-secondary: #ec4899;
-    --color-secondary-400: #f472b6;
+    --color-secondary-rgb: 236, 72, 153;
+    --color-secondary: rgb(var(--color-secondary-rgb));
+    --color-secondary-400: color-mix(in srgb, var(--color-secondary) 65%, white);
+    --color-secondary-600: color-mix(in srgb, var(--color-secondary) 75%, black);
 
-    --color-tertiary: #f59e0b;
-    --color-tertiary-200: #e5e7eb;
+    --color-tertiary-rgb: 245, 158, 11;
+    --color-tertiary: rgb(var(--color-tertiary-rgb));
+    --color-tertiary-200: color-mix(in srgb, var(--color-tertiary) 30%, white);
+    --color-tertiary-400: color-mix(in srgb, var(--color-tertiary) 65%, white);
+    --color-tertiary-600: color-mix(in srgb, var(--color-tertiary) 75%, black);
 
     --color-success: #22c55e;
     --color-success-dark: #16a34a;
@@ -295,11 +306,11 @@
         linear-gradient(var(--color-input-background), var(--color-input-background)),
         linear-gradient(
             135deg,
-            rgba(99, 102, 241, var(--gradient-opacity)),
-            rgba(236, 72, 153, var(--gradient-opacity)),
-            rgba(129, 140, 248, var(--gradient-opacity)),
-            rgba(245, 158, 11, var(--gradient-opacity)),
-            rgba(99, 102, 241, var(--gradient-opacity))
+            rgba(var(--color-primary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-primary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-tertiary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-primary-rgb), var(--gradient-opacity))
         );
 }
 
@@ -939,7 +950,7 @@ table.hollow {
         ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 6s ease infinite;
-    box-shadow: 0 0 12px -4px rgba(99, 102, 241, 0.3), 0 0 20px -4px rgba(236, 72, 153, 0.15);
+    box-shadow: 0 0 12px -4px rgba(var(--color-primary-rgb), 0.3), 0 0 20px -4px rgba(var(--color-secondary-rgb), 0.15);
 }
 
 table.hollow th {
@@ -959,7 +970,7 @@ table.hollow.secondary {
             var(--color-secondary)
         ) border-box;
     background-size: 100% 100%, 300% 300%;
-    box-shadow: 0 0 12px -4px rgba(236, 72, 153, 0.3), 0 0 20px -4px rgba(245, 158, 11, 0.15);
+    box-shadow: 0 0 12px -4px rgba(var(--color-secondary-rgb), 0.3), 0 0 20px -4px rgba(var(--color-tertiary-rgb), 0.15);
 }
 
 /* ---------------------------------------------------------------------
@@ -1002,7 +1013,7 @@ td.status-info {
 }
 
 .table-badge.warning {
-    background-color: rgba(245, 158, 11, 0.1);
+    background-color: rgba(var(--color-tertiary-rgb), 0.1);
     color: var(--color-warning);
 }
 
@@ -1575,12 +1586,12 @@ td.status-info {
    --------------------------------------------------------------------- */
 
 .badge.soft.primary {
-    background-color: rgba(99, 102, 241, 0.1);
+    background-color: rgba(var(--color-primary-rgb), 0.1);
     color: var(--color-primary);
 }
 
 .badge.soft.secondary {
-    background-color: rgba(236, 72, 153, 0.1);
+    background-color: rgba(var(--color-secondary-rgb), 0.1);
     color: var(--color-secondary);
 }
 
@@ -1590,7 +1601,7 @@ td.status-info {
 }
 
 .badge.soft.warning {
-    background-color: rgba(245, 158, 11, 0.1);
+    background-color: rgba(var(--color-tertiary-rgb), 0.1);
     color: var(--color-warning);
 }
 
@@ -1620,7 +1631,7 @@ td.status-info {
 }
 
 .table-badge.warning {
-    background-color: rgba(245, 158, 11, 0.1);
+    background-color: rgba(var(--color-tertiary-rgb), 0.1);
     color: var(--color-warning);
 }
 
@@ -1830,13 +1841,13 @@ input:focus,
 textarea:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.15);
 }
 
 select:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.15);
 }
 
 input:disabled,
@@ -1950,7 +1961,7 @@ input[type="radio"]:checked {
 input[type="checkbox"]:focus,
 input[type="radio"]:focus {
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.25);
 }
 
 input[type="checkbox"]:checked::before {
@@ -1990,18 +2001,18 @@ input[type="radio"].gradient {
         ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 4s ease infinite;
-    box-shadow: 0 0 8px -2px rgba(99, 102, 241, 0.3), 0 0 12px -2px rgba(236, 72, 153, 0.15);
+    box-shadow: 0 0 8px -2px rgba(var(--color-primary-rgb), 0.3), 0 0 12px -2px rgba(var(--color-secondary-rgb), 0.15);
 }
 
 input[type="checkbox"].gradient:hover,
 input[type="radio"].gradient:hover {
     animation: gradient-shift 2s ease infinite;
-    box-shadow: 0 0 10px -2px rgba(99, 102, 241, 0.4), 0 0 16px -2px rgba(236, 72, 153, 0.25);
+    box-shadow: 0 0 10px -2px rgba(var(--color-primary-rgb), 0.4), 0 0 16px -2px rgba(var(--color-secondary-rgb), 0.25);
 }
 
 input[type="checkbox"].gradient:focus,
 input[type="radio"].gradient:focus {
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25), 0 0 12px -2px rgba(99, 102, 241, 0.4), 0 0 16px -2px rgba(236, 72, 153, 0.25);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.25), 0 0 12px -2px rgba(var(--color-primary-rgb), 0.4), 0 0 16px -2px rgba(var(--color-secondary-rgb), 0.25);
 }
 
 input[type="checkbox"].gradient:checked,
@@ -2039,17 +2050,17 @@ input[type="radio"].gradient.secondary {
             var(--color-secondary)
         ) border-box;
     background-size: 100% 100%, 300% 300%;
-    box-shadow: 0 0 8px -2px rgba(236, 72, 153, 0.3), 0 0 12px -2px rgba(245, 158, 11, 0.15);
+    box-shadow: 0 0 8px -2px rgba(var(--color-secondary-rgb), 0.3), 0 0 12px -2px rgba(var(--color-tertiary-rgb), 0.15);
 }
 
 input[type="checkbox"].gradient.secondary:hover,
 input[type="radio"].gradient.secondary:hover {
-    box-shadow: 0 0 10px -2px rgba(236, 72, 153, 0.4), 0 0 16px -2px rgba(245, 158, 11, 0.25);
+    box-shadow: 0 0 10px -2px rgba(var(--color-secondary-rgb), 0.4), 0 0 16px -2px rgba(var(--color-tertiary-rgb), 0.25);
 }
 
 input[type="checkbox"].gradient.secondary:focus,
 input[type="radio"].gradient.secondary:focus {
-    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.25), 0 0 12px -2px rgba(236, 72, 153, 0.4), 0 0 16px -2px rgba(245, 158, 11, 0.25);
+    box-shadow: 0 0 0 3px rgba(var(--color-secondary-rgb), 0.25), 0 0 12px -2px rgba(var(--color-secondary-rgb), 0.4), 0 0 16px -2px rgba(var(--color-tertiary-rgb), 0.25);
 }
 
 input[type="checkbox"].gradient.secondary:checked,
@@ -2123,7 +2134,7 @@ input[type="checkbox"].toggle:checked::before {
 }
 
 input[type="checkbox"].toggle:focus {
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.25);
 }
 
 input[type="checkbox"].toggle.secondary:checked {
@@ -2305,7 +2316,7 @@ select.hollow:focus {
         ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 3s ease infinite;
-    box-shadow: 0 0 12px -4px rgba(99, 102, 241, 0.4), 0 0 20px -4px rgba(236, 72, 153, 0.2);
+    box-shadow: 0 0 12px -4px rgba(var(--color-primary-rgb), 0.4), 0 0 20px -4px rgba(var(--color-secondary-rgb), 0.2);
 }
 
 input.hollow.secondary,
@@ -2348,7 +2359,7 @@ select.hollow.secondary:focus {
         ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 3s ease infinite;
-    box-shadow: 0 0 12px -4px rgba(236, 72, 153, 0.4), 0 0 20px -4px rgba(245, 158, 11, 0.2);
+    box-shadow: 0 0 12px -4px rgba(var(--color-secondary-rgb), 0.4), 0 0 20px -4px rgba(var(--color-tertiary-rgb), 0.2);
 }
 
 /* ---------------------------------------------------------------------
@@ -2370,19 +2381,19 @@ select.gradient {
         linear-gradient(var(--color-background), var(--color-background)),
         linear-gradient(
             135deg,
-            rgba(99, 102, 241, var(--gradient-opacity)),
-            rgba(236, 72, 153, var(--gradient-opacity)),
-            rgba(129, 140, 248, var(--gradient-opacity)),
-            rgba(245, 158, 11, var(--gradient-opacity)),
-            rgba(99, 102, 241, var(--gradient-opacity))
+            rgba(var(--color-primary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-primary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-tertiary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-primary-rgb), var(--gradient-opacity))
         );
     background-origin: padding-box, border-box;
     background-clip: padding-box, border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 4s ease infinite;
     box-shadow:
-        0 0 12px -4px rgba(99, 102, 241, calc(0.3 * var(--gradient-opacity))),
-        0 0 20px -4px rgba(236, 72, 153, calc(0.15 * var(--gradient-opacity)));
+        0 0 12px -4px rgba(var(--color-primary-rgb), calc(0.3 * var(--gradient-opacity))),
+        0 0 20px -4px rgba(var(--color-secondary-rgb), calc(0.15 * var(--gradient-opacity)));
     transition: --gradient-opacity 0.5s ease, --gradient-border-color 0.5s ease;
 }
 
@@ -2401,16 +2412,16 @@ select.gradient:hover {
         linear-gradient(var(--color-background), var(--color-background)),
         linear-gradient(
             135deg,
-            rgba(99, 102, 241, var(--gradient-opacity)),
-            rgba(236, 72, 153, var(--gradient-opacity)),
-            rgba(129, 140, 248, var(--gradient-opacity)),
-            rgba(245, 158, 11, var(--gradient-opacity)),
-            rgba(99, 102, 241, var(--gradient-opacity))
+            rgba(var(--color-primary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-primary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-tertiary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-primary-rgb), var(--gradient-opacity))
         );
     animation: gradient-shift 2s ease infinite;
     box-shadow:
-        0 0 16px -4px rgba(99, 102, 241, calc(0.4 * var(--gradient-opacity))),
-        0 0 24px -4px rgba(236, 72, 153, calc(0.25 * var(--gradient-opacity)));
+        0 0 16px -4px rgba(var(--color-primary-rgb), calc(0.4 * var(--gradient-opacity))),
+        0 0 24px -4px rgba(var(--color-secondary-rgb), calc(0.25 * var(--gradient-opacity)));
 }
 
 input.gradient:focus,
@@ -2421,17 +2432,17 @@ select.gradient:focus {
         linear-gradient(var(--color-background), var(--color-background)),
         linear-gradient(
             135deg,
-            rgba(99, 102, 241, var(--gradient-opacity)),
-            rgba(236, 72, 153, var(--gradient-opacity)),
-            rgba(129, 140, 248, var(--gradient-opacity)),
-            rgba(245, 158, 11, var(--gradient-opacity)),
-            rgba(99, 102, 241, var(--gradient-opacity))
+            rgba(var(--color-primary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-primary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-tertiary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-primary-rgb), var(--gradient-opacity))
         );
     animation: gradient-shift 2s ease infinite;
     box-shadow:
-        0 0 20px -4px rgba(99, 102, 241, calc(0.5 * var(--gradient-opacity))),
-        0 0 28px -4px rgba(236, 72, 153, calc(0.3 * var(--gradient-opacity))),
-        0 0 0 3px rgba(99, 102, 241, calc(0.15 * var(--gradient-opacity)));
+        0 0 20px -4px rgba(var(--color-primary-rgb), calc(0.5 * var(--gradient-opacity))),
+        0 0 28px -4px rgba(var(--color-secondary-rgb), calc(0.3 * var(--gradient-opacity))),
+        0 0 0 3px rgba(var(--color-primary-rgb), calc(0.15 * var(--gradient-opacity)));
 }
 
 /* Fade out state - transition opacity to 0 */
@@ -2456,16 +2467,16 @@ select.gradient.secondary {
         linear-gradient(var(--color-background), var(--color-background)),
         linear-gradient(
             135deg,
-            rgba(236, 72, 153, var(--gradient-opacity)),
-            rgba(245, 158, 11, var(--gradient-opacity)),
-            rgba(244, 114, 182, var(--gradient-opacity)),
-            rgba(129, 140, 248, var(--gradient-opacity)),
-            rgba(236, 72, 153, var(--gradient-opacity))
+            rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-tertiary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-primary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-secondary-rgb), var(--gradient-opacity))
         );
     animation: gradient-shift 4s ease infinite;
     box-shadow:
-        0 0 12px -4px rgba(236, 72, 153, calc(0.3 * var(--gradient-opacity))),
-        0 0 20px -4px rgba(245, 158, 11, calc(0.15 * var(--gradient-opacity)));
+        0 0 12px -4px rgba(var(--color-secondary-rgb), calc(0.3 * var(--gradient-opacity))),
+        0 0 20px -4px rgba(var(--color-tertiary-rgb), calc(0.15 * var(--gradient-opacity)));
 }
 
 input.gradient.secondary:hover,
@@ -2475,16 +2486,16 @@ select.gradient.secondary:hover {
         linear-gradient(var(--color-background), var(--color-background)),
         linear-gradient(
             135deg,
-            rgba(236, 72, 153, var(--gradient-opacity)),
-            rgba(245, 158, 11, var(--gradient-opacity)),
-            rgba(244, 114, 182, var(--gradient-opacity)),
-            rgba(129, 140, 248, var(--gradient-opacity)),
-            rgba(236, 72, 153, var(--gradient-opacity))
+            rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-tertiary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-primary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-secondary-rgb), var(--gradient-opacity))
         );
     animation: gradient-shift 2s ease infinite;
     box-shadow:
-        0 0 16px -4px rgba(236, 72, 153, calc(0.4 * var(--gradient-opacity))),
-        0 0 24px -4px rgba(245, 158, 11, calc(0.25 * var(--gradient-opacity)));
+        0 0 16px -4px rgba(var(--color-secondary-rgb), calc(0.4 * var(--gradient-opacity))),
+        0 0 24px -4px rgba(var(--color-tertiary-rgb), calc(0.25 * var(--gradient-opacity)));
 }
 
 input.gradient.secondary:focus,
@@ -2495,17 +2506,17 @@ select.gradient.secondary:focus {
         linear-gradient(var(--color-background), var(--color-background)),
         linear-gradient(
             135deg,
-            rgba(236, 72, 153, var(--gradient-opacity)),
-            rgba(245, 158, 11, var(--gradient-opacity)),
-            rgba(244, 114, 182, var(--gradient-opacity)),
-            rgba(129, 140, 248, var(--gradient-opacity)),
-            rgba(236, 72, 153, var(--gradient-opacity))
+            rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-tertiary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-primary-rgb), var(--gradient-opacity)),
+            rgba(var(--color-secondary-rgb), var(--gradient-opacity))
         );
     animation: gradient-shift 2s ease infinite;
     box-shadow:
-        0 0 20px -4px rgba(236, 72, 153, calc(0.5 * var(--gradient-opacity))),
-        0 0 28px -4px rgba(245, 158, 11, calc(0.3 * var(--gradient-opacity))),
-        0 0 0 3px rgba(236, 72, 153, calc(0.15 * var(--gradient-opacity)));
+        0 0 20px -4px rgba(var(--color-secondary-rgb), calc(0.5 * var(--gradient-opacity))),
+        0 0 28px -4px rgba(var(--color-tertiary-rgb), calc(0.3 * var(--gradient-opacity))),
+        0 0 0 3px rgba(var(--color-secondary-rgb), calc(0.15 * var(--gradient-opacity)));
 }
 
 /* ---------------------------------------------------------------------
@@ -2709,7 +2720,7 @@ button:disabled,
 
 .btn.filled.gradient:hover {
     animation: gradient-shift 2s ease infinite;
-    box-shadow: 0 4px 15px -3px rgba(99, 102, 241, 0.5), 0 4px 6px -4px rgba(236, 72, 153, 0.4);
+    box-shadow: 0 4px 15px -3px rgba(var(--color-primary-rgb), 0.5), 0 4px 6px -4px rgba(var(--color-secondary-rgb), 0.4);
 }
 
 .btn.filled.gradient.secondary {
@@ -2796,13 +2807,13 @@ button:disabled,
     background-size: 100% 100%, 300% 300%;
     color: var(--color-primary);
     animation: gradient-shift 4s ease infinite;
-    box-shadow: 0 0 12px -4px rgba(99, 102, 241, 0.4), 0 0 20px -4px rgba(236, 72, 153, 0.2);
+    box-shadow: 0 0 12px -4px rgba(var(--color-primary-rgb), 0.4), 0 0 20px -4px rgba(var(--color-secondary-rgb), 0.2);
 }
 
 .btn.hollow.gradient:hover,
 .btn.hollow.gradient.primary:hover {
     animation: gradient-shift 2s ease infinite;
-    box-shadow: 0 0 16px -4px rgba(99, 102, 241, 0.5), 0 0 24px -4px rgba(236, 72, 153, 0.3), 0 4px 8px -4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 16px -4px rgba(var(--color-primary-rgb), 0.5), 0 0 24px -4px rgba(var(--color-secondary-rgb), 0.3), 0 4px 8px -4px rgba(0, 0, 0, 0.1);
 }
 
 .btn.hollow.gradient.secondary {
@@ -2818,11 +2829,11 @@ button:disabled,
         ) border-box;
     background-size: 100% 100%, 300% 300%;
     color: var(--color-secondary);
-    box-shadow: 0 0 12px -4px rgba(236, 72, 153, 0.4), 0 0 20px -4px rgba(245, 158, 11, 0.2);
+    box-shadow: 0 0 12px -4px rgba(var(--color-secondary-rgb), 0.4), 0 0 20px -4px rgba(var(--color-tertiary-rgb), 0.2);
 }
 
 .btn.hollow.gradient.secondary:hover {
-    box-shadow: 0 0 16px -4px rgba(236, 72, 153, 0.5), 0 0 24px -4px rgba(245, 158, 11, 0.3), 0 4px 8px -4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 16px -4px rgba(var(--color-secondary-rgb), 0.5), 0 0 24px -4px rgba(var(--color-tertiary-rgb), 0.3), 0 4px 8px -4px rgba(0, 0, 0, 0.1);
 }
 
 /* ---------------------------------------------------------------------
@@ -2972,7 +2983,7 @@ button:disabled,
     background-size: 300% 300%;
     animation: gradient-shift 8s ease infinite;
     color: #ffffff;
-    box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.2), 0 2px 4px -2px rgba(245, 158, 11, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(var(--color-tertiary-rgb), 0.2), 0 2px 4px -2px rgba(var(--color-tertiary-rgb), 0.1);
 }
 
 /* ---------------------------------------------------------------------
@@ -3030,7 +3041,7 @@ button:disabled,
     background-size: 300% 300%;
     animation: gradient-shift 6s ease infinite;
     color: #ffffff;
-    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.2), 0 2px 4px -2px rgba(236, 72, 153, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(var(--color-primary-rgb), 0.2), 0 2px 4px -2px rgba(var(--color-secondary-rgb), 0.1);
 }
 
 .alert.filled.primary:hover,
@@ -3054,7 +3065,7 @@ button:disabled,
     background-size: 300% 300%;
     animation: gradient-shift 6s ease infinite;
     color: #ffffff;
-    box-shadow: 0 4px 6px -1px rgba(236, 72, 153, 0.2), 0 2px 4px -2px rgba(245, 158, 11, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(var(--color-secondary-rgb), 0.2), 0 2px 4px -2px rgba(var(--color-tertiary-rgb), 0.1);
 }
 
 .alert.filled.secondary:hover {
@@ -3106,7 +3117,7 @@ button:disabled,
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 8s ease infinite;
     color: var(--color-warning-dark);
-    box-shadow: 0 0 12px -4px rgba(245, 158, 11, 0.3), 0 0 20px -4px rgba(245, 158, 11, 0.15);
+    box-shadow: 0 0 12px -4px rgba(var(--color-tertiary-rgb), 0.3), 0 0 20px -4px rgba(var(--color-tertiary-rgb), 0.15);
 }
 
 .alert.hollow.warning .alert-icon {
@@ -3185,7 +3196,7 @@ button:disabled,
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 6s ease infinite;
     color: var(--color-primary);
-    box-shadow: 0 0 12px -4px rgba(99, 102, 241, 0.3), 0 0 20px -4px rgba(236, 72, 153, 0.15);
+    box-shadow: 0 0 12px -4px rgba(var(--color-primary-rgb), 0.3), 0 0 20px -4px rgba(var(--color-secondary-rgb), 0.15);
 }
 
 .alert.hollow.primary:hover,
@@ -3212,7 +3223,7 @@ button:disabled,
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 6s ease infinite;
     color: var(--color-secondary);
-    box-shadow: 0 0 12px -4px rgba(236, 72, 153, 0.3), 0 0 20px -4px rgba(245, 158, 11, 0.15);
+    box-shadow: 0 0 12px -4px rgba(var(--color-secondary-rgb), 0.3), 0 0 20px -4px rgba(var(--color-tertiary-rgb), 0.15);
 }
 
 .alert.hollow.secondary:hover {
