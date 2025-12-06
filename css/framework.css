@@ -2863,27 +2863,21 @@ button:disabled,
 
 /* ---------------------------------------------------------------------
    Disabled Button States
+   Apple HIG: Use opacity on entire button, maintain original style
    --------------------------------------------------------------------- */
 
 .btn.filled:disabled,
 .btn.filled.disabled {
-    background: var(--color-disabled-bg);
-    color: var(--color-disabled-text);
     box-shadow: none;
 }
 
 .btn.hollow:disabled,
 .btn.hollow.disabled {
-    background: var(--color-background, #ffffff);
-    border-color: var(--color-disabled-border);
-    color: var(--color-disabled-text);
+    box-shadow: none;
 }
 
 .btn.hollow.gradient:disabled,
 .btn.hollow.gradient.disabled {
-    background: var(--color-background, #ffffff);
-    border-color: var(--color-disabled-border);
-    color: var(--color-disabled-text);
     box-shadow: none;
     animation: none;
 }
