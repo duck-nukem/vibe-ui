@@ -922,6 +922,95 @@ console.log(greet('World'));</code></pre>
             </p>
         </section>
 
+        <!-- Details & Summary -->
+        <section>
+            <h2>Details &amp; Summary</h2>
+            <p>Disclosure controls for expandable content, Apple HIG compliant with smooth animations.</p>
+
+            <h3>Default</h3>
+            <details>
+                <summary>Click to expand</summary>
+                <div class="details-content">
+                    <div class="details-content-inner">
+                        <p>This content is revealed when the details element is opened. The chevron rotates smoothly and the content animates in.</p>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>Another expandable section</summary>
+                <div class="details-content">
+                    <div class="details-content-inner">
+                        <p>You can put any content here - text, images, forms, or other components.</p>
+                    </div>
+                </div>
+            </details>
+
+            <h3>Compact Variant</h3>
+            <details class="compact">
+                <summary>Compact details</summary>
+                <div class="details-content">
+                    <div class="details-content-inner">
+                        <p>A smaller version for tighter layouts.</p>
+                    </div>
+                </div>
+            </details>
+
+            <h3>Details Group (Accordion)</h3>
+            <div class="details-group">
+                <details>
+                    <summary>First section</summary>
+                    <div class="details-content">
+                        <div class="details-content-inner">
+                            <p>Content for the first section. Multiple details can be open at once.</p>
+                        </div>
+                    </div>
+                </details>
+                <details>
+                    <summary>Second section</summary>
+                    <div class="details-content">
+                        <div class="details-content-inner">
+                            <p>Content for the second section.</p>
+                        </div>
+                    </div>
+                </details>
+                <details>
+                    <summary>Third section</summary>
+                    <div class="details-content">
+                        <div class="details-content-inner">
+                            <p>Content for the third section.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <div class="code-example">
+                <pre><code>&lt;!-- Default --&gt;
+&lt;details&gt;
+    &lt;summary&gt;Click to expand&lt;/summary&gt;
+    &lt;div class="details-content"&gt;
+        &lt;div class="details-content-inner"&gt;
+            &lt;p&gt;Your content here&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/details&gt;
+
+&lt;!-- Compact --&gt;
+&lt;details class="compact"&gt;...&lt;/details&gt;
+
+&lt;!-- Accordion group --&gt;
+&lt;div class="details-group"&gt;
+    &lt;details&gt;...&lt;/details&gt;
+    &lt;details&gt;...&lt;/details&gt;
+&lt;/div&gt;</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <p>
+                <strong>variant:</strong> <code>compact</code> | <code>flush</code> | (omit for default)<br>
+                <strong>group:</strong> wrap in <code>details-group</code> for accordion style
+            </p>
+        </section>
+
         <!-- Buttons -->
         <section id="buttons">
             <h2>Buttons</h2>
