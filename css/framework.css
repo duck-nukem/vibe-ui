@@ -206,6 +206,9 @@
        Disabled State
        --------------------------------------------------------------------- */
     --disabled-opacity: 0.38;
+    --color-disabled-bg: #cbd5e1;
+    --color-disabled-border: #94a3b8;
+    --color-disabled-text: #64748b;
 
     /* ---------------------------------------------------------------------
        Component-Specific Tokens
