@@ -238,36 +238,36 @@ function initDarkMode(toggle) {
 
 /**
  * Opens a modal dialog by ID or element reference.
- * 
+ *
  * Convenience wrapper around the native dialog.showModal() method.
  * Also sets up click-outside-to-close behavior if not already configured.
- * 
+ *
  * @param {string|HTMLDialogElement} modal - The modal's ID (string) or the dialog element itself
  * @returns {HTMLDialogElement|null} The dialog element, or null if not found
- * 
+ *
  * @example
  * // Open by ID
  * openModal('my-modal');
- * 
+ *
  * @example
  * // Open by element reference
  * const dialog = document.querySelector('#my-modal');
  * openModal(dialog);
- * 
+ *
  * @example
  * // With a button
  * <button onclick="openModal('confirm-delete')">Delete</button>
  */
 function openModal(modal) {
-    const dialog = typeof modal === 'string' 
-        ? document.getElementById(modal) 
+    const dialog = typeof modal === 'string'
+        ? document.getElementById(modal)
         : modal;
-    
+
     if (!dialog || !(dialog instanceof HTMLDialogElement)) {
         console.warn('openModal: Dialog not found or invalid element');
         return null;
     }
-    
+
     // Set up click-outside-to-close if not already configured
     if (!dialog.dataset.modalInitialized) {
         dialog.addEventListener('click', (e) => {
@@ -277,28 +277,28 @@ function openModal(modal) {
         });
         dialog.dataset.modalInitialized = 'true';
     }
-    
+
     dialog.showModal();
     return dialog;
 }
 
 /**
  * Closes a modal dialog by ID or element reference.
- * 
+ *
  * Convenience wrapper around the native dialog.close() method.
- * 
+ *
  * @param {string|HTMLDialogElement} modal - The modal's ID (string) or the dialog element itself
  * @param {string} [returnValue] - Optional return value to pass to the dialog's close event
  * @returns {HTMLDialogElement|null} The dialog element, or null if not found
- * 
+ *
  * @example
  * // Close by ID
  * closeModal('my-modal');
- * 
+ *
  * @example
  * // Close with a return value
  * closeModal('confirm-modal', 'confirmed');
- * 
+ *
  * // Later, check what was returned
  * dialog.addEventListener('close', () => {
  *     if (dialog.returnValue === 'confirmed') {
@@ -307,20 +307,97 @@ function openModal(modal) {
  * });
  */
 function closeModal(modal, returnValue) {
-    const dialog = typeof modal === 'string' 
-        ? document.getElementById(modal) 
+    const dialog = typeof modal === 'string'
+        ? document.getElementById(modal)
         : modal;
-    
+
     if (!dialog || !(dialog instanceof HTMLDialogElement)) {
         console.warn('closeModal: Dialog not found or invalid element');
         return null;
     }
-    
+
     dialog.close(returnValue);
     return dialog;
 }
 
+/**
+ * Tracks unsaved changes and shows a native browser confirmation dialog
+ * when the user tries to navigate away from the page.
+ *
+ * The browser shows a generic message like "Changes you made may not be saved"
+ * (custom messages are ignored for security reasons).
+ *
+ * @returns {Object} An object with methods to control the dirty state
+ *
+ * @example
+ * // Basic usage
+ * const unsavedChanges = trackUnsavedChanges();
+ *
+ * // When form is modified
+ * formInput.addEventListener('input', () => {
+ *     unsavedChanges.setDirty();
+ * });
+ *
+ * // After saving successfully
+ * saveButton.addEventListener('click', async () => {
+ *     await saveData();
+ *     unsavedChanges.setClean();
+ * });
+ *
+ * @example
+ * // Auto-track a form
+ * const unsavedChanges = trackUnsavedChanges();
+ * const form = document.querySelector('form');
+ *
+ * form.addEventListener('input', () => unsavedChanges.setDirty());
+ * form.addEventListener('submit', () => unsavedChanges.setClean());
+ */
+function trackUnsavedChanges() {
+    let dirty = false;
+
+    function handleBeforeUnload(e) {
+        if (dirty) {
+            e.preventDefault();
+            e.returnValue = ''; // Required for Chrome/Edge
+            return ''; // Required for some older browsers
+        }
+    }
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return {
+        /**
+         * Mark the page as having unsaved changes
+         */
+        setDirty: () => {
+            dirty = true;
+        },
+
+        /**
+         * Mark the page as clean (no unsaved changes)
+         */
+        setClean: () => {
+            dirty = false;
+        },
+
+        /**
+         * Check if there are unsaved changes
+         * @returns {boolean}
+         */
+        isDirty: () => dirty,
+
+        /**
+         * Remove the beforeunload listener entirely
+         * Call this when the component/page is destroyed
+         */
+        destroy: () => {
+            dirty = false;
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        }
+    };
+}
+
 // Export for ES modules
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { easeOutGradient, initNavbarScroll, openModal, closeModal };
+    module.exports = { easeOutGradient, initNavbarScroll, openModal, closeModal, trackUnsavedChanges };
 }

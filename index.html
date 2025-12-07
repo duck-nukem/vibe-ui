@@ -1181,6 +1181,34 @@ console.log(greet('World'));</code></pre>
                 <strong>Helper functions:</strong> Include <code>framework.js</code> for convenience functions: <code>openModal('id')</code> opens a modal and sets up click-outside-to-close behavior automatically. <code>closeModal('id')</code> closes it. Both accept an ID string or element reference.
             </p>
 
+            <h3 style="margin-top: var(--space-8);">Native "Unsaved Changes" Dialog</h3>
+            <p>Browsers have a built-in confirmation dialog when users try to navigate away from a page with unsaved changes. Use this instead of a custom modal — it's consistent across all sites and cannot be dismissed accidentally.</p>
+            <div class="code-example">
+                <pre><code>// Enable the warning when there are unsaved changes
+window.addEventListener('beforeunload', (e) => {
+    if (hasUnsavedChanges) {
+        e.preventDefault();
+        e.returnValue = ''; // Required for Chrome/Edge
+    }
+});
+
+// Or use the helper function from framework.js:
+const unsavedChanges = trackUnsavedChanges();
+
+// Mark form as having changes
+unsavedChanges.setDirty();
+
+// Clear after saving
+unsavedChanges.setClean();
+
+// Check current state
+if (unsavedChanges.isDirty()) { ... }</code></pre>
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <p class="text-muted text-sm">
+                <strong>Note:</strong> Modern browsers show a generic message like "Changes you made may not be saved" — custom messages are ignored for security reasons.
+            </p>
+
             <script>
                 // Close modal when clicking on backdrop
                 document.querySelectorAll('dialog.modal').forEach(dialog => {
