@@ -660,7 +660,7 @@ console.log(greet('World'));</code></pre>
             <div class="input-grid">
                 <div class="input-group">
                     <label for="text-default">Default</label>
-                    <input type="text" id="text-default" placeholder="Enter your name">
+                    <input type="text" id="text-default" placeholder="Enter your name" required>
                 </div>
                 <div class="input-group">
                     <label for="hollow-text">Hollow</label>
@@ -683,7 +683,8 @@ console.log(greet('World'));</code></pre>
             <p>
                 <strong>type:</strong> <code>text</code> | <code>email</code> | <code>password</code> | <code>number</code> | <code>date</code> | <code>time</code> | <code>search</code> | <code>tel</code> | <code>url</code> | <code>file</code> | <code>range</code><br>
                 <strong>style:</strong> <code>hollow</code> | <code>gradient</code> | <code>hollow secondary</code> | <code>gradient secondary</code> | (omit for default)<br>
-                <strong>state:</strong> <code>input-error</code> | <code>input-success</code> | (omit for normal)
+                <strong>state:</strong> <code>input-error</code> | <code>input-success</code> | (omit for normal)<br>
+                <strong>required:</strong> Add <code>required</code> attribute to the input and the label will automatically show a required indicator
             </p>
         </section>
 

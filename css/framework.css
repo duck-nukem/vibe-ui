@@ -1932,9 +1932,13 @@ label {
     color: var(--font-color-heading);
 }
 
-label.required::after {
+label.required::after,
+.input-group:has(input:required, textarea:required, select:required) label::after {
     content: ' *';
     color: var(--color-error);
+    font-weight: var(--font-bold);
+    font-size: var(--text-base);
+    vertical-align: middle;
 }
 
 /* ---------------------------------------------------------------------
