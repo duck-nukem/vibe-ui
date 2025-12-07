@@ -3683,6 +3683,182 @@ section h2 {
     margin-bottom: var(--space-2);
 }
 
+/* ---------------------------------------------------------------------
+   Modal / Dialog
+   Uses native <dialog> element for accessibility and keyboard handling
+   --------------------------------------------------------------------- */
+
+dialog.modal {
+    position: fixed;
+    max-width: min(90vw, 400px);
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    background: var(--color-background);
+    color: var(--font-color-body);
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+dialog.modal[open] {
+    display: block;
+}
+
+dialog.modal::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-6);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.modal-title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--font-color-heading);
+}
+
+.modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-full);
+    background: transparent;
+    color: var(--font-color-caption);
+    cursor: pointer;
+    transition: all var(--transition-fast) var(--easing-smooth);
+}
+
+.modal-close:hover {
+    background: var(--color-surface-alt);
+    color: var(--font-color-heading);
+}
+
+.modal-close:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+.modal-close svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: var(--space-6);
+}
+
+.modal-body p {
+    margin-bottom: var(--space-4);
+}
+
+.modal-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Modal Footer */
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-6);
+    border-top: 1px solid var(--color-border-light);
+    background: var(--color-surface);
+}
+
+/* Modal Sizes */
+dialog.modal.sm {
+    max-width: min(90vw, 320px);
+}
+
+dialog.modal.lg {
+    max-width: min(90vw, 560px);
+}
+
+/* Modal without header - compact alert style */
+dialog.modal.compact {
+    text-align: center;
+}
+
+dialog.modal.compact .modal-body {
+    padding: var(--space-8) var(--space-6) var(--space-4);
+}
+
+dialog.modal.compact .modal-footer {
+    justify-content: center;
+    border-top: none;
+    background: transparent;
+    padding-top: 0;
+}
+
+/* Dark mode */
+.dark dialog.modal {
+    background: var(--color-background);
+    border-color: var(--color-border);
+}
+
+.dark dialog.modal::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.dark .modal-header {
+    border-bottom-color: var(--color-border);
+}
+
+.dark .modal-footer {
+    border-top-color: var(--color-border);
+    background: var(--color-surface);
+}
+
+.dark .modal-close:hover {
+    background: var(--color-surface-alt);
+}
+
+/* Animation */
+@keyframes modal-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes backdrop-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+dialog.modal[open] {
+    animation: modal-fade-in 0.2s var(--easing-apple) forwards;
+}
+
+dialog.modal[open]::backdrop {
+    animation: backdrop-fade-in 0.2s var(--easing-smooth) forwards;
+}
+
 /* ==========================================================================
    10. REDUCED MOTION
    Respect user preferences for reduced motion

@@ -1,6 +1,6 @@
 /**
  * Modern UI Framework - JavaScript Helpers
- * 
+ *
  * Optional JavaScript utilities for enhanced interactions.
  * The CSS framework works without JavaScript, but these helpers
  * provide smoother transitions for dynamic class changes.
@@ -8,27 +8,27 @@
 
 /**
  * Smoothly fades out the gradient effect on an input element.
- * 
+ *
  * The gradient border on inputs cannot be smoothly transitioned with CSS alone
  * when removing the class. This helper function handles the fade-out animation
  * gracefully by:
  * 1. Adding the 'gradient-out' class to trigger the opacity transition
  * 2. Waiting for the transition to complete
  * 3. Cleanly removing both classes without causing a visual flash
- * 
+ *
  * @param {HTMLElement} element - The input, textarea, or select element with the 'gradient' class
  * @returns {Promise<void>} Resolves when the fade-out animation is complete
- * 
+ *
  * @example
  * // Basic usage
  * const input = document.querySelector('input.gradient');
  * easeOutGradient(input);
- * 
+ *
  * @example
  * // With async/await
  * await easeOutGradient(input);
  * console.log('Gradient removed!');
- * 
+ *
  * @example
  * // With .then()
  * easeOutGradient(input).then(() => {
@@ -52,19 +52,19 @@ function easeOutGradient(element) {
                 // Temporarily disable transitions to prevent flash
                 // when removing classes (prevents base input transition from firing)
                 element.style.transition = 'none';
-                
+
                 // Remove both gradient classes
                 element.classList.remove('gradient', 'gradient-out');
-                
+
                 // Force browser reflow to ensure styles are applied
                 element.offsetHeight;
-                
+
                 // Re-enable transitions
                 element.style.transition = '';
-                
+
                 // Clean up event listener
                 element.removeEventListener('transitionend', handleTransitionEnd);
-                
+
                 resolve();
             }
         }
@@ -75,23 +75,23 @@ function easeOutGradient(element) {
 
 /**
  * Initializes scroll-direction-based hiding/showing of the navbar top row.
- * 
+ *
  * On mobile, the navbar has two rows:
  * - Top row: logo + buttons (navbar-left, navbar-right)
  * - Bottom row: menu items (navbar-center)
- * 
+ *
  * This function hides the top row when scrolling down and reveals it
  * when scrolling up, creating a more compact navigation experience.
- * 
+ *
  * @param {HTMLElement} navbar - The navbar element with class 'navbar'
  * @param {Object} options - Configuration options
  * @param {number} options.threshold - Minimum scroll distance before triggering hide/show (default: 10)
- * 
+ *
  * @example
  * // Basic usage
  * const navbar = document.querySelector('.navbar');
  * initNavbarScroll(navbar);
- * 
+ *
  * @example
  * // With custom threshold
  * initNavbarScroll(navbar, { threshold: 20 });
@@ -103,17 +103,17 @@ function initNavbarScroll(navbar, options = {}) {
     let topRowHidden = false;
 
     const topRowElements = navbar.querySelectorAll('.navbar-left, .navbar-right');
-    
+
     function isMobile() {
         return window.innerWidth <= mobileBreakpoint;
     }
-    
+
     // Add CSS for smooth transition
     topRowElements.forEach(el => {
         el.style.transition = 'opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease';
         el.style.overflow = 'hidden';
     });
-    
+
     // Also transition the navbar itself for gap/padding
     navbar.style.transition = 'gap 0.3s ease, padding 0.3s ease';
 
@@ -181,25 +181,25 @@ function initNavbarScroll(navbar, options = {}) {
 
 /**
  * Initializes dark mode based on system preference and provides a toggle function.
- * 
+ *
  * This function:
  * 1. Checks the user's system preference for dark mode
  * 2. Applies the 'dark' class to <html> if dark mode is preferred
  * 3. Optionally syncs with a toggle checkbox
  * 4. Listens for system preference changes
- * 
+ *
  * @param {HTMLInputElement} [toggle] - Optional checkbox input to sync with dark mode state
  * @returns {Object} An object with methods to control dark mode
- * 
+ *
  * @example
  * // Basic usage - just follows system preference
  * initDarkMode();
- * 
+ *
  * @example
  * // With a toggle checkbox
  * const toggle = document.getElementById('dark-mode-toggle');
  * const darkMode = initDarkMode(toggle);
- * 
+ *
  * // Programmatically control dark mode
  * darkMode.set(true);  // Enable dark mode
  * darkMode.set(false); // Disable dark mode
@@ -207,27 +207,27 @@ function initNavbarScroll(navbar, options = {}) {
  */
 function initDarkMode(toggle) {
     const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
+
     function set(isDark) {
         document.documentElement.classList.toggle('dark', isDark);
         if (toggle) {
             toggle.checked = isDark;
         }
     }
-    
+
     // Sync toggle with dark mode state
     if (toggle) {
         toggle.addEventListener('change', function() {
             set(this.checked);
         });
     }
-    
+
     // Set initial state based on system preference
     set(darkModeQuery.matches);
-    
+
     // Listen for system preference changes
     darkModeQuery.addEventListener('change', (e) => set(e.matches));
-    
+
     // Return control methods
     return {
         set: set,
@@ -236,7 +236,91 @@ function initDarkMode(toggle) {
     };
 }
 
+/**
+ * Opens a modal dialog by ID or element reference.
+ * 
+ * Convenience wrapper around the native dialog.showModal() method.
+ * Also sets up click-outside-to-close behavior if not already configured.
+ * 
+ * @param {string|HTMLDialogElement} modal - The modal's ID (string) or the dialog element itself
+ * @returns {HTMLDialogElement|null} The dialog element, or null if not found
+ * 
+ * @example
+ * // Open by ID
+ * openModal('my-modal');
+ * 
+ * @example
+ * // Open by element reference
+ * const dialog = document.querySelector('#my-modal');
+ * openModal(dialog);
+ * 
+ * @example
+ * // With a button
+ * <button onclick="openModal('confirm-delete')">Delete</button>
+ */
+function openModal(modal) {
+    const dialog = typeof modal === 'string' 
+        ? document.getElementById(modal) 
+        : modal;
+    
+    if (!dialog || !(dialog instanceof HTMLDialogElement)) {
+        console.warn('openModal: Dialog not found or invalid element');
+        return null;
+    }
+    
+    // Set up click-outside-to-close if not already configured
+    if (!dialog.dataset.modalInitialized) {
+        dialog.addEventListener('click', (e) => {
+            if (e.target === dialog) {
+                dialog.close();
+            }
+        });
+        dialog.dataset.modalInitialized = 'true';
+    }
+    
+    dialog.showModal();
+    return dialog;
+}
+
+/**
+ * Closes a modal dialog by ID or element reference.
+ * 
+ * Convenience wrapper around the native dialog.close() method.
+ * 
+ * @param {string|HTMLDialogElement} modal - The modal's ID (string) or the dialog element itself
+ * @param {string} [returnValue] - Optional return value to pass to the dialog's close event
+ * @returns {HTMLDialogElement|null} The dialog element, or null if not found
+ * 
+ * @example
+ * // Close by ID
+ * closeModal('my-modal');
+ * 
+ * @example
+ * // Close with a return value
+ * closeModal('confirm-modal', 'confirmed');
+ * 
+ * // Later, check what was returned
+ * dialog.addEventListener('close', () => {
+ *     if (dialog.returnValue === 'confirmed') {
+ *         // User confirmed
+ *     }
+ * });
+ */
+function closeModal(modal, returnValue) {
+    const dialog = typeof modal === 'string' 
+        ? document.getElementById(modal) 
+        : modal;
+    
+    if (!dialog || !(dialog instanceof HTMLDialogElement)) {
+        console.warn('closeModal: Dialog not found or invalid element');
+        return null;
+    }
+    
+    dialog.close(returnValue);
+    return dialog;
+}
+
 // Export for ES modules
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { easeOutGradient, initNavbarScroll };
+    module.exports = { easeOutGradient, initNavbarScroll, openModal, closeModal };
 }
