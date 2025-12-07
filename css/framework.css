@@ -246,8 +246,8 @@
 .dark {
     /* Surface & Border Colors */
     --color-background: #0f172a;
-    --color-surface: #1e293b;
-    --color-surface-alt: #334155;
+    --color-surface: #151e2e;
+    --color-surface-alt: #1e293b;
     --color-input-background: color(srgb 0.0604 0.0911 0.1663);
     --color-border: #334155;
     --color-border-light: #1e293b;
@@ -3696,7 +3696,7 @@ dialog.modal {
     border-radius: var(--radius-xl);
     background: var(--color-background);
     color: var(--font-color-body);
-    box-shadow: 
+    box-shadow:
         0 25px 50px -12px rgba(0, 0, 0, 0.25),
         0 0 0 1px rgba(0, 0, 0, 0.05);
 }
