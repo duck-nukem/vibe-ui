@@ -1063,7 +1063,8 @@ console.log(greet('World'));</code></pre>
         <!-- Modal / Dialog -->
         <section id="modals">
             <h2>Modal / Dialog</h2>
-            <p>Native <code>&lt;dialog&gt;</code> element with accessible keyboard handling and focus trapping built-in.</p>
+            <p>Native <code>&lt;dialog&gt;</code> element with accessible keyboard handling and focus trapping built-in.
+                Works without Javascript using the <a href="https://caniuse.com/?search=commandfor" target="_blank"><code>commandfor</code></a> attribute.</p>
 
             <div class="alert hollow warning" style="margin-bottom: var(--space-6);">
                 <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1085,15 +1086,15 @@ console.log(greet('World'));</code></pre>
             </div>
             <h3 style="margin-top: var(--space-8);">Standard Modal</h3>
             <div style="margin-bottom: var(--space-6);">
-                <button class="btn filled primary" onclick="document.getElementById('demo-modal').showModal()">Open Modal</button>
-                <button class="btn hollow primary" onclick="document.getElementById('demo-modal-lg').showModal()">Open Large Modal</button>
+                <button class="btn filled primary" commandfor="demo-modal" command="show-modal">Open Modal</button>
+                <button class="btn hollow primary" commandfor="demo-modal-lg" command="show-modal">Open Large Modal</button>
             </div>
 
             <!-- Demo Modal -->
             <dialog id="demo-modal" class="modal">
                 <div class="modal-header">
                     <h3 class="modal-title">Modal Title</h3>
-                    <button class="modal-close" onclick="this.closest('dialog').close()" aria-label="Close modal">
+                    <button class="modal-close" commandfor="demo-modal" command="close" aria-label="Close modal">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -1105,8 +1106,8 @@ console.log(greet('World'));</code></pre>
                     <p>Press <kbd>Esc</kbd> to close, or click outside the modal.</p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn hollow primary" onclick="this.closest('dialog').close()">Cancel</button>
-                    <button class="btn filled primary" onclick="this.closest('dialog').close()">Confirm</button>
+                    <button class="btn hollow primary" commandfor="demo-modal" command="close">Cancel</button>
+                    <button class="btn filled primary" commandfor="demo-modal" command="close">Confirm</button>
                 </div>
             </dialog>
 
@@ -1114,7 +1115,7 @@ console.log(greet('World'));</code></pre>
             <dialog id="demo-modal-lg" class="modal lg">
                 <div class="modal-header">
                     <h3 class="modal-title">Large Modal</h3>
-                    <button class="modal-close" onclick="this.closest('dialog').close()" aria-label="Close modal">
+                    <button class="modal-close" commandfor="demo-modal-lg" command="close" aria-label="Close modal">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -1129,15 +1130,15 @@ console.log(greet('World'));</code></pre>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn hollow primary" onclick="this.closest('dialog').close()">Cancel</button>
-                    <button class="btn filled primary" onclick="this.closest('dialog').close()">Save Changes</button>
+                    <button class="btn hollow primary" commandfor="demo-modal-lg" command="close">Cancel</button>
+                    <button class="btn filled primary" commandfor="demo-modal-lg" command="close">Save Changes</button>
                 </div>
             </dialog>
 
             <h3 style="margin-top: var(--space-8);">Compact Modal (Alert Style)</h3>
             <p>Use for simple confirmations following Apple HIG patterns.</p>
             <div style="margin-bottom: var(--space-6);">
-                <button class="btn filled secondary" onclick="document.getElementById('demo-modal-compact').showModal()">Delete Item</button>
+                <button class="btn filled secondary" commandfor="demo-modal-compact" command="show-modal">Delete Item</button>
             </div>
 
             <!-- Compact Demo Modal -->
@@ -1153,8 +1154,8 @@ console.log(greet('World'));</code></pre>
                     <p class="text-muted">This action cannot be undone. The item will be permanently removed.</p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn hollow primary" onclick="this.closest('dialog').close()">Cancel</button>
-                    <button class="btn filled secondary" onclick="this.closest('dialog').close()">Delete</button>
+                    <button class="btn hollow primary" commandfor="demo-modal-compact" command="close">Cancel</button>
+                    <button class="btn filled secondary" commandfor="demo-modal-compact" command="close">Delete</button>
                 </div>
             </dialog>
 
@@ -1162,17 +1163,14 @@ console.log(greet('World'));</code></pre>
                 <pre><code>&lt;dialog id="my-modal" class="modal {size}"&gt;
     &lt;div class="modal-header"&gt;
         &lt;h3 class="modal-title"&gt;Title&lt;/h3&gt;
-        &lt;button class="modal-close" onclick="closeModal('my-modal')"&gt;✕&lt;/button&gt;
+        &lt;button class="modal-close" commandfor="my-modal" command="show-modal"&gt;✕&lt;/button&gt;
     &lt;/div&gt;
     &lt;div class="modal-body"&gt;...&lt;/div&gt;
     &lt;div class="modal-footer"&gt;
-        &lt;button onclick="closeModal('my-modal')"&gt;Cancel&lt;/button&gt;
+        &lt;button commandfor="my-modal" command="close"&gt;Cancel&lt;/button&gt;
         &lt;button&gt;Confirm&lt;/button&gt;
     &lt;/div&gt;
 &lt;/dialog&gt;
-
-&lt;!-- Open with JavaScript --&gt;
-&lt;button onclick="openModal('my-modal')"&gt;Open&lt;/button&gt;</code></pre>
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
             </div>
             <p>
