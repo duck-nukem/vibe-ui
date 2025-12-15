@@ -1177,13 +1177,6 @@ console.log(greet('World'));</code></pre>
                 <strong>size:</strong> <code>sm</code> | <code>lg</code> | (omit for default)<br>
                 <strong>variant:</strong> <code>compact</code> for centered alert-style modals
             </p>
-            <p class="text-muted text-sm">
-                <strong>No-JS behavior:</strong> If rendered with the <code>open</code> attribute (e.g., <code>&lt;dialog open class="modal"&gt;</code>), the modal displays immediately and can be closed without JavaScript via the close button or <kbd>Esc</kbd> key. However, showing the modal dynamically after page load requires JavaScript — call <code>element.showModal()</code> to open and <code>element.close()</code> to close. The <code>showModal()</code> method also enables the backdrop and focus trapping.
-            </p>
-            <p class="text-muted text-sm">
-                <strong>Helper functions:</strong> Include <code>framework.js</code> for convenience functions: <code>openModal('id')</code> opens a modal and sets up click-outside-to-close behavior automatically. <code>closeModal('id')</code> closes it. Both accept an ID string or element reference.
-            </p>
-
             <h3 style="margin-top: var(--space-8);">Native "Unsaved Changes" Dialog</h3>
             <p>Browsers have a built-in confirmation dialog when users try to navigate away from a page with unsaved changes. Use this instead of a custom modal — it's consistent across all sites and cannot be dismissed accidentally.</p>
             <div class="code-example">
@@ -1211,17 +1204,13 @@ if (unsavedChanges.isDirty()) { ... }</code></pre>
             <p class="text-muted text-sm">
                 <strong>Note:</strong> Modern browsers show a generic message like "Changes you made may not be saved" — custom messages are ignored for security reasons.
             </p>
-
             <script>
-                // Close modal when clicking on backdrop
-                document.querySelectorAll('dialog.modal').forEach(dialog => {
-                    dialog.addEventListener('click', (e) => {
-                        if (e.target === dialog) {
-                            dialog.close();
-                        }
-                    });
-                });
+            function simulateDirtyState() {
+              setUnloadBehavior(UnloadBehavior.WARN_ON_NAVIGATION);
+              location.reload(true);
+            }
             </script>
+            <button onclick="simulateDirtyState()">Try it!</button>
         </section>
 
     <section id="forms-ux">

@@ -236,84 +236,31 @@ function initDarkMode(toggle) {
     };
 }
 
-/**
- * Tracks unsaved changes and shows a native browser confirmation dialog
- * when the user tries to navigate away from the page.
- *
- * The browser shows a generic message like "Changes you made may not be saved"
- * (custom messages are ignored for security reasons).
- *
- * @returns {Object} An object with methods to control the dirty state
- *
- * @example
- * // Basic usage
- * const unsavedChanges = trackUnsavedChanges();
- *
- * // When form is modified
- * formInput.addEventListener('input', () => {
- *     unsavedChanges.setDirty();
- * });
- *
- * // After saving successfully
- * saveButton.addEventListener('click', async () => {
- *     await saveData();
- *     unsavedChanges.setClean();
- * });
- *
- * @example
- * // Auto-track a form
- * const unsavedChanges = trackUnsavedChanges();
- * const form = document.querySelector('form');
- *
- * form.addEventListener('input', () => unsavedChanges.setDirty());
- * form.addEventListener('submit', () => unsavedChanges.setClean());
- */
-function trackUnsavedChanges() {
-    let dirty = false;
+const UnloadBehavior = Object.freeze({
+    WARN_ON_NAVIGATION:   Symbol("warn_on_navigation"),
+    ALLOW_NAVIGATION:  Symbol("allow_navigation"),
+});
 
-    function handleBeforeUnload(e) {
-        if (dirty) {
-            e.preventDefault();
-            e.returnValue = ''; // Required for Chrome/Edge
-            return ''; // Required for some older browsers
-        }
-    }
+function _warnBeforeUnload(e) {
+    e.preventDefault();
+    e.returnValue = ''; // Required for Chrome/Edge
+    return ''; // Required for some older browsers
+}
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    return {
-        /**
-         * Mark the page as having unsaved changes
-         */
-        setDirty: () => {
-            dirty = true;
-        },
-
-        /**
-         * Mark the page as clean (no unsaved changes)
-         */
-        setClean: () => {
-            dirty = false;
-        },
-
-        /**
-         * Check if there are unsaved changes
-         * @returns {boolean}
-         */
-        isDirty: () => dirty,
-
-        /**
-         * Remove the beforeunload listener entirely
-         * Call this when the component/page is destroyed
-         */
-        destroy: () => {
-            dirty = false;
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        }
-    };
+function setUnloadBehavior(unloadBehavior) {
+  switch (unloadBehavior) {
+    case UnloadBehavior.WARN_ON_NAVIGATION:
+      window.addEventListener('beforeunload', _warnBeforeUnload);
+      break;
+    case UnloadBehavior.ALLOW_NAVIGATION:
+      window.removeEventListener('beforeunload', _warnBeforeUnload);
+      break;
+    default:
+      throw new Error('Invalid unload behavior. Use UnloadBehavior enum values.');
+  }
 }
 
 // Export for ES modules
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { easeOutGradient, initNavbarScroll, openModal, closeModal, trackUnsavedChanges };
+    module.exports = { easeOutGradient, initNavbarScroll, openModal, closeModal, setUnloadBehavior, UnloadBehavior };
 }
