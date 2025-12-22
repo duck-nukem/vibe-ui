@@ -1178,6 +1178,12 @@ console.log(greet('World'));</code></pre>
                 <strong>variant:</strong> <code>compact</code> for centered alert-style modals
             </p>
             <h3 style="margin-top: var(--space-8);">Native "Unsaved Changes" Dialog</h3>
+            <div class="alert hollow warning">
+                <div class="alert-content">
+                    <div class="alert-title">Supported devices</div>
+                    <div class="alert-description">Mobile devices seem to have poor to none support for this feature. Use native dialogs, or refrain from this pattern completely!</div>
+                </div>
+            </div>
             <p>Browsers have a built-in confirmation dialog when users try to navigate away from a page with unsaved changes. Use this instead of a custom modal — it's consistent across all sites and cannot be dismissed accidentally.</p>
             <div class="code-example">
                 <pre><code>// Enable the warning when there are unsaved changes
