@@ -2884,6 +2884,10 @@ button:disabled,
     transition: all var(--transition-slow);
 }
 
+.dark .btn.hollow {
+    color: var(--font-color-body);
+}
+
 .btn.hollow:hover,
 .btn.hollow.primary:hover {
     background:
@@ -2908,6 +2912,10 @@ button:disabled,
         linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
         linear-gradient(135deg, var(--color-secondary), var(--color-secondary)) border-box;
     color: var(--color-secondary);
+}
+
+.dark .btn.hollow.secondary {
+    color: var(--font-color-body);
 }
 
 .btn.hollow.secondary:hover {
