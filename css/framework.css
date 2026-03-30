@@ -1,30 +1,4 @@
 /* ==========================================================================
-   CSS Custom Properties for Animation (must be at top level)
-   ========================================================================== */
-
-@property --gradient-opacity {
-    syntax: '<number>';
-    inherits: false;
-    initial-value: 0;
-}
-
-@property --gradient-border-color {
-    syntax: '<color>';
-    inherits: false;
-    initial-value: #e2e8f0;
-}
-
-@property --gradient-border-color--dark {
-    syntax: '<color>';
-    inherits: false;
-    initial-value: #334155;
-}
-
-/* ==========================================================================
-   Modern UI Framework
-   ========================================================================== */
-
-/* ==========================================================================
    Modern UI Framework
    A clean, modern CSS framework for SaaS applications
    Tailwind UI / shadcn inspired design with animated gradients
@@ -39,14 +13,21 @@
    7. Utilities
    ========================================================================== */
 
-/* ==========================================================================
-   1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
-   All customizable values in one place for easy theming
-   ========================================================================== */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
 :root {
+    /* ==========================================================================
+       1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+       All customizable values in one place for easy theming
+       ========================================================================== */
+
+    --color-primary-rgb: 99, 102, 241;
+    --color-secondary-rgb: 236, 72, 153;
+    --color-tertiary-rgb: 245, 158, 11;
+    --color-background-rgb: 256, 256, 256;
+    --color-background-tint-rgb: 112, 154, 196;
+    --font-base-rgb: 9, 18, 31;
+
     /* ---------------------------------------------------------------------
        Color Palette
 
@@ -55,17 +36,14 @@
 
        All colors and variants are auto-generated from these.
        --------------------------------------------------------------------- */
-    --color-primary-rgb: 99, 102, 241;
     --color-primary: rgb(var(--color-primary-rgb));
     --color-primary-400: color-mix(in srgb, var(--color-primary) 65%, white);
     --color-primary-600: color-mix(in srgb, var(--color-primary) 75%, black);
 
-    --color-secondary-rgb: 236, 72, 153;
     --color-secondary: rgb(var(--color-secondary-rgb));
     --color-secondary-400: color-mix(in srgb, var(--color-secondary) 65%, white);
-    --color-secondary-600: color-mix(in srgb, var(--color-secondary) 75%, black);
 
-    --color-tertiary-rgb: 245, 158, 11;
+    --color-secondary-600: color-mix(in srgb, var(--color-secondary) 75%, black);
     --color-tertiary: rgb(var(--color-tertiary-rgb));
     --color-tertiary-200: color-mix(in srgb, var(--color-tertiary) 30%, white);
     --color-tertiary-400: color-mix(in srgb, var(--color-tertiary) 65%, white);
@@ -86,20 +64,23 @@
     /* ---------------------------------------------------------------------
        Surface & Border Colors
        --------------------------------------------------------------------- */
-    --color-background: #ffffff;
-    --color-surface: #f8fafc;
-    --color-surface-alt: #f1f5f9;
-    --color-border: #e2e8f0;
-    --color-border-light: #f1f5f9;
-    --color-border-hover: #cbd5e1;
-    --color-focus: #6366f1;
+    --color-background: rgb(var(--color-background-rgb));
+    --color-background-tint: rgb(var(--color-background-tint-rgb));
+
+    --color-surface: color-mix(in oklch, var(--color-background) 96%, var(--color-background-tint));
+    --color-surface-alt: color-mix(in oklch, var(--color-background) 90%, var(--color-background-tint));
+    --color-border: color-mix(in oklch, var(--color-background) 78%, var(--color-background-tint));
+    --color-border-light: color-mix(in oklch, var(--color-background) 90%, var(--color-background-tint));
+    --color-border-hover: color-mix(in oklch, var(--color-background) 64%, var(--color-background-tint));
 
     /* ---------------------------------------------------------------------
        Font Colors
        --------------------------------------------------------------------- */
-    --font-color-heading: #0f172a;
-    --font-color-body: #334155;
-    --font-color-caption: #64748b;
+    --font-base: rgb(var(--font-base-rgb));
+
+    --font-color-heading: var(--font-base);
+    --font-color-body: color-mix(in oklch, var(--font-base), white 28%);
+    --font-color-caption: color-mix(in oklch, var(--font-base), white 52%);
     --font-color-link: var(--color-primary);
     --font-color-link-hover: var(--color-primary-600);
 
@@ -306,16 +287,15 @@
 .dark input.hollow,
 .dark textarea.hollow,
 .dark select.hollow {
-    background:
-        linear-gradient(var(--color-input-background), var(--color-input-background)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-input-background), var(--color-input-background)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-primary),
             var(--color-secondary),
             var(--color-primary-400),
             var(--color-tertiary),
             var(--color-primary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
 }
 
@@ -324,16 +304,15 @@
 .dark textarea.gradient,
 .dark select.gradient {
     background-color: var(--color-input-background);
-    background-image:
-        linear-gradient(var(--color-input-background), var(--color-input-background)),
-        linear-gradient(
+    background-image: linear-gradient(var(--color-input-background), var(--color-input-background)),
+    linear-gradient(
             135deg,
             rgba(var(--color-primary-rgb), var(--gradient-opacity)),
             rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
             rgba(var(--color-primary-rgb), var(--gradient-opacity)),
             rgba(var(--color-tertiary-rgb), var(--gradient-opacity)),
             rgba(var(--color-primary-rgb), var(--gradient-opacity))
-        );
+    );
 }
 
 .dark input[type="checkbox"].toggle {
@@ -343,34 +322,31 @@
 /* Dark mode gradient checkboxes and radio buttons */
 .dark input[type="checkbox"].gradient,
 .dark input[type="radio"].gradient {
-    background:
-        linear-gradient(var(--color-input-background), var(--color-input-background)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-input-background), var(--color-input-background)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-primary),
             var(--color-secondary),
             var(--color-primary-400),
             var(--color-tertiary),
             var(--color-primary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
 }
 
 .dark input[type="checkbox"].gradient.secondary,
 .dark input[type="radio"].gradient.secondary {
-    background:
-        linear-gradient(var(--color-input-background), var(--color-input-background)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-input-background), var(--color-input-background)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-secondary),
             var(--color-tertiary),
             var(--color-secondary-400),
             var(--color-primary-400),
             var(--color-secondary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
 }
-
 
 
 .dark .card, .dark section {
@@ -393,11 +369,32 @@
 }
 
 
-
 /* Dark mode hollow gradient buttons - use indigo background for better contrast */
 .dark .btn.hollow.gradient {
     --color-background: #1e1b4b;
     color: #e0e7ff;
+}
+
+/* ==========================================================================
+   CSS Custom Properties for Animation
+   ========================================================================== */
+
+@property --gradient-opacity {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+}
+
+@property --gradient-border-color {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: var(--color-border);
+}
+
+@property --gradient-border-color--dark {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: var(--color-border);
 }
 
 /* ==========================================================================
@@ -420,7 +417,7 @@ html {
 
 body {
     margin: 0;
-    font-family: var(--font-body);
+    font-family: var(--font-body), sans-serif;
     font-size: var(--text-base);
     font-weight: var(--font-normal);
     line-height: var(--leading-normal);
@@ -440,7 +437,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
-    font-family: var(--font-heading);
+    font-family: var(--font-heading), sans-serif;
     font-weight: var(--font-bold);
     line-height: var(--leading-tight);
     letter-spacing: var(--tracking-tight);
@@ -543,12 +540,12 @@ a:focus-visible {
 /* Gradient animated link */
 a.gradient {
     background: linear-gradient(
-        135deg,
-        var(--color-primary),
-        var(--color-secondary),
-        var(--color-primary-400),
-        var(--color-tertiary),
-        var(--color-primary)
+            135deg,
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary-400),
+            var(--color-tertiary),
+            var(--color-primary)
     );
     background-size: 300% 300%;
     background-clip: text;
@@ -568,12 +565,12 @@ a.gradient:hover {
 
 a.gradient.secondary {
     background: linear-gradient(
-        135deg,
-        var(--color-secondary),
-        var(--color-tertiary),
-        var(--color-secondary-400),
-        var(--color-primary-400),
-        var(--color-secondary)
+            135deg,
+            var(--color-secondary),
+            var(--color-tertiary),
+            var(--color-secondary-400),
+            var(--color-primary-400),
+            var(--color-secondary)
     );
     background-size: 300% 300%;
     background-clip: text;
@@ -638,7 +635,7 @@ del, s {
    --------------------------------------------------------------------- */
 
 code, kbd, samp, pre {
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), monospace;
     font-size: 0.875em;
 }
 
@@ -787,7 +784,7 @@ table {
 
 th {
     padding: var(--space-3) var(--space-4);
-    font-family: var(--font-body);
+    font-family: var(--font-body), sans-serif;
     font-size: var(--text-xs);
     font-weight: var(--font-semibold);
     text-align: left;
@@ -865,11 +862,11 @@ th .th-content.sortable:hover {
 
 th .th-content.sortable.gradient {
     background: linear-gradient(
-        135deg,
-        var(--color-primary),
-        var(--color-secondary),
-        var(--color-primary-400),
-        var(--color-primary)
+            135deg,
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary-400),
+            var(--color-primary)
     );
     background-size: 300% 300%;
     animation: gradient-shift 6s ease infinite;
@@ -883,11 +880,11 @@ th .th-content.sortable.gradient:hover {
 
 th .th-content.sortable.gradient.secondary {
     background: linear-gradient(
-        135deg,
-        var(--color-secondary),
-        var(--color-tertiary),
-        var(--color-secondary-400),
-        var(--color-secondary)
+            135deg,
+            var(--color-secondary),
+            var(--color-tertiary),
+            var(--color-secondary-400),
+            var(--color-secondary)
     );
     background-size: 300% 300%;
 }
@@ -933,16 +930,15 @@ th .th-content.sortable.gradient .sort-icon::before {
 
 table.hollow {
     border: 2px solid transparent;
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-primary),
             var(--color-secondary),
             var(--color-primary-400),
             var(--color-tertiary),
             var(--color-primary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 6s ease infinite;
     box-shadow: 0 0 12px -4px rgba(var(--color-primary-rgb), 0.3), 0 0 20px -4px rgba(var(--color-secondary-rgb), 0.15);
@@ -954,16 +950,15 @@ table.hollow th {
 }
 
 table.hollow.secondary {
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-secondary),
             var(--color-tertiary),
             var(--color-secondary-400),
             var(--color-primary-400),
             var(--color-secondary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     box-shadow: 0 0 12px -4px rgba(var(--color-secondary-rgb), 0.3), 0 0 20px -4px rgba(var(--color-tertiary-rgb), 0.15);
 }
@@ -1023,9 +1018,6 @@ td.status-info {
 }
 
 
-
-
-
 /* ---------------------------------------------------------------------
    Icon-Only Action Buttons
    --------------------------------------------------------------------- */
@@ -1040,14 +1032,12 @@ td.status-info {
     border: none;
     border-radius: var(--radius-md);
     background: transparent;
-    color: var(--color-text-muted);
     cursor: pointer;
     transition: all var(--transition-fast);
 }
 
 .btn-icon:hover {
     background: var(--color-surface);
-    color: var(--color-text);
 }
 
 .btn-icon:focus-visible {
@@ -1102,7 +1092,6 @@ td.status-info {
     border: 1px solid var(--color-border);
     border-radius: 9999px;
     background: var(--color-background);
-    color: var(--color-text-secondary);
     cursor: pointer;
     transition: all var(--transition-fast);
     white-space: nowrap;
@@ -1110,8 +1099,6 @@ td.status-info {
 
 .action-chip:hover {
     background: var(--color-surface);
-    border-color: var(--color-border-strong);
-    color: var(--color-text);
 }
 
 .action-chip:focus-visible {
@@ -1152,7 +1139,6 @@ td.status-info {
 .action-chip.success:hover {
     background: color-mix(in srgb, var(--color-success) 10%, transparent);
 }
-
 
 
 /* ==========================================================================
@@ -1524,11 +1510,11 @@ td.status-info {
 
 .badge.gradient {
     background: linear-gradient(
-        135deg,
-        var(--color-primary),
-        var(--color-secondary),
-        var(--color-primary-400),
-        var(--color-primary)
+            135deg,
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary-400),
+            var(--color-primary)
     );
     background-size: 300% 300%;
     animation: gradient-shift 6s ease infinite;
@@ -1537,25 +1523,24 @@ td.status-info {
 
 .badge.gradient.secondary {
     background: linear-gradient(
-        135deg,
-        var(--color-secondary),
-        var(--color-tertiary),
-        var(--color-secondary-400),
-        var(--color-secondary)
+            135deg,
+            var(--color-secondary),
+            var(--color-tertiary),
+            var(--color-secondary-400),
+            var(--color-secondary)
     );
     background-size: 300% 300%;
 }
 
 .badge.hollow.gradient {
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-primary),
             var(--color-secondary),
             var(--color-primary-400),
             var(--color-primary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 6s ease infinite;
     border: 1.5px solid transparent;
@@ -1563,15 +1548,14 @@ td.status-info {
 }
 
 .badge.hollow.gradient.secondary {
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-secondary),
             var(--color-tertiary),
             var(--color-secondary-400),
             var(--color-secondary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     color: var(--color-secondary);
 }
@@ -2089,7 +2073,6 @@ input[type="radio"]:disabled {
 }
 
 
-
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
     background-color: var(--color-primary);
@@ -2127,16 +2110,15 @@ input[type="radio"]:checked::before {
 input[type="checkbox"].gradient,
 input[type="radio"].gradient {
     border: 2px solid transparent;
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-primary),
             var(--color-secondary),
             var(--color-primary-400),
             var(--color-tertiary),
             var(--color-primary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 4s ease infinite;
     box-shadow: 0 0 8px -2px rgba(var(--color-primary-rgb), 0.3), 0 0 12px -2px rgba(var(--color-secondary-rgb), 0.15);
@@ -2156,15 +2138,14 @@ input[type="radio"].gradient:focus {
 input[type="checkbox"].gradient:checked,
 input[type="radio"].gradient:checked {
     border: 2px solid transparent;
-    background:
-        linear-gradient(
+    background: linear-gradient(
             135deg,
             var(--color-primary),
             var(--color-secondary),
             var(--color-primary-400),
             var(--color-tertiary),
             var(--color-primary)
-        ) border-box;
+    ) border-box;
     background-size: 300% 300%;
     animation: gradient-shift 4s ease infinite;
 }
@@ -2177,16 +2158,15 @@ input[type="radio"].gradient:checked:hover {
 /* Secondary gradient variant */
 input[type="checkbox"].gradient.secondary,
 input[type="radio"].gradient.secondary {
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-secondary),
             var(--color-tertiary),
             var(--color-secondary-400),
             var(--color-primary-400),
             var(--color-secondary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     box-shadow: 0 0 8px -2px rgba(var(--color-secondary-rgb), 0.3), 0 0 12px -2px rgba(var(--color-tertiary-rgb), 0.15);
 }
@@ -2203,15 +2183,14 @@ input[type="radio"].gradient.secondary:focus {
 
 input[type="checkbox"].gradient.secondary:checked,
 input[type="radio"].gradient.secondary:checked {
-    background:
-        linear-gradient(
+    background: linear-gradient(
             135deg,
             var(--color-secondary),
             var(--color-tertiary),
             var(--color-secondary-400),
             var(--color-primary-400),
             var(--color-secondary)
-        ) border-box;
+    ) border-box;
     background-size: 300% 300%;
 }
 
@@ -2221,7 +2200,6 @@ input[type="radio"].gradient:disabled {
     box-shadow: none;
     animation: none;
 }
-
 
 
 /* ---------------------------------------------------------------------
@@ -2293,16 +2271,15 @@ input[type="checkbox"].toggle.sm:checked::before {
 
 /* Gradient toggle - pre-set animation in paused state so it's ready on check */
 input[type="checkbox"].toggle.gradient {
-    background:
-        linear-gradient(var(--color-border), var(--color-border)),
-        linear-gradient(
+    background: linear-gradient(var(--color-border), var(--color-border)),
+    linear-gradient(
             135deg,
             var(--color-primary),
             var(--color-secondary),
             var(--color-primary-400),
             var(--color-tertiary),
             var(--color-primary)
-        );
+    );
     background-size: 100% 100%, 300% 300%;
     box-shadow: none;
     animation: gradient-shift 4s ease infinite paused;
@@ -2310,39 +2287,38 @@ input[type="checkbox"].toggle.gradient {
 
 input[type="checkbox"].toggle.gradient:checked {
     background: linear-gradient(
-        135deg,
-        var(--color-primary),
-        var(--color-secondary),
-        var(--color-primary-400),
-        var(--color-tertiary),
-        var(--color-primary)
+            135deg,
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary-400),
+            var(--color-tertiary),
+            var(--color-primary)
     );
     background-size: 300% 300%;
     animation-play-state: running;
 }
 
 input[type="checkbox"].toggle.gradient.secondary {
-    background:
-        linear-gradient(var(--color-border), var(--color-border)),
-        linear-gradient(
+    background: linear-gradient(var(--color-border), var(--color-border)),
+    linear-gradient(
             135deg,
             var(--color-secondary),
             var(--color-tertiary),
             var(--color-secondary-400),
             var(--color-primary-400),
             var(--color-secondary)
-        );
+    );
     background-size: 100% 100%, 300% 300%;
 }
 
 input[type="checkbox"].toggle.gradient.secondary:checked {
     background: linear-gradient(
-        135deg,
-        var(--color-secondary),
-        var(--color-tertiary),
-        var(--color-secondary-400),
-        var(--color-primary-400),
-        var(--color-secondary)
+            135deg,
+            var(--color-secondary),
+            var(--color-tertiary),
+            var(--color-secondary-400),
+            var(--color-primary-400),
+            var(--color-secondary)
     );
     background-size: 300% 300%;
     animation-play-state: running;
@@ -2414,16 +2390,15 @@ input.hollow,
 textarea.hollow,
 select.hollow {
     border: 2px solid var(--color-primary);
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-primary),
             var(--color-secondary),
             var(--color-primary-400),
             var(--color-tertiary),
             var(--color-primary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     transition: box-shadow 0.3s ease, border-color 0s ease;
 }
@@ -2439,16 +2414,15 @@ textarea.hollow:focus,
 select.hollow:focus {
     outline: none;
     border-color: transparent;
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-primary),
             var(--color-secondary),
             var(--color-primary-400),
             var(--color-tertiary),
             var(--color-primary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 3s ease infinite;
     box-shadow: 0 0 12px -4px rgba(var(--color-primary-rgb), 0.4), 0 0 20px -4px rgba(var(--color-secondary-rgb), 0.2);
@@ -2458,16 +2432,15 @@ input.hollow.secondary,
 textarea.hollow.secondary,
 select.hollow.secondary {
     border: 2px solid var(--color-secondary);
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-secondary),
             var(--color-tertiary),
             var(--color-secondary-400),
             var(--color-primary-400),
             var(--color-secondary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
 }
 
@@ -2482,16 +2455,15 @@ textarea.hollow.secondary:focus,
 select.hollow.secondary:focus {
     outline: none;
     border-color: transparent;
-    background:
-        linear-gradient(var(--color-background), var(--color-background)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background), var(--color-background)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-secondary),
             var(--color-tertiary),
             var(--color-secondary-400),
             var(--color-primary-400),
             var(--color-secondary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 3s ease infinite;
     box-shadow: 0 0 12px -4px rgba(var(--color-secondary-rgb), 0.4), 0 0 20px -4px rgba(var(--color-tertiary-rgb), 0.2);
@@ -2512,23 +2484,21 @@ select.gradient {
     --gradient-border-color: transparent;
     border: var(--input-border-width) solid var(--gradient-border-color);
     background-color: var(--color-background);
-    background-image:
-        linear-gradient(var(--color-background), var(--color-background)),
-        linear-gradient(
+    background-image: linear-gradient(var(--color-background), var(--color-background)),
+    linear-gradient(
             135deg,
             rgba(var(--color-primary-rgb), var(--gradient-opacity)),
             rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
             rgba(var(--color-primary-rgb), var(--gradient-opacity)),
             rgba(var(--color-tertiary-rgb), var(--gradient-opacity)),
             rgba(var(--color-primary-rgb), var(--gradient-opacity))
-        );
+    );
     background-origin: padding-box, border-box;
     background-clip: padding-box, border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 4s ease infinite;
-    box-shadow:
-        0 0 12px -4px rgba(var(--color-primary-rgb), calc(0.3 * var(--gradient-opacity))),
-        0 0 20px -4px rgba(var(--color-secondary-rgb), calc(0.15 * var(--gradient-opacity)));
+    box-shadow: 0 0 12px -4px rgba(var(--color-primary-rgb), calc(0.3 * var(--gradient-opacity))),
+    0 0 20px -4px rgba(var(--color-secondary-rgb), calc(0.15 * var(--gradient-opacity)));
     transition: --gradient-opacity 0.5s ease, --gradient-border-color 0.5s ease;
 }
 
@@ -2543,41 +2513,37 @@ select.gradient {
 input.gradient:hover,
 textarea.gradient:hover,
 select.gradient:hover {
-    background-image:
-        linear-gradient(var(--color-background), var(--color-background)),
-        linear-gradient(
+    background-image: linear-gradient(var(--color-background), var(--color-background)),
+    linear-gradient(
             135deg,
             rgba(var(--color-primary-rgb), var(--gradient-opacity)),
             rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
             rgba(var(--color-primary-rgb), var(--gradient-opacity)),
             rgba(var(--color-tertiary-rgb), var(--gradient-opacity)),
             rgba(var(--color-primary-rgb), var(--gradient-opacity))
-        );
+    );
     animation: gradient-shift 2s ease infinite;
-    box-shadow:
-        0 0 16px -4px rgba(var(--color-primary-rgb), calc(0.4 * var(--gradient-opacity))),
-        0 0 24px -4px rgba(var(--color-secondary-rgb), calc(0.25 * var(--gradient-opacity)));
+    box-shadow: 0 0 16px -4px rgba(var(--color-primary-rgb), calc(0.4 * var(--gradient-opacity))),
+    0 0 24px -4px rgba(var(--color-secondary-rgb), calc(0.25 * var(--gradient-opacity)));
 }
 
 input.gradient:focus,
 textarea.gradient:focus,
 select.gradient:focus {
     outline: none;
-    background-image:
-        linear-gradient(var(--color-background), var(--color-background)),
-        linear-gradient(
+    background-image: linear-gradient(var(--color-background), var(--color-background)),
+    linear-gradient(
             135deg,
             rgba(var(--color-primary-rgb), var(--gradient-opacity)),
             rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
             rgba(var(--color-primary-rgb), var(--gradient-opacity)),
             rgba(var(--color-tertiary-rgb), var(--gradient-opacity)),
             rgba(var(--color-primary-rgb), var(--gradient-opacity))
-        );
+    );
     animation: gradient-shift 2s ease infinite;
-    box-shadow:
-        0 0 20px -4px rgba(var(--color-primary-rgb), calc(0.5 * var(--gradient-opacity))),
-        0 0 28px -4px rgba(var(--color-secondary-rgb), calc(0.3 * var(--gradient-opacity))),
-        0 0 0 3px rgba(var(--color-primary-rgb), calc(0.15 * var(--gradient-opacity)));
+    box-shadow: 0 0 20px -4px rgba(var(--color-primary-rgb), calc(0.5 * var(--gradient-opacity))),
+    0 0 28px -4px rgba(var(--color-secondary-rgb), calc(0.3 * var(--gradient-opacity))),
+    0 0 0 3px rgba(var(--color-primary-rgb), calc(0.15 * var(--gradient-opacity)));
 }
 
 /* Fade out state - transition opacity to 0 */
@@ -2598,60 +2564,54 @@ select.gradient.gradient-out {
 input.gradient.secondary,
 textarea.gradient.secondary,
 select.gradient.secondary {
-    background-image:
-        linear-gradient(var(--color-background), var(--color-background)),
-        linear-gradient(
+    background-image: linear-gradient(var(--color-background), var(--color-background)),
+    linear-gradient(
             135deg,
             rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
             rgba(var(--color-tertiary-rgb), var(--gradient-opacity)),
             rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
             rgba(var(--color-primary-rgb), var(--gradient-opacity)),
             rgba(var(--color-secondary-rgb), var(--gradient-opacity))
-        );
+    );
     animation: gradient-shift 4s ease infinite;
-    box-shadow:
-        0 0 12px -4px rgba(var(--color-secondary-rgb), calc(0.3 * var(--gradient-opacity))),
-        0 0 20px -4px rgba(var(--color-tertiary-rgb), calc(0.15 * var(--gradient-opacity)));
+    box-shadow: 0 0 12px -4px rgba(var(--color-secondary-rgb), calc(0.3 * var(--gradient-opacity))),
+    0 0 20px -4px rgba(var(--color-tertiary-rgb), calc(0.15 * var(--gradient-opacity)));
 }
 
 input.gradient.secondary:hover,
 textarea.gradient.secondary:hover,
 select.gradient.secondary:hover {
-    background-image:
-        linear-gradient(var(--color-background), var(--color-background)),
-        linear-gradient(
+    background-image: linear-gradient(var(--color-background), var(--color-background)),
+    linear-gradient(
             135deg,
             rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
             rgba(var(--color-tertiary-rgb), var(--gradient-opacity)),
             rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
             rgba(var(--color-primary-rgb), var(--gradient-opacity)),
             rgba(var(--color-secondary-rgb), var(--gradient-opacity))
-        );
+    );
     animation: gradient-shift 2s ease infinite;
-    box-shadow:
-        0 0 16px -4px rgba(var(--color-secondary-rgb), calc(0.4 * var(--gradient-opacity))),
-        0 0 24px -4px rgba(var(--color-tertiary-rgb), calc(0.25 * var(--gradient-opacity)));
+    box-shadow: 0 0 16px -4px rgba(var(--color-secondary-rgb), calc(0.4 * var(--gradient-opacity))),
+    0 0 24px -4px rgba(var(--color-tertiary-rgb), calc(0.25 * var(--gradient-opacity)));
 }
 
 input.gradient.secondary:focus,
 textarea.gradient.secondary:focus,
 select.gradient.secondary:focus {
     outline: none;
-    background-image:
-        linear-gradient(var(--color-background), var(--color-background)),
-        linear-gradient(
+    background-image: linear-gradient(var(--color-background), var(--color-background)),
+    linear-gradient(
             135deg,
             rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
             rgba(var(--color-tertiary-rgb), var(--gradient-opacity)),
             rgba(var(--color-secondary-rgb), var(--gradient-opacity)),
             rgba(var(--color-primary-rgb), var(--gradient-opacity)),
             rgba(var(--color-secondary-rgb), var(--gradient-opacity))
-        );
+    );
     animation: gradient-shift 2s ease infinite;
-    box-shadow:
-        0 0 20px -4px rgba(var(--color-secondary-rgb), calc(0.5 * var(--gradient-opacity))),
-        0 0 28px -4px rgba(var(--color-tertiary-rgb), calc(0.3 * var(--gradient-opacity))),
-        0 0 0 3px rgba(var(--color-secondary-rgb), calc(0.15 * var(--gradient-opacity)));
+    box-shadow: 0 0 20px -4px rgba(var(--color-secondary-rgb), calc(0.5 * var(--gradient-opacity))),
+    0 0 28px -4px rgba(var(--color-tertiary-rgb), calc(0.3 * var(--gradient-opacity))),
+    0 0 0 3px rgba(var(--color-secondary-rgb), calc(0.15 * var(--gradient-opacity)));
 }
 
 /* ---------------------------------------------------------------------
@@ -2779,11 +2739,11 @@ button:disabled,
     position: absolute;
     inset: 0;
     background: linear-gradient(
-        135deg,
-        var(--color-primary),
-        var(--color-secondary),
-        var(--color-primary-400),
-        var(--color-primary)
+            135deg,
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary-400),
+            var(--color-primary)
     );
     background-size: 300% 300%;
     opacity: 0;
@@ -2823,11 +2783,11 @@ button:disabled,
 
 .btn.filled.secondary::before {
     background: linear-gradient(
-        135deg,
-        var(--color-secondary),
-        var(--color-tertiary),
-        var(--color-secondary-400),
-        var(--color-secondary)
+            135deg,
+            var(--color-secondary),
+            var(--color-tertiary),
+            var(--color-secondary-400),
+            var(--color-secondary)
     );
     background-size: 300% 300%;
 }
@@ -2838,11 +2798,11 @@ button:disabled,
 
 .btn.filled.gradient {
     background: linear-gradient(
-        135deg,
-        var(--color-primary),
-        var(--color-secondary),
-        var(--color-primary-400),
-        var(--color-primary)
+            135deg,
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary-400),
+            var(--color-primary)
     );
     background-size: 300% 300%;
     animation: gradient-shift 4s ease infinite;
@@ -2860,11 +2820,11 @@ button:disabled,
 
 .btn.filled.gradient.secondary {
     background: linear-gradient(
-        135deg,
-        var(--color-secondary),
-        var(--color-tertiary),
-        var(--color-secondary-400),
-        var(--color-secondary)
+            135deg,
+            var(--color-secondary),
+            var(--color-tertiary),
+            var(--color-secondary-400),
+            var(--color-secondary)
     );
     background-size: 300% 300%;
 }
@@ -2877,9 +2837,8 @@ button:disabled,
 .btn.hollow.primary {
     border: 2px solid transparent;
     padding: calc(var(--btn-padding-y) - 2px) calc(var(--btn-padding-x) - 2px);
-    background:
-        linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
-        linear-gradient(135deg, var(--color-primary), var(--color-primary)) border-box;
+    background: linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
+    linear-gradient(135deg, var(--color-primary), var(--color-primary)) border-box;
     color: var(--color-primary);
     transition: all var(--transition-slow);
 }
@@ -2890,15 +2849,14 @@ button:disabled,
 
 .btn.hollow:hover,
 .btn.hollow.primary:hover {
-    background:
-        linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-primary),
             var(--color-secondary),
             var(--color-primary-400),
             var(--color-primary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 3s ease infinite;
 }
@@ -2908,9 +2866,8 @@ button:disabled,
    --------------------------------------------------------------------- */
 
 .btn.hollow.secondary {
-    background:
-        linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
-        linear-gradient(135deg, var(--color-secondary), var(--color-secondary)) border-box;
+    background: linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
+    linear-gradient(135deg, var(--color-secondary), var(--color-secondary)) border-box;
     color: var(--color-secondary);
 }
 
@@ -2919,15 +2876,14 @@ button:disabled,
 }
 
 .btn.hollow.secondary:hover {
-    background:
-        linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-secondary),
             var(--color-tertiary),
             var(--color-secondary-400),
             var(--color-secondary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
 }
 
@@ -2937,16 +2893,15 @@ button:disabled,
 
 .btn.hollow.gradient,
 .btn.hollow.gradient.primary {
-    background:
-        linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-primary),
             var(--color-secondary),
             var(--color-primary-400),
             var(--color-tertiary),
             var(--color-primary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     color: var(--color-primary);
     animation: gradient-shift 4s ease infinite;
@@ -2960,16 +2915,15 @@ button:disabled,
 }
 
 .btn.hollow.gradient.secondary {
-    background:
-        linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-secondary),
             var(--color-tertiary),
             var(--color-secondary-400),
             var(--color-primary-400),
             var(--color-secondary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     color: var(--color-secondary);
     box-shadow: 0 0 12px -4px rgba(var(--color-secondary-rgb), 0.4), 0 0 20px -4px rgba(var(--color-tertiary-rgb), 0.2);
@@ -3092,12 +3046,12 @@ button:disabled,
 
 .alert.filled.success {
     background: linear-gradient(
-        135deg,
-        var(--color-success),
-        var(--color-success-dark),
-        var(--color-success),
-        var(--color-success-dark),
-        var(--color-success)
+            135deg,
+            var(--color-success),
+            var(--color-success-dark),
+            var(--color-success),
+            var(--color-success-dark),
+            var(--color-success)
     );
     background-size: 300% 300%;
     animation: gradient-shift 8s ease infinite;
@@ -3111,12 +3065,12 @@ button:disabled,
 
 .alert.filled.warning {
     background: linear-gradient(
-        135deg,
-        var(--color-warning),
-        var(--color-warning-dark),
-        var(--color-warning),
-        var(--color-warning-dark),
-        var(--color-warning)
+            135deg,
+            var(--color-warning),
+            var(--color-warning-dark),
+            var(--color-warning),
+            var(--color-warning-dark),
+            var(--color-warning)
     );
     background-size: 300% 300%;
     animation: gradient-shift 8s ease infinite;
@@ -3130,12 +3084,12 @@ button:disabled,
 
 .alert.filled.error {
     background: linear-gradient(
-        135deg,
-        var(--color-error),
-        var(--color-error-dark),
-        var(--color-error),
-        var(--color-error-dark),
-        var(--color-error)
+            135deg,
+            var(--color-error),
+            var(--color-error-dark),
+            var(--color-error),
+            var(--color-error-dark),
+            var(--color-error)
     );
     background-size: 300% 300%;
     animation: gradient-shift 8s ease infinite;
@@ -3149,12 +3103,12 @@ button:disabled,
 
 .alert.filled.info {
     background: linear-gradient(
-        135deg,
-        var(--color-info),
-        var(--color-info-dark),
-        var(--color-info),
-        var(--color-info-dark),
-        var(--color-info)
+            135deg,
+            var(--color-info),
+            var(--color-info-dark),
+            var(--color-info),
+            var(--color-info-dark),
+            var(--color-info)
     );
     background-size: 300% 300%;
     animation: gradient-shift 8s ease infinite;
@@ -3169,12 +3123,12 @@ button:disabled,
 .alert.filled.primary,
 .alert.filled {
     background: linear-gradient(
-        135deg,
-        var(--color-primary),
-        var(--color-secondary),
-        var(--color-primary-400),
-        var(--color-tertiary),
-        var(--color-primary)
+            135deg,
+            var(--color-primary),
+            var(--color-secondary),
+            var(--color-primary-400),
+            var(--color-tertiary),
+            var(--color-primary)
     );
     background-size: 300% 300%;
     animation: gradient-shift 6s ease infinite;
@@ -3193,12 +3147,12 @@ button:disabled,
 
 .alert.filled.secondary {
     background: linear-gradient(
-        135deg,
-        var(--color-secondary),
-        var(--color-tertiary),
-        var(--color-secondary-400),
-        var(--color-primary-400),
-        var(--color-secondary)
+            135deg,
+            var(--color-secondary),
+            var(--color-tertiary),
+            var(--color-secondary-400),
+            var(--color-primary-400),
+            var(--color-secondary)
     );
     background-size: 300% 300%;
     animation: gradient-shift 6s ease infinite;
@@ -3216,16 +3170,15 @@ button:disabled,
 
 .alert.hollow.success {
     border: var(--alert-border-width) solid transparent;
-    background:
-        linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-success),
             var(--color-success-dark),
             var(--color-success),
             var(--color-success-dark),
             var(--color-success)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 8s ease infinite;
     color: var(--color-success-dark);
@@ -3242,16 +3195,15 @@ button:disabled,
 
 .alert.hollow.warning {
     border: var(--alert-border-width) solid transparent;
-    background:
-        linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-warning),
             var(--color-warning-dark),
             var(--color-warning),
             var(--color-warning-dark),
             var(--color-warning)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 8s ease infinite;
     color: var(--color-warning-dark);
@@ -3268,16 +3220,15 @@ button:disabled,
 
 .alert.hollow.error {
     border: var(--alert-border-width) solid transparent;
-    background:
-        linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-error),
             var(--color-error-dark),
             var(--color-error),
             var(--color-error-dark),
             var(--color-error)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 8s ease infinite;
     color: var(--color-error-dark);
@@ -3294,16 +3245,15 @@ button:disabled,
 
 .alert.hollow.info {
     border: var(--alert-border-width) solid transparent;
-    background:
-        linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-info),
             var(--color-info-dark),
             var(--color-info),
             var(--color-info-dark),
             var(--color-info)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 8s ease infinite;
     color: var(--color-info-dark);
@@ -3321,16 +3271,15 @@ button:disabled,
 .alert.hollow.primary,
 .alert.hollow {
     border: var(--alert-border-width) solid transparent;
-    background:
-        linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-primary),
             var(--color-secondary),
             var(--color-primary-400),
             var(--color-tertiary),
             var(--color-primary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 6s ease infinite;
     color: var(--color-primary);
@@ -3348,16 +3297,15 @@ button:disabled,
 
 .alert.hollow.secondary {
     border: var(--alert-border-width) solid transparent;
-    background:
-        linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
-        linear-gradient(
+    background: linear-gradient(var(--color-background, #ffffff), var(--color-background, #ffffff)) padding-box,
+    linear-gradient(
             135deg,
             var(--color-secondary),
             var(--color-tertiary),
             var(--color-secondary-400),
             var(--color-primary-400),
             var(--color-secondary)
-        ) border-box;
+    ) border-box;
     background-size: 100% 100%, 300% 300%;
     animation: gradient-shift 6s ease infinite;
     color: var(--color-secondary);
@@ -3440,22 +3388,37 @@ button:disabled,
    ========================================================================== */
 
 @keyframes gradient-shift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
-
 
 
 @keyframes select-gradient-shift {
-    0% { background-position: right 0.75rem center, 0% 0%, 0% 50%; }
-    50% { background-position: right 0.75rem center, 0% 0%, 100% 50%; }
-    100% { background-position: right 0.75rem center, 0% 0%, 0% 50%; }
+    0% {
+        background-position: right 0.75rem center, 0% 0%, 0% 50%;
+    }
+    50% {
+        background-position: right 0.75rem center, 0% 0%, 100% 50%;
+    }
+    100% {
+        background-position: right 0.75rem center, 0% 0%, 0% 50%;
+    }
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* ==========================================================================
@@ -3463,36 +3426,97 @@ button:disabled,
    ========================================================================== */
 
 /* Text Alignment */
-.text-left { text-align: left; }
-.text-center { text-align: center; }
-.text-right { text-align: right; }
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
 
 /* Font Weights */
-.font-light { font-weight: var(--font-light); }
-.font-normal { font-weight: var(--font-normal); }
-.font-medium { font-weight: var(--font-medium); }
-.font-semibold { font-weight: var(--font-semibold); }
-.font-bold { font-weight: var(--font-bold); }
+.font-light {
+    font-weight: var(--font-light);
+}
+
+.font-normal {
+    font-weight: var(--font-normal);
+}
+
+.font-medium {
+    font-weight: var(--font-medium);
+}
+
+.font-semibold {
+    font-weight: var(--font-semibold);
+}
+
+.font-bold {
+    font-weight: var(--font-bold);
+}
 
 /* Font Sizes */
-.text-xs { font-size: var(--text-xs); }
-.text-sm { font-size: var(--text-sm); }
-.text-base { font-size: var(--text-base); }
-.text-lg { font-size: var(--text-lg); }
-.text-xl { font-size: var(--text-xl); }
-.text-2xl { font-size: var(--text-2xl); }
-.text-3xl { font-size: var(--text-3xl); }
-.text-4xl { font-size: var(--text-4xl); }
+.text-xs {
+    font-size: var(--text-xs);
+}
+
+.text-sm {
+    font-size: var(--text-sm);
+}
+
+.text-base {
+    font-size: var(--text-base);
+}
+
+.text-lg {
+    font-size: var(--text-lg);
+}
+
+.text-xl {
+    font-size: var(--text-xl);
+}
+
+.text-2xl {
+    font-size: var(--text-2xl);
+}
+
+.text-3xl {
+    font-size: var(--text-3xl);
+}
+
+.text-4xl {
+    font-size: var(--text-4xl);
+}
 
 /* Line Heights */
-.leading-tight { line-height: var(--leading-tight); }
-.leading-normal { line-height: var(--leading-normal); }
-.leading-relaxed { line-height: var(--leading-relaxed); }
+.leading-tight {
+    line-height: var(--leading-tight);
+}
+
+.leading-normal {
+    line-height: var(--leading-normal);
+}
+
+.leading-relaxed {
+    line-height: var(--leading-relaxed);
+}
 
 /* Letter Spacing */
-.tracking-tight { letter-spacing: var(--tracking-tight); }
-.tracking-normal { letter-spacing: var(--tracking-normal); }
-.tracking-wide { letter-spacing: var(--tracking-wide); }
+.tracking-tight {
+    letter-spacing: var(--tracking-tight);
+}
+
+.tracking-normal {
+    letter-spacing: var(--tracking-normal);
+}
+
+.tracking-wide {
+    letter-spacing: var(--tracking-wide);
+}
 
 /* Text Colors */
 .text-muted,
@@ -3704,9 +3728,8 @@ dialog.modal {
     border-radius: var(--radius-xl);
     background: var(--color-background);
     color: var(--font-color-body);
-    box-shadow:
-        0 25px 50px -12px rgba(0, 0, 0, 0.25),
-        0 0 0 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
 dialog.modal[open] {
@@ -3757,7 +3780,6 @@ dialog.modal::backdrop {
 }
 
 .modal-close:focus-visible {
-    outline: 2px solid var(--color-focus);
     outline-offset: 2px;
 }
 
