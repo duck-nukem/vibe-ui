@@ -90,6 +90,10 @@
             border-color: var(--color-success);
             color: #fff;
         }
+
+        input[type="color"].theme {
+            padding: 0;
+        }
     </style>
 </head>
 <body>
@@ -210,7 +214,7 @@
             <strong>Auto-generated:</strong> <code>--color-primary</code>, <code>--color-primary-400</code>, <code>--color-primary-600</code>,
             and all <code>rgba()</code> values throughout the framework.
         </p>
-        <div style="display: flex; flex-direction: row; gap: 8px; max-width: 96px; margin: 0 auto; justify-content: space-between">
+        <div style="display: flex; flex-direction: row; gap: 8px; justify-content: space-between">
             <label>
                 Primary
                 <input
@@ -244,8 +248,6 @@
                         value="#f59e0b"
                         name="tertiary"/>
             </label>
-        </div>
-        <div style="display: flex; flex-direction: row; gap: 8px; max-width: 96px; margin: 0 auto; justify-content: space-between">
             <label>
                 Background Color
                 <input
@@ -268,8 +270,6 @@
                         value="#709ac4"
                         name="tint"/>
             </label>
-        </div>
-        <div style="display: flex; flex-direction: row; gap: 8px; max-width: 96px; margin: 0 auto; justify-content: space-between">
             <label>
                 Font Color
                 <input
@@ -282,6 +282,7 @@
                         name="font"/>
             </label>
         </div>
+        <blockquote>Pro-tip: <a href="https://randoma11y.com">randoma11y.com</a> has some great combinations! They don't just look good, but a high-enough contrast helps to make your site more accessible too!</blockquote>
     </section>
 
     <!-- Navbar -->
