@@ -174,7 +174,7 @@
             const selector = element.attributes['data-selector'].value;
             const [r, g, b] = hexToRgb(element.value);
             root.style.setProperty(selector, `${r},${g},${b}`)
-            representation += `    ${selector}: ${r},${g},${b};\n`
+            representation += `    ${selector}: ${r}, ${g}, ${b};\n`
         })
         representation += `}\n`
         document.getElementById('theme').innerText = representation;
